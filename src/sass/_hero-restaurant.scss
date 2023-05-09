@@ -1,0 +1,53 @@
+.hero-restaurant {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url(../images/hero/restaraunt/hero-restaraunt-mobile.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--home-hero-background);
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (max-width: 414px),
+  screen and (min-resolution: 192dpi) and (max-width: 414px),
+  screen and (min-resolution: 2dppx) and (max-width: 414px) {
+  .hero-restaurant {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+      url(../images/hero/restaraunt/hero-restaraunt-mobile@2x.jpg);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .hero-restaurant {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+      url(../images/hero/restaraunt/hero-restaraunt-tablet.jpg);
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1024px),
+  screen and (min-resolution: 192dpi) and (min-width: 1024px),
+  screen and (min-resolution: 2dppx) and (min-width: 1024px) {
+  .hero-restaurant {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+      url(../images/hero/restaraunt/hero-restaraunt-tablet@2x.jpg);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .hero-restaurant {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+      url(../images/hero/restaraunt/hero-restaraunt-desktop.jpg);
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
+  screen and (min-resolution: 192dpi) and (min-width: 1280px),
+  screen and (min-resolution: 2dppx) and (min-width: 1280px) {
+  .hero-restaurant {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+      url(../images/hero/restaraunt/hero-restaraunt-desktop@2x.jpg);
+  }
+}
+
+.hero__btn-item a {
+  display: block;
+}

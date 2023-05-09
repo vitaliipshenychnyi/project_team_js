@@ -1,0 +1,174 @@
+.footer {
+  background-color: var(--footer-background);
+}
+
+.footer > .container {
+  display: flex;
+  align-items: center;
+  column-gap: 85px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  @media screen and (min-width: 1024px) {
+    column-gap: 163px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    column-gap: 231px;
+  }
+
+  // окрема стилізація для маленьких екранів
+  @media screen and (max-width: 370px) {
+    column-gap: 0;
+  }
+}
+
+// стилі логотипу
+.logo {
+  height: 43px;
+  margin-left: auto;
+  text-align: justify;
+  font-family: var(--font-logo);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: 0.3em;
+  color: var(--footer-allelement-color);
+
+  transition: color var(--transition-fast);
+
+  // окрема стилізація для маленьких екранів
+  @media screen and (max-width: 370px) {
+    margin-right: auto;
+    margin-left: 0;
+  }
+
+  @media screen and (min-width: 1024px) {
+    height: 69px;
+    font-size: 64px;
+    line-height: 1.07;
+  }
+}
+
+.logo:hover,
+.logo:focus,
+.logo:active {
+  color: var(--style-text-color);
+}
+
+// стилі блоку (обгортки) навігація + соціальні мережі
+.nav-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+  margin-right: auto;
+
+  // окрема стилізація для маленьких екранів
+  @media screen and (max-width: 370px) {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  @media screen and (min-width: 1024px) {
+    flex-direction: row;
+    align-items: baseline;
+    column-gap: 137px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    column-gap: 199px;
+  }
+}
+
+// стилі навігаційного блоку
+.footer-nav .item {
+  height: 24px;
+}
+
+.footer-nav .item:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.footer-nav .link {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--footer-allelement-color);
+
+  transition: color var(--transition-fast);
+}
+
+.footer-nav .link:hover,
+.footer-nav .link:focus,
+.footer-nav .link:active {
+  color: var(--style-text-color);
+}
+
+// стилі та геометрія елементів списку соціальних мереж
+.footer__social-list {
+  display: flex;
+  column-gap: 20px;
+
+  @media screen and (min-width: 1024px) {
+    flex-direction: column-reverse;
+    row-gap: 12px;
+  }
+}
+
+// стилі та позиціонування іконок
+.footer__social-list .link {
+  color: var(--footer-allelement-color);
+  border: 0.5px solid var(--footer-allelement-color);
+
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+
+  @media screen and (max-width: 1023.98px) {
+    border: none;
+  }
+
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 143px;
+    padding: 8px 12px;
+  }
+}
+
+.footer__social-list .link:hover,
+.footer__social-list .link:focus,
+.footer__social-list .link:active {
+  color: var(--style-text-color);
+  border-color: var(--style-text-color);
+}
+
+.footer__social-list .link-name {
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+
+  // приховуємо назви соціальних мереж
+  @media screen and (max-width: 1023.98px) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+}
+
+// задаємо колір іконкам
+.footer__social-list .social-icon {
+  fill: currentColor;
+}

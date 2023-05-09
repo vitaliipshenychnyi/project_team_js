@@ -1,0 +1,126 @@
+.hero-hotel {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url(../images/hero/hotel/hero-hotel-mobile.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--home-hero-background);
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (max-width: 414px),
+  screen and (min-resolution: 192dpi) and (max-width: 414px),
+  screen and (min-resolution: 2dppx) and (max-width: 414px) {
+  .hero-hotel {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+      url(../images/hero/hotel/hero-hotel-mobile@2x.jpg);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .hero-hotel {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+      url(../images/hero/hotel/hero-hotel-tablet.jpg);
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1024px),
+  screen and (min-resolution: 192dpi) and (min-width: 1024px),
+  screen and (min-resolution: 2dppx) and (min-width: 1024px) {
+  .hero-hotel {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+      url(../images/hero/hotel/hero-hotel-tablet@2x.jpg);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .hero-hotel {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+      url(../images/hero/hotel/hero-hotel-desktop.jpg);
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
+  screen and (min-resolution: 192dpi) and (min-width: 1280px),
+  screen and (min-resolution: 2dppx) and (min-width: 1280px) {
+  .hero-hotel {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+      url(../images/hero/hotel/hero-hotel-desktop@2x.jpg);
+  }
+}
+
+// позиціонування текстового контенту
+.hero-hotel__wrapper-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 178px;
+}
+
+@media screen and (min-width: 1024px) {
+  .hero-hotel__wrapper-text {
+    margin-bottom: 218px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .hero-hotel__wrapper-text {
+    margin-bottom: 242px;
+  }
+}
+
+// стилізація текстового контенту
+.hero-hotel__title {
+  margin-bottom: 32px;
+
+  font-family: var(--font-logo);
+  font-weight: 700;
+  font-size: 96px;
+  line-height: calc(103 / 96);
+  letter-spacing: 0.3em;
+  color: var(--text-color-bg);
+
+  // виправлення багу шрифта
+  margin-left: calc(96 * 0.3);
+}
+
+@media screen and (min-width: 1024px) {
+  .hero-hotel__title {
+    font-size: 128px;
+    line-height: calc(138 / 128);
+
+    // виправлення багу шрифта
+    margin-left: calc(128 * 0.3);
+  }
+}
+
+.hero-hotel__subtitle {
+  margin-bottom: 0;
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: calc(20 / 16);
+  letter-spacing: 0.02em;
+  color: var(--text-color-bg);
+}
+
+@media screen and (min-width: 1024px) {
+  .hero-hotel__subtitle {
+    margin-bottom: 0;
+
+    font-size: 20px;
+    line-height: calc(24 / 20);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .hero-hotel__subtitle {
+    margin-bottom: 0;
+  }
+}
+
+// окрема стилізація для маленьких екранів
+@media screen and (max-width: 370px) {
+  .hero-hotel__title {
+    font-size: 84px;
+  }
+}

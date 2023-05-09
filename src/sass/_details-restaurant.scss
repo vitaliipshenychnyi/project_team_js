@@ -1,0 +1,290 @@
+.details-restaurant {
+  position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.76)),
+    url(../images/details-restaurant/background/background-img-mobile.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (max-width: 1023px),
+  screen and (min-resolution: 192dpi) and (max-width: 1023px),
+  screen and (min-resolution: 2dppx) and (max-width: 1023px) {
+  .details-restaurant {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.76)),
+      url(../images/details-restaurant/background/background-img-mobile@2x.jpg);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .details-restaurant {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.76)),
+      url(../images/details-restaurant/background/background-img-tablet.jpg);
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1024px),
+  screen and (min-resolution: 192dpi) and (min-width: 1024px),
+  screen and (min-resolution: 2dppx) and (min-width: 1024px) {
+  .details-restaurant {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.76)),
+      url(../images/details-restaurant/background/background-img-tablet@2x.jpg);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .details-restaurant {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.76)),
+      url(../images/details-restaurant/background/background-img-desktop.jpg);
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
+  screen and (min-resolution: 192dpi) and (min-width: 1280px),
+  screen and (min-resolution: 2dppx) and (min-width: 1280px) {
+  .details-restaurant {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.76)),
+      url(../images/details-restaurant/background/background-img-desktop@2x.jpg);
+  }
+}
+
+// додаткова стилізація контейнеру секції
+.details-restaurant__container {
+  position: relative;
+  padding-top: 24px;
+  padding-bottom: 40px;
+  padding-left: 40px;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 1024px) {
+  .details-restaurant__container {
+    padding-top: 48px;
+    padding-right: 50px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .details-restaurant__container {
+    padding-right: 52px;
+    padding-left: 85px;
+  }
+}
+
+// стилізація обгортки блоків тексту та слайдеру
+.details-restaurant__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+// стилізація обгортки тексту
+.details-restaurant__wrapper-text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 125px;
+}
+
+@media screen and (min-width: 1024px) {
+  .details-restaurant__wrapper-text {
+    margin-left: 231px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .details-restaurant__wrapper-text {
+    margin-left: 253px;
+  }
+}
+
+// додаткова стилізація логотипу
+.logo-section {
+  margin-bottom: 12px;
+
+  font-size: 40px;
+  line-height: calc(43 / 40);
+}
+
+@media screen and (min-width: 1024px) {
+  .logo-section {
+    margin-bottom: 16px;
+
+    font-size: 64px;
+    line-height: calc(69 / 64);
+  }
+}
+
+// стилізація заголовку секції
+.details-restaurant__title {
+  margin-bottom: 20px;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: calc(24 / 20);
+  letter-spacing: 0.02em;
+  color: var(--text-color-bg);
+}
+
+@media screen and (min-width: 1024px) {
+  .details-restaurant__title {
+    margin-bottom: 8px;
+
+    font-size: 24px;
+    line-height: calc(29 / 24);
+  }
+}
+
+// стилізація тексту
+.details-restaurant__text {
+  margin-bottom: 48px;
+
+  font-weight: 600;
+  font-size: 12px;
+  line-height: calc(15 / 12);
+  letter-spacing: 0.02em;
+  color: #bababa;
+
+  max-width: 259px;
+}
+
+@media screen and (min-width: 1024px) {
+  .details-restaurant__text {
+    margin-bottom: 40px;
+
+    font-size: 16px;
+    line-height: calc(20 / 16);
+
+    max-width: 610px;
+  }
+}
+
+// позиціонування списку модальних кнопок
+@media screen and (max-width: 1023px) {
+  .details-restaurant__btn-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .details-restaurant__btn-list {
+    position: absolute;
+    left: 47px;
+    bottom: 96px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .details-restaurant__btn-list {
+    left: 85px;
+    bottom: 94px;
+  }
+}
+
+// додаткове позиціонування останньої модальної кнопки
+.details-restaurant__btn-item:first-child {
+  margin-bottom: 16px;
+}
+
+// позиціонування модальних кнопок
+.details-restaurant__btn {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.link-block {
+  width: max-content;
+  display: block;
+}
+
+// // СЛАЙДЕР
+
+// позіціонування слайдеру
+.position__det-rest {
+  margin-bottom: 32px;
+}
+
+@media screen and (min-width: 1024px) {
+  .position__det-rest {
+    margin-left: auto;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .position__det-rest {
+  }
+}
+
+// загальний контейнер слайдеру та кнопок керування
+.wrapper-slider__det-rest {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: fit-content;
+  gap: 16px;
+}
+
+@media screen and (min-width: 1024px) {
+  .wrapper-slider__det-rest {
+    // перемикач кнопок керування з ліва на право
+    // align-items: flex-end;
+    gap: 24px;
+  }
+}
+
+// розміри обгортки слайдеру
+.slider_det-rest {
+  width: 510px;
+}
+
+@media screen and (min-width: 1024px) {
+  .slider_det-rest {
+    width: 662px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .slider_det-rest {
+    width: 875px;
+  }
+}
+
+// базові налаштування слайдеру
+.swiper-slide-img {
+  display: block;
+  width: 274px;
+  height: 270px;
+  object-fit: cover;
+}
+
+// стилізація кнопок слайдера
+.swiper-btn_det-rest {
+  display: flex;
+  gap: 32px;
+  justify-content: flex-start;
+}
+.swiper-button-next_det-rest,
+.swiper-button-prev_det-rest {
+  padding: 0;
+
+  fill: var(--text-color-bg);
+  line-height: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  transition: fill var(--transition-fast);
+
+  cursor: pointer;
+}
+
+.swiper-button-next_det-rest:hover,
+.swiper-button-next_det-rest:focus,
+.swiper-button-next_det-rest:active,
+.swiper-button-prev_det-rest:hover,
+.swiper-button-prev_det-rest:focus,
+.swiper-button-prev_det-rest:active {
+  fill: #f3c653;
+}

@@ -1,0 +1,100 @@
+<div class="modal" data-modal="2">
+  <!-- кнопка закриття модального вікна -->
+  <button
+    class="close-button js-modal-close"
+    type="button"
+    aria-label="Button close modal menu"
+    data-modal-close
+  >
+    <svg class="icon-cross" width="24" height="24">
+      <use href="./images/icons.svg#icon-cross"></use>
+    </svg>
+  </button>
+  <h1 class="book-title">ЗАБРОНЮВАТИ НОМЕР</h1>
+  <!-- форма модального вікна -->
+  <form class="form-set room-form" name="booking-room-form" autocomplete="off">
+    <!-- обгортка полів введення -->
+    <div class="wrapper">
+      <div class="form-field">
+        <input
+          class="input"
+          type="text"
+          name="name"
+          id="name_hotel"
+          placeholder="Ваше ім’я"
+          pattern="[a-zA-Zа-яА-ЯіІїЇ]+"
+          minlength="2"
+        />
+        <label class="area-name" for="name_hotel"
+          >На кого забронювати номер?</label
+        >
+      </div>
+      <div class="form-field">
+        <input
+          class="input"
+          type="tel"
+          name="phone"
+          id="phone_hotel"
+          placeholder="+38 (___) ___-__-__"
+          pattern="\+\[0-9]{12}"
+          title="+38 (___) ___-__-__"
+          maxlength="19"
+        />
+        <label class="area-name" for="phone_hotel">Номер телефону</label>
+      </div>
+      <div class="form-field empty">
+        <input
+          class="input"
+          type="tel"
+          name="empty-slot"
+          id="empty-slot"
+          placeholder="none"
+          pattern="none"
+          title="none"
+          maxlength="1"
+        />
+        <label class="area-name" for="empty-slot"></label>
+      </div>
+      <div class="form-field select">
+        <select class="input" name="room-class" id="room-class">
+          <option class="item" value="luxe">Двомісний люкс</option>
+          <option class="item" value="standart">Двомісний стандарт</option>
+          <option class="item" value="standart+">Трьохмісний стандарт</option>
+        </select>
+        <label class="area-name" for="room-class">Категорія номеру</label>
+      </div>
+      <div class="form-field select">
+        <input
+          class="input"
+          type="date"
+          name="checkin"
+          required
+          id="checkin"
+          min="2023-01-01"
+          max="2030-01-01"
+        />
+        <label class="area-name" for="checkin">Дата заїзду</label>
+      </div>
+      <div class="form-field select">
+        <input
+          class="input"
+          type="date"
+          name="checkout"
+          required
+          id="checkout"
+          min="2023-01-01"
+          max="2030-01-01"
+        />
+        <label class="area-name" for="checkout">Дата виїзду</label>
+      </div>
+    </div>
+    <button
+      class="button-booking btn-look-price btn-modal js-modal-close"
+      type="submit"
+      data-modal-close
+    >
+      ЗАБРОНЮВАТИ СТОЛИК
+    </button>
+  </form>
+</div>
+<div class="overlay js-overlay-modal" data-modal></div>

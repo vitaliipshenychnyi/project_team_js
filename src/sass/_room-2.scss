@@ -1,0 +1,92 @@
+// позиціонування контейнер слайдеру
+.test_new {
+  display: flex;
+  position: absolute;
+  bottom: 216px;
+  right: 130px;
+  gap: 16px;
+}
+
+@media screen and (min-width: 1024px) {
+  .test_new {
+    position: absolute;
+    bottom: 104px;
+    right: 549px;
+    gap: 40px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .test_new {
+    bottom: 112px;
+    right: 647px;
+  }
+}
+
+// налаштування розмірів слайдеру для mobile
+.swiper-fix {
+  height: 245px;
+  width: 515px;
+}
+
+@media screen and (min-width: 1024px) {
+  .swiper-fix {
+    height: 194px;
+    width: 428px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .swiper-fix {
+    height: 254px;
+    width: 548px;
+  }
+}
+
+// стилізація зображень слайдеру
+.swiper-slide img {
+  border-radius: 2px;
+  width: 100%;
+}
+
+// позиціонування нових кнопок слайдера
+.swiper-btn-wrapper_room-2 {
+  position: absolute;
+  display: flex;
+  gap: 32px;
+  bottom: 132px;
+}
+
+@media screen and (min-width: 1024px) {
+  .swiper-btn-wrapper_room-2 {
+    bottom: 0;
+    left: 377px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .swiper-btn-wrapper_room-2 {
+    left: 542px;
+  }
+}
+
+// стилізація нових кнопок слайдера
+.js-swiper5-button-next,
+.js-swiper5-button-prev {
+  padding: 0;
+
+  fill: #000000;
+  line-height: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.js-swiper5-button-next:hover,
+.js-swiper5-button-next:focus,
+.js-swiper5-button-next:active,
+.js-swiper5-button-prev:hover,
+.js-swiper5-button-prev:focus,
+.js-swiper5-button-prev:active {
+  fill: #f3c653;
+}

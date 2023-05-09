@@ -1,0 +1,283 @@
+.about-hotel {
+  background-color: var(--accent-background);
+  padding-top: 18px;
+  padding-bottom: 20px;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .about-hotel {
+    padding-top: 120px;
+    padding-bottom: 32px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .about-hotel {
+    padding-top: 120px;
+    padding-bottom: 50px;
+  }
+}
+
+.container.hotel-div {
+  position: relative;
+}
+
+@media screen and (max-width: 1023px) {
+  .container.hotel-div {
+    overflow: hidden;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .inter-room {
+    position: absolute;
+    top: -145px;
+    left: 112px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .inter-room {
+    position: absolute;
+    top: -153px;
+    left: 180px;
+  }
+}
+.title-div {
+  margin-left: auto;
+  margin-bottom: 28px;
+
+  max-width: 242px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .title-div {
+    margin-bottom: 142px;
+
+    max-width: 419px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .title-div {
+    margin-bottom: 162px;
+
+    max-width: 489px;
+  }
+}
+.about-hotel-text {
+  font-family: var(--font-secondary);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.15;
+  color: #b4b4b4;
+}
+@media screen and (min-width: 1024px) {
+  .about-hotel-text {
+    font-size: 32px;
+  }
+}
+
+.logo-text {
+  margin-top: 6px;
+  margin-right: -10px;
+  color: var(--title-text-color);
+  font-family: var(--font-logo);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: 0.3em;
+}
+
+@media screen and (min-width: 1024px) {
+  .logo-text {
+    margin-top: 4px;
+    font-size: 64px;
+    line-height: calc(69 / 64);
+  }
+}
+
+.hotel-text {
+  margin-top: 16px;
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+
+  color: #7a7a7a;
+}
+@media screen and (min-width: 1024px) {
+  .hotel-text {
+    font-size: 16px;
+    margin-top: 24px;
+  }
+}
+
+.tumba {
+  background: #dadada;
+  box-shadow: 2px 2px 60px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.tumba.inter-room {
+  max-width: 244px;
+  box-shadow: 5px 5px 70px 17px rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+}
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .tumba.inter-room {
+    max-width: 400px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .tumba.inter-room {
+    max-width: 460px;
+  }
+}
+
+.tumba.interior {
+  max-width: 200px;
+  box-shadow: 5px 5px 70px 17px rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .tumba.interior {
+    max-width: 350px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .tumba.interior {
+    max-width: 460px;
+  }
+}
+
+.hotel-room-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 32px;
+}
+@media screen and (min-width: 1024px) {
+  .hotel-room-div {
+    justify-content: flex-end;
+    gap: 48px;
+    margin-top: 0;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hotel-room-div {
+    align-items: flex-start;
+  }
+}
+
+.hotel-text.room {
+  margin-top: 0px;
+  color: var(--style-text-color);
+  width: 163px;
+}
+@media screen and (min-width: 1024px) {
+  .hotel-text.room {
+    width: 312px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hotel-text.room {
+    margin-top: 165px;
+  }
+}
+
+// позиціонування контейнер слайдеру
+.swiper-container__about-hotel {
+  position: absolute;
+  bottom: 52px;
+  left: -184px;
+}
+
+@media screen and (min-width: 1024px) {
+  .swiper-container__about-hotel {
+    bottom: 64px;
+    left: 47px;
+    width: 428px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .swiper-container__about-hotel {
+    bottom: 72px;
+    left: 85px;
+    width: 548px;
+  }
+}
+
+// налаштування розмірів слайдеру для mobile
+.swiper-fix {
+  height: 245px;
+  width: 515px;
+}
+
+@media screen and (min-width: 1024px) {
+  .swiper-fix {
+    height: 194px;
+    width: 428px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .swiper-fix {
+    height: 254px;
+    width: 548px;
+  }
+}
+
+// стилізація зображень слайдеру
+.swiper-slide img {
+  border-radius: 2px;
+  width: 100%;
+}
+
+// позиціонування нових кнопок слайдера
+.swiper-btn-wrapper_about-hotel {
+  display: flex;
+  gap: 32px;
+  margin-top: 297px;
+}
+
+@media screen and (min-width: 1024px) {
+  .swiper-btn-wrapper_about-hotel {
+    margin-top: 198px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .swiper-btn-wrapper_about-hotel {
+    margin-top: 115px;
+  }
+}
+
+// стилізація нових кнопок слайдера
+.js-swiper2-button-next,
+.js-swiper2-button-prev {
+  padding: 0;
+
+  fill: #000000;
+  line-height: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  transition: fill var(--transition-fast);
+  
+  cursor: pointer;
+}
+
+.js-swiper2-button-next:hover,
+.js-swiper2-button-next:focus,
+.js-swiper2-button-next:active,
+.js-swiper2-button-prev:hover,
+.js-swiper2-button-prev:focus,
+.js-swiper2-button-prev:active {
+  fill: #f3c653;
+}

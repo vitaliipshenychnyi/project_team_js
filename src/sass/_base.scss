@@ -1,0 +1,94 @@
+body {
+  font-family: var(--font-main);
+  overflow-x: hidden;
+}
+
+// скидання налаштувань браузера
+.link {
+  text-decoration: none;
+}
+
+.list {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+// базові параметри зображень
+img {
+  display: block;
+  max-width: auto;
+  height: auto;
+}
+
+// приховування тексту
+.hiden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+// налаштування контейнерів
+@media screen and (min-width: 320px) {
+  .container {
+    max-width: 414px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+    padding-left: 47px;
+    padding-right: 47px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+    padding-left: 85px;
+    padding-right: 85px;
+  }
+}
+
+// ПІДКЛЮЧЕННЯ ІКОНОК:
+// геолокація
+// #location-pin
+
+// телефон
+// #phone
+
+// сціальні мережі
+// #twitter
+// #facebook
+// #instagram
+
+// стрілочки
+// #arrow-right
+// #arrow-left
+// #arrow-down
