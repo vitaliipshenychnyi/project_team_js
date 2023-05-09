@@ -7,38 +7,3 @@
 // підключення загальних стилів
 @import './vars';
 @import './base';
-@import './buttons';
-@import './header';
-@import './footer';
-
-// підключення стилів Homepage
-@import './hero-homepage';
-@import './about-restaurant';
-@import './details-restaurant';
-@import './about-hotel';
-@import './details-hotel';
-@import './contacts';
-
-// підключення стилів Restaurant Page
-@import './hero-restaurant';
-@import './about-kitchen';
-@import './menu';
-
-// підключення стилів Hotel Page
-@import './hero-hotel';
-@import './room-lux';
-@import './room-3';
-@import './room-2';
-
-// підключення стилів Room Page
-@import './hero-room';
-@import './amenities';
-
-// підключення стилів Book Room Modal window
-@import './book-room-modal';
-
-// підключення стилів Book Table Modal window
-@import './book-table-modal';
-
-// підключення стилів Room Price Modal window
-@import './room-price-modal';
