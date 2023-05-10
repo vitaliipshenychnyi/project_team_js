@@ -34,13 +34,21 @@
       <input type="checkbox" />
       <span class="slider round"></span>
     </label>
-    <button class="burger-menu">
+    <button class="burger-menu js-open-mobile-menu">
       <svg class="burger-logo" width="28" height="28">
-        <use href="./img/svg/sprite.svg#icon-burger-menu"></use>
+        <use class="icon-burger-mobile-menu" href="./img/svg/sprite.svg#icon-burger-menu"></use>
+        <use class="icon-close-mobile-menu is-hidden" href="./img/svg/sprite.svg#icon-x-close">
+        </use>
       </svg>
     </button>
-    <a href="#" class="user-login link">
-     <div class="icon-user-wrapper">
+    <button class="user-login link">
+      Sign up
+    <svg class="icon-arrow-right" width="20" height="20">
+      <use href="./img/svg/sprite.svg#icon-arrow-narrow-right"></use>
+    </svg>
+    </button>
+<!-- розмітка після логування -->
+         <!-- <div class="icon-user-wrapper">
        <svg class="icon-user" width="19" height="19">
         <use href="./img/svg/sprite.svg#icon-user"></use>
        </svg>
@@ -49,8 +57,6 @@
     <svg class="icon-registration-triangle" width="23" height="26">
       <use href="./img/svg/sprite.svg#icon-registration-triangle"></use>
     </svg>
-    </a>
-    <!-- блок перемикача теми та юзера -->
-    <!-- <div class="user"></div> -->
-  </div>
+    </button> -->
+      </div>
 </header>
