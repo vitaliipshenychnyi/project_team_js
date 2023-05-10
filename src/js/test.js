@@ -55,3 +55,14 @@ function createMarkupCardBook(topBooks) {
     )
     .join('');
 }
+
+// функція отримання списку категорій
+export async function getCategoriesList() {
+  return await axios.get(`${BASE_URL}category-list`);
+}
+
+// створення списку категорій
+export function createMarkupCategoriesList(categories) {
+    return categories.map(({list_name}) =>
+    `<li class="category-list-item"><button type="button" class="category">${list_name}</button></li>`).join("");
+}
