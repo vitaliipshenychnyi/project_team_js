@@ -49,6 +49,33 @@ img {
   overflow: hidden;
 }
 
+.container-main-gallery {
+  display: flex;
+  flex-direction: column;
+ // align-items: end;
+  justify-content: flex-end;
+  margin-left: 100px;
+}
+.book-category {
+  display: flex;
+  flex-direction: row;
+  row-gap: 10px;
+}
+.book-card {
+  padding: 5px;
+ // width: 180px;
+}
+.book-name {
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 10px;
+}
+.button-see-more {
+  //display: block;
+  margin-left: auto;
+  width: min-content;
+}
+
 // налаштування контейнерів
 @media screen and (min-width: 320px) {
   .container {
