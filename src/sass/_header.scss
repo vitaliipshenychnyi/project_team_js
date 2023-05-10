@@ -1,10 +1,6 @@
 // ==========МОБІЛЬНА ВЕРСІЯ========//
+
 .header {
-  position: absolute;
-  width: 100vw;
-  z-index: 100;
-  top: 0;
-  right: 0;
 
   padding-top: 17px;
   padding-bottom: 16px;
@@ -13,6 +9,15 @@
   border-radius: 0px 0px 8px 8px;
 
   background-color: var(--light-header-bg-color);
+}
+@media screen and (max-width: 767px) {
+  .header {
+  position: sticky;
+  width: 100vw;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  }
 }
 .header-container {
   display: flex;
@@ -161,7 +166,7 @@
 
 @media screen and (max-width: 767px) {
   .mobile-menu {
-    position: relative;
+    position: fixed;
     // z-index: 100;
     top: 0;
     right: 0;
