@@ -1,0 +1,123 @@
+.auth-backdrop {
+  padding-top: 96px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--light-accent-color);
+
+  opacity: 1;
+
+  overflow-y: auto;
+  z-index: 999;
+}
+
+.auth-backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.auth-form {
+  position: relative;
+  margin: 0;
+
+  // margin-left: auto;
+  // margin-right: auto;
+
+  max-width: 335px;
+
+  display: block;
+
+  background-color: var(--light-header-bg-color);
+  border: 2px solid var(--light-border-n-text-color);
+  border-radius: 18px;
+}
+
+body.auth-form-open {
+  overflow: hidden;
+}
+
+.auth-content {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 40px;
+  padding-top: 40px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form-close-btn {
+  position: absolute;
+  top: 19px;
+  right: 19px;
+  width: 12px;
+  height: 12px;
+
+  display: block;
+
+  background-color: red;
+  border: 2px solid var(--light-border-n-text-color);
+  border-radius: 50%;
+}
+
+.auth-content input {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 24px;
+  margin-bottom: 24px;
+
+  border: 2px solid var(--light-border-n-text-color);
+  border-radius: 40px;
+}
+
+.auth-content input::placeholder,
+.signup-btn {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.auth-form-links {
+  display: flex;
+  justify-content: center;
+
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.auth-form-links a:not(:last-child) {
+  margin-right: 14px;
+}
+
+.auth-content input::placeholder {
+  color: var(--light-border-n-text-color);
+}
+
+.signup-btn {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 14px;
+
+  color: var(--light-header-bg-color);
+
+  background-color: var(--light-border-n-text-color);
+  border: transparent;
+  border-radius: 40px;
+}
