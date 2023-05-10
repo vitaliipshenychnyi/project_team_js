@@ -1,5 +1,11 @@
 // ==========МОБІЛЬНА ВЕРСІЯ========//
 .header {
+  position: absolute;
+  width: 100vw;
+  z-index: 100;
+  top: 0;
+  right: 0;
+
   padding-top: 17px;
   padding-bottom: 16px;
 
@@ -39,7 +45,7 @@
 // ==========ПЛАНШЕНТА ВЕРСІЯ==========//
 @media screen and (min-width: 768px) {
   .header {
-    padding-top: 14px;
+    padding-top: 11px;
     padding-bottom: 10px;
   }
 }
@@ -108,18 +114,33 @@
 
 @media screen and (min-width: 768px) {
   .user-login {
+    width: 184px;
     display: flex;
     align-items: center;
-    padding: 4px 12px;
+    justify-content: space-between;
+    padding: 13px 14px 12px;
     background: var(--dark-accent-color);
-    border-radius: 36px;
+    cursor: pointer;
 
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 1.31;
-    letter-spacing: -0.02em;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.04em;
 
     color: var(--dark-border-n-text-color);
+    border: 1.5px solid #111111;
+    border-radius: 18px;
+
+    // font-weight: 700;
+    // font-size: 22px;
+    // letter-spacing: -0.02em;
+    // border-radius: 36px;
+    // border: transparent;
+
+  }
+
+  .icon-arrow-right {
+    stroke: #eac645;
   }
   .icon-user-wrapper {
     display: inline-flex;
@@ -134,6 +155,100 @@
   .icon-registration-triangle {
     margin-left: 4px;
   }
+}
+
+// ==========МОБІЛЬНЕ МЕНЮ========//
+
+@media screen and (max-width: 767px) {
+  .mobile-menu {
+    position: relative;
+    // z-index: 100;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(
+      183.6% 183.01% at 59.76% -23.42%,
+      #4f2ee8 18.03%,
+      #ffffff 100%
+    );
+    transition: 250ms linear;
+  }
+
+  .icon-close-mobile-menu,
+  .icon-burger-mobile-menu {
+    transition: opacity 500ms linear;
+  }
+  .nav-list-mobile {
+    // display: flex;
+    // padding-top: 183px;
+  }
+  .user-login-mobile {
+    display: flex;
+    align-items: center;
+    padding-top: 84px;
+
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.32;
+
+    letter-spacing: -0.02em;
+
+    color: #ffffff;
+  }
+  .icon-user-wrapper-mobile {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 9px;
+    width: 37px;
+    height: 37px;
+    background: #f6f6f6;
+    border-radius: 50%;
+  }
+
+  .nav-mobile-wrap {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 126px;
+    max-width: 130px;
+  }
+  .nav-item-mobile:not(:last-child) {
+    margin-bottom: 16px;
+  }
+  .shopping-link-mobile {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .shoping-bag-icon-mobile {
+    fill: var(--dark-border-n-text-color);
+  }
+  .home-link-mobile,
+  .shopping-link-mobile {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+
+    color: var(--dark-border-n-text-color);
+  }
+}
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.is-hidden-modal {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 // =========ДЕСКТОПНА ВЕРСІЯ===========//
