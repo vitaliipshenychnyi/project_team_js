@@ -1,17 +1,56 @@
 <header class="header">
-  <!-- логотип-посилання на головну сторінку -->
-  <a class="" href="#" aria-label="Посилання на головну сторінку">LOGO</a>
-  <!-- навігаційний блок -->
-  <nav class="">
-    <ul class="">
-      <li class="">
-        <a class="" href="" aria-label="Посилання на головну сторінку">HOME</a>
-        <a class="" href="#" aria-label="Посилання на сторінку Shopping List"
-          >SHOPPING LIST</a
-        >
-      </li>
-    </ul>
-</nav>
-<!-- блок перемикача теми та юзера -->
-<div class="user"></div>
+  <div class="container header-container">
+    <!-- логотип-посилання на головну сторінку -->
+    <a
+      class="logo-link link"
+      href="#"
+      aria-label="Посилання на головну сторінку">
+      <svg class="logo-icon" width="24" height="24">
+        <use href="./img/svg/sprite.svg#icon-logo"></use>
+      </svg>
+      Bookshelf</a >
+    <nav class="navigation">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a
+            class="home-link link"
+            href="#"
+            aria-label="Посилання на головну сторінку">HOME</a >
+        </li>
+        <li class="nav-item">
+          <a
+            class="shopping-link link"
+            href="#"
+            aria-label="Посилання на сторінку Shopping List"
+            ><span>SHOPPING LIST</span> 
+            <svg class="shoping-bag-icon" width="20" height="20">
+              <use href="./img/svg/sprite.svg#icon-shoping-bag"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <label class="switch">
+      <input type="checkbox" />
+      <span class="slider round"></span>
+    </label>
+    <button class="burger-menu">
+      <svg class="burger-logo" width="28" height="28">
+        <use href="./img/svg/sprite.svg#icon-burger-menu"></use>
+      </svg>
+    </button>
+    <a href="#" class="user-login link">
+     <div class="icon-user-wrapper">
+       <svg class="icon-user" width="19" height="19">
+        <use href="./img/svg/sprite.svg#icon-user"></use>
+       </svg>
+     </div>
+      Stephen
+    <svg class="icon-registration-triangle" width="23" height="26">
+      <use href="./img/svg/sprite.svg#icon-registration-triangle"></use>
+    </svg>
+    </a>
+    <!-- блок перемикача теми та юзера -->
+    <!-- <div class="user"></div> -->
+  </div>
 </header>

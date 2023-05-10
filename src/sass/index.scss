@@ -1,5 +1,5 @@
 // підключення нормолайзера  !!! здається він зайвий, бо в Node він вже вбудований
-// @import './common';
+@import './common';
 
 // підключення шрифтів
 @import './fonts';
@@ -8,6 +8,5 @@
 @import './vars';
 @import './base';
 @import './test';
-
-
+@import './header';
 
