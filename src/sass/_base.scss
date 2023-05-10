@@ -56,7 +56,7 @@ img {
   flex-direction: column;
   // align-items: end;
   justify-content: flex-end;
-  margin-left: 100px;
+  padding-left: 40px;
 }
 .book-category {
   display: flex;
@@ -81,13 +81,14 @@ img {
 
 .sidebar {
   width: 300px;
-  height: 100vh;
   outline: 1px solid green;
 }
 
 // налаштування контейнерів
 @media screen and (min-width: 300px) {
   .container {
+    display: flex;
+    flex-direction: row;
     outline: 1px solid red;
     max-width: 375px;
     margin-left: auto;
@@ -107,7 +108,6 @@ img {
 
 @media screen and (min-width: 1440px) {
   .container {
-    display: flex;
     max-width: 1440px;
     padding-left: 24px;
     padding-right: 24px;

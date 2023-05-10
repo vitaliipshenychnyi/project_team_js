@@ -4,4 +4,3 @@ import './js/test';
 import './js/categories-list'
 import './js/API-main-gallary'
 
-
