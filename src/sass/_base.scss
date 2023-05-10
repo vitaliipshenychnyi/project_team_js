@@ -1,5 +1,6 @@
 body {
   font-family: var(--font-main);
+  font-size: 18px;
   overflow-x: hidden;
 }
 
@@ -77,29 +78,29 @@ img {
 }
 
 // налаштування контейнерів
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 300px) {
   .container {
-    max-width: 414px;
+    max-width: 375px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
   .container {
-    max-width: 1024px;
-    padding-left: 47px;
-    padding-right: 47px;
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1440px) {
   .container {
-    max-width: 1280px;
-    padding-left: 85px;
-    padding-right: 85px;
+    max-width: 1440px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 }
 

@@ -1,4 +1,5 @@
 import './js/refs';
+
 import axios from 'axios';
 import { renderGallery } from './js/render-main-gallery';
 
@@ -17,3 +18,7 @@ async function mainGallery() {
 }
 
 mainGallery();
+
+// import './js/test';
+
+
