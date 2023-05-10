@@ -1,6 +1,8 @@
+
 import { getCategoriesList } from "./test";
 import { createMarkupCategoriesList } from "./test";
 import refs from "./refs";
+
 
 // рендеринг списку категорій
 getCategoriesList().then(async resp => {
