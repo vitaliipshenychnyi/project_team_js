@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { renderGallery } from './render-main-gallery';
+import { renderGallery, renderGalleryCat } from './render-main-gallery';
 
 
 
@@ -15,7 +15,18 @@ async function mainGallery() {
     }
 }
 
-mainGallery();
+async function mainGalleryCategory(cat) {
+    try {
+        const response = await axios.get(`${BASE_URL}category?category=${cat}`);
+        console.log(response.data);
+        renderGalleryCat(response.data, cat);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+//mainGallery();
+mainGalleryCategory('Series Books');
 
 export async function getCategoriesList() {
   return await axios.get(`${BASE_URL}category-list`);
