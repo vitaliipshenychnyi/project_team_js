@@ -80,10 +80,19 @@ img {
 }
 
 .sidebar {
-  width: 300px;
+  width: 335px;
   outline: 1px solid green;
 }
-
+@media screen and (min-width: 768px) {
+  .sidebar {
+    width: 704px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .sidebar{
+    width: 356px;
+  }
+}
 // налаштування контейнерів
 @media screen and (min-width: 300px) {
   .container {
