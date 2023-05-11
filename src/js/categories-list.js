@@ -1,8 +1,14 @@
-// import { getCategoriesList } from "./test";
-// import { createMarkupCategoriesList } from "./test";
-// import { refs } from "./refs";
 
-// // рендеринг списку категорій
+import { getCategoriesList } from "./test";
+import { createMarkupCategoriesList } from "./test";
+import refs from "./refs";
+
+
+
+console.log(refs.categoriesList);
+
+
+// рендеринг списку категорій
 // getCategoriesList().then(async resp => {
 //     const categories = resp.data;
 //     const listFillingError = '<p class="categories - err">The list of categories is empty</p>';
@@ -13,5 +19,5 @@
 //         }
 //     refs.categoriesList.innerHTML = createMarkupCategoriesList(categories);
 //     }).catch(err => {
-//         catList.innerHTML = listFillingError;
+//         refs.categoriesList.innerHTML = listFillingError;
 //     })
