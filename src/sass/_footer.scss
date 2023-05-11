@@ -1,0 +1,14 @@
+.footer {
+  height: 220px;
+  display: block;
+
+  background-size: cover;
+  background-image: linear-gradient(274.8deg, #5737E9 -7.81%, rgba(160, 142, 242, 0.76) 61.58%, #B5A7F5 81.74%);;
+  outline: tomato;
+}
+
+.footer-content {
+  display: flex;
+  // flex-basis: 50%;
+  // justify-content: space-between;
+}
