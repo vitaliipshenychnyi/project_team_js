@@ -84,6 +84,10 @@ img {
   outline: 1px solid green;
 }
 
+.support{
+  display:flex-box;
+  background-color: #4F2EE8;
+}
 // налаштування контейнерів
 @media screen and (min-width: 300px) {
   .container {
