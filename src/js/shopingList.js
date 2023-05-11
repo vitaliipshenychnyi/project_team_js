@@ -44,11 +44,11 @@ function createCardMarkup(dataBooks) {
           return `<li class="shopping-list-item" data-id=${_id}>
        
           <button type="button" data-action='delete' value="remove" class="shopping-button shopping-button-js">
-              <svg class="shopping-button__icon" width="" height="">
-              <use href=""></use>
+              <svg class="shopping-button-icon" width="22" height="22">
+              <use href="/src/img/svg/sprite.svg#icon-trash"></use>
     </svg>
             </button>
-        <img src="${book_image}" alt="book">
+        <img class="shopping-img" src="${book_image}" alt="book">
         <div class="book-info">
            <h2 class="book-title">${title}</h2>
            <p class="book-genre">${list_name}</p> 
@@ -58,23 +58,47 @@ function createCardMarkup(dataBooks) {
             <ul class="shops-links-list">
     <li class="shop-item">
         <a href="${amazon}" class="shop-item-link">
-           <svg width="" height="">
-            <use href=""></use>
-           </svg> 
-        </a>
+         <picture class="shop-list-icon">
+            <source
+              srcset="
+                /src/img/amazon@1x.png 1x,
+                /src/img/amazon@2x.png 2x
+              "
+             <img
+              src="/src/img/amazon@1x.png"
+              alt="Amazon"
+            />
+          </picture>
+          </a>
     </li>
     <li class="shop-item">
         <a href="${appleBooks}" class="shop-item-link">
-           <svg width="" height="">
-            <use href=""></use>
-           </svg> 
+         <picture class="shop-list-icon">
+            <source
+              srcset="
+                /src/img/appleBooks@1x.png 1x,
+                /src/img/appleBooks@2x.png 2x
+              "
+             <img
+              src="/src/img/appleBooks@1x.png"
+              alt="Apple Books"
+            />
+          </picture>
         </a>
     </li>
     <li class="shop-item">
         <a href="${booksAMillion}" class="shop-item-link">
-           <svg width="" height="">
-            <use href=""></use>
-           </svg> 
+            <picture class="shop-list-icon">
+            <source
+              srcset="
+                /src/img/booksAMillion@1x.png 1x,
+                /src/img/booksAMillion@2x.png 2x
+              "
+             <img
+              src="/src/img/booksAMillion@1x.png"
+              alt="Books A Million"
+            />
+          </picture>
         </a>
     </li>
   </ul>

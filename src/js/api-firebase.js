@@ -12,34 +12,35 @@ const userdata = {
     }
 }
 
-export async function firebasePost(data) {
+export async function firebasePost(data, endpoint) {
     try {
-        const resp = await axios.post(`${FB_URL}maildata.json`, data);
-        console.log('Post', resp);
+        const resp = await axios.post(`${FB_URL}${endpoint}?print=silent`, data);
+        console.log('Post:', resp);
         return resp;
     } catch (err) {
         console.log("Ooops! It is error! FAREBASE");
     }
 }
-//firebasePost(userdata);
-export async function firebasePut(data) {
+//firebasePost(userdata,'maildata.json');
+export async function firebasePut(data,endpoint) {
     try {
-        const resp = await axios.put(`${FB_URL}maildata.json`, data);
-        console.log('Post', resp);
+        const resp = await axios.put(`${FB_URL}${endpoint}?print=silent`, data);
+        console.log('Put:', resp);
         return resp;
     } catch (err) {
         console.log("Ooops! It is error! FAREBASE");
     }
 }
-//firebasePut(userdata);
+//firebasePut(userdata,'maildata.json');
 
-export async function firebaseRead(endpoint) {
+export async function firebaseRead(endpoint,searchName) {
     try {
-        const resp = await axios.get(`${FB_URL}${endpoint}`);
-        console.log('Read:', resp.data);
+        console.log(searchName);
+        const resp = await axios.get(`${FB_URL}${endpoint}?orderBy='$value'&startAt=${searchName}&print=pretty`);
+        console.log(searchName,' Read:', resp.data);
     } catch (err) {
         console.log("Ooops! It is error! FAREBASE");
     }
 }
-firebaseRead('maildata.json');
-firebaseRead('users.json');
+//firebaseRead('maildata.json');
+//firebaseRead('users.json','Jenia');

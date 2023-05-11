@@ -15,6 +15,7 @@
 
   overflow-y: auto;
   z-index: 999;
+  transition: opacity var(--animation);
 }
 
 .auth-backdrop.is-hidden {
@@ -80,10 +81,20 @@ body.auth-form-open {
 
 .auth-form-cross-icon {
   stroke: var(--light-border-n-text-color);
+  transition: stroke var(--animation);
   @media screen and (min-width: '579px') {
     width: 28px;
     height: 28px;
   }
+}
+
+.auth-form-cross-icon:hover,
+.auth-form-cross-icon:focus {
+  stroke: var(--light-accent-color);
+}
+
+.auth-form-cross-icon:active {
+  stroke: var(--light-accent-color-2);
 }
 
 .auth-content input {
@@ -92,7 +103,9 @@ body.auth-form-open {
   padding-left: 24px;
   margin-bottom: 24px;
 
-  border: 2px solid var(--light-border-n-text-color);
+  outline: 2px solid var(--light-border-n-text-color);
+  border: transparent;
+  transition: border var(--animation);
   border-radius: 40px;
 
   @media screen and (min-width: 579px) {
@@ -102,6 +115,19 @@ body.auth-form-open {
     margin-bottom: 28px;
   }
 }
+
+.auth-content input:hover {
+  
+  outline: 2px solid var(--light-accent-color);
+}
+
+
+.auth-content input:focus,
+.auth-content input:active {
+  border: transparent;
+  outline: 2px solid var(--light-accent-color-2);
+}
+
 
 .auth-content input::placeholder,
 .signup-btn {
@@ -155,4 +181,15 @@ body.auth-form-open {
   background-color: var(--light-border-n-text-color);
   border: transparent;
   border-radius: 40px;
+  transition: background-color var(--animation);
+}
+
+.signup-btn:hover,
+.signup-btn:focus {
+  background-color: var(--light-accent-color);
+}
+
+.signup-btn:active {
+  color: var(--light-border-n-text-color);
+  background-color: var(--light-accent-color-2);
 }
