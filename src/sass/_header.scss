@@ -8,6 +8,8 @@
   border-radius: 0px 0px 8px 8px;
 
   background-color: var(--light-header-bg-color);
+    transition: background-color 1000ms cubic-bezier(0.075, 0.82, 0.165, 1);
+
 }
 @media screen and (max-width: 767px) {
   .header {
@@ -108,7 +110,7 @@
     border-radius: 36px;
 
     color: var(--light-border-n-text-color);
-    transition: 500ms linear;
+    transition: background-color 500ms linear;
   }
   .shopping-link:hover,
   .shopping-link:hover {
@@ -166,9 +168,9 @@
 // ==========МОБІЛЬНЕ МЕНЮ========//
 
 @media screen and (max-width: 767px) {
-    .mobile-menu-container {
-        // height: 100%;
-    }
+  .mobile-menu-container {
+    // height: 100%;
+  }
   .mobile-menu {
     position: fixed;
     z-index: 2;
@@ -187,7 +189,9 @@
     background-repeat: no-repeat;
     background-position: right bottom;
     background-size: contain;
-    transition: 250ms linear;
+    // transform: translateY(0%);
+
+    transition: 300ms linear;
   }
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
@@ -209,30 +213,30 @@
     transition: opacity 500ms linear;
   }
 
-    .user-sign-up-mobile{
-      margin-top: 104px;
-      width: 184px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 13px 14px 12px;
-      background: var(--dark-accent-color);
-      cursor: pointer;
+  .user-sign-up-mobile {
+    margin-top: 104px;
+    width: 184px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 14px 12px;
+    background: var(--dark-accent-color);
+    cursor: pointer;
 
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 1.29;
-      letter-spacing: -0.04em;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.04em;
 
-      color: var(--dark-border-n-text-color);
-      border: 1.5px solid #111111;
-      border-radius: 18px;
+    color: var(--dark-border-n-text-color);
+    border: 1.5px solid #111111;
+    border-radius: 18px;
 
-      transition: 400ms cubic-bezier(0.075, 0.82, 0.165, 1);
-    }
-    .icon-arrow-right {
-      stroke: #eac645;
-    }
+    transition: 400ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  .icon-arrow-right {
+    stroke: #eac645;
+  }
 
   .user-login-mobile:hover,
   .user-login-mobile:focus {
@@ -284,8 +288,7 @@
   }
   .shopping-bag-icon-mobile {
     fill: var(--dark-border-n-text-color);
-        transition: 400ms linear;
-
+    transition: 400ms linear;
   }
 
   .home-link-mobile,
@@ -295,31 +298,25 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 1.29;
-     padding: 7px 16px;
-
+    padding: 7px 16px;
 
     letter-spacing: -0.04em;
     text-transform: uppercase;
     color: var(--dark-border-n-text-color);
-        border-radius: 36px;
+    border-radius: 36px;
     transition: 400ms linear;
-
   }
-.shopping-link-mobile:hover,
+  .shopping-link-mobile:hover,
   .home-link-mobile:hover,
   .shopping-link-mobile:focus,
-  .home-link-mobile:focus
-   {
+  .home-link-mobile:focus {
     color: var(--light-border-n-text-color);
-background-color:  var(--light-accent-color-2);
-
-
-}
-.shopping-link-mobile:hover .shopping-bag-icon-mobile,
-  .shopping-link-mobile:focus .shopping-bag-icon-mobile
-   {
+    background-color: var(--light-accent-color-2);
+  }
+  .shopping-link-mobile:hover .shopping-bag-icon-mobile,
+  .shopping-link-mobile:focus .shopping-bag-icon-mobile {
     fill: #111111;
-   }
+  }
   .log-out-mobile {
     display: flex;
     align-items: center;
@@ -327,19 +324,19 @@ background-color:  var(--light-accent-color-2);
     gap: 4px;
     min-width: 118px;
     padding: 12px 24px;
-    background: #FFFFFF;
+    background: #ffffff;
     cursor: pointer;
-border: 1.5px solid #111111;
-border-radius: 18px;
-color: var(--light-border-n-text-color);
+    border: 1.5px solid #111111;
+    border-radius: 18px;
+    color: var(--light-border-n-text-color);
 
-font-weight: 500;
-font-size: 14px;
-line-height: 1.29;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
 
-letter-spacing: -0.04em;
+    letter-spacing: -0.04em;
 
-color: #111111;
+    color: #111111;
   }
 }
 // користувач залогінений стилі
@@ -353,6 +350,7 @@ color: #111111;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+//   transform: translateY(-100%);
 }
 
 // =========ДЕСКТОПНА ВЕРСІЯ===========//
@@ -362,11 +360,6 @@ color: #111111;
     margin-right: 76px;
   }
 }
-
-
-
-
-
 
 // перемикач теми
 .switch {
@@ -432,5 +425,31 @@ input:checked + .slider:before {
 }
 
 .dark {
-  background-color: blue;
+  background-color: var(--dark-body-color);
+  color: var(--dark-border-n-text-color);
+}
+body.dark .header {
+  background-color: black;
+  color: #ffffff;
+  border: 1.5px solid #ffffff;
+}
+body.dark .logo-link,
+body.dark .home-link,
+body.dark .shopping-link,
+body.dark .shopping-bag-icon,
+body.dark .burger-logo
+ {
+  color: #ffffff;
+  fill: #ffffff;
+  stroke:#ffffff;
+}
+
+body.dark .shopping-link:hover,
+body.dark .shopping-link:focus,
+body.dark .shopping-link:hover .shopping-bag-icon ,
+body.dark .shopping-link:focus .shopping-bag-icon ,
+body.dark .home-link:hover,
+body.dark .home-link:focus {
+  color: #111111;
+  fill: #111111;
 }
