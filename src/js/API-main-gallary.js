@@ -25,8 +25,8 @@ async function mainGalleryCategory(cat) {
     }
 }
 
-//mainGallery();
-mainGalleryCategory('Series Books');
+mainGallery();
+// mainGalleryCategory('Series Books');
 
 export async function getCategoriesList() {
   return await axios.get(`${BASE_URL}category-list`);
