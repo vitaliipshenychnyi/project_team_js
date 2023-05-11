@@ -6,6 +6,7 @@ import onLoginBtn from './js/authentication-service/auth-form-toggle';
 import './js/api-firebase';
 import './js/mobile-menu';
 import './js/togle-theme';
+import './js/support';
 
 onLoginBtn();
 
