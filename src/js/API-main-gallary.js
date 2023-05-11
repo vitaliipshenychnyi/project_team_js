@@ -16,3 +16,7 @@ async function mainGallery() {
 }
 
 mainGallery();
+
+export async function getCategoriesList() {
+  return await axios.get(`${BASE_URL}category-list`);
+}

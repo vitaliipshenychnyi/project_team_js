@@ -7,6 +7,10 @@
 // підключення загальних стилів
 @import './vars';
 @import './base';
-@import './test';
+// @import './test';
+
+// підключення основних стилів
 @import './header';
+@import './shopping-list';
 @import './auth-form';
+@import './style-main-box';
