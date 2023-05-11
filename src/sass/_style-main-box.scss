@@ -3,9 +3,15 @@
   flex-direction: column;
   justify-content: flex-end;
   padding-left: 40px;
-  padding-top: 40px;
+  padding-top: 0px;
 }
+.gal-category {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 40px;
 
+}
 .sidebar {
   width: 500px;
   outline: 1px solid green;
@@ -40,7 +46,9 @@
 }
 
 .category-title {
-  margin-bottom: 40px;
+  padding-top: 40px;
+  padding-left: 40px;
+  padding-bottom: 40px;
   font-weight: 700;
   font-size: 48px;
   line-height: calc(52 / 48);
