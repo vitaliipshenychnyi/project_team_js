@@ -31,9 +31,8 @@ ul {
 // базові параметри зображень
 img {
   display: block;
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
+  width: 100%;
+  border-radius: 8px;
 }
 
 // приховування тексту
@@ -51,43 +50,6 @@ img {
   overflow: hidden;
 }
 
-.container-main-gallery {
-  display: flex;
-  flex-direction: column;
-  // align-items: end;
-  justify-content: flex-end;
-  padding-left: 40px;
-}
-.book-category {
-  display: flex;
-  flex-direction: row;
-  gap: 24px;
-}
-.book-card {
-  padding: 5px;
-  width: 180px;
-  height: 256px;
-}
-.book-name {
-  font-family: inherit;
-  font-weight: 400;
-  font-size: 10px;
-}
-.button-see-more {
-  //display: block;
-  margin-left: auto;
-  width: min-content;
-}
-
-.sidebar {
-  width: 300px;
-  outline: 1px solid green;
-}
-
-.support{
-  display:flex-box;
-  background-color: #4F2EE8;
-}
 // налаштування контейнерів
 @media screen and (min-width: 300px) {
   .container {
