@@ -25,7 +25,7 @@ function onCategoryClick(evt) {
     const categoryName = evt.target;
     const listOfCategories = [...evt.currentTarget.children];
     if (!(categoryName.classList.contains("category") && categoryName.classList.contains("all-categories"))) {
-        for (i = 0; i < listOfCategories.length; i++){
+        for (let i = 0; i < listOfCategories.length; i++){
             if (listOfCategories[i].classList.contains("first-elem-js")) {
                 listOfCategories[i].firstChild.classList.remove("all-categories");
             }
