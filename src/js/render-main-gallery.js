@@ -46,7 +46,7 @@ export function renderGallery(books) {
 
 export function renderGalleryCat(books, cat) {
   refs.mainGalleryEl.innerHTML = "";
-  idx = Math.trunc(cat.split(' ').length / 2);
+  let idx = Math.trunc(cat.split(' ').length / 2);
   refs.mainGalleryTitleEl.innerHTML = `${cat.split(' ').splice(0, idx).join(' ')} 
   <span class="category-title-span">${cat.split(' ').splice(idx, idx).join(' ')}</span>`;
   let markUp = "";
