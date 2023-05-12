@@ -47,7 +47,7 @@
     flex-basis: 40%;
   }
   @media screen and (min-width: '1440px') {
-    flex-basis: 25%;
+    flex-basis: 26%;
   }
 }
 
@@ -68,6 +68,16 @@
 
   @media screen and (min-width: '768px') {
     padding-top: 0;
+    width: 380px;
+
+    position: absolute;
+    bottom: -24px;
+    right: 144px;
+  }
+
+  @media screen and (min-width: '1440px') {
+    flex-basis: 45%;
+    right: 208px;
   }
 }
 
@@ -109,8 +119,8 @@
   @media screen and (min-width: '768px') {
     display: flex;
     justify-content: flex-end;
-
-    flex-basis: 61%;
+    position: relative;
+    // flex-basis: 61%;
   }
 
   @media screen and (min-width: '1440px') {
