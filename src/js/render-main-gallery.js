@@ -2,7 +2,7 @@ import refs from './refs';
 
 export function renderRowGallery(row) {
   return row.map(elem =>
-      elem.title.length < 20
+      elem.title.length < 17
         ? `<div class="book-card-wrapper"><a class="overlay link" href="${elem.amazon_product_url}">
             <img src="${elem.book_image}" alt="${elem.title}" height="256" loading="lazy"/> 
             <div class="overlay-field">
@@ -20,7 +20,7 @@ export function renderRowGallery(row) {
             <div class="overlay-field">
               <p class="overlay-text">QUICK VIEW</p>
             </div>
-            <p class="book-name">${elem.title.split('').slice(0, 20).join('')}...</p>
+            <p class="book-name">${elem.title.split('').slice(0, 17).join('')}...</p>
             <p class="book-author">${elem.author}</p>
           </a></div>`
     )

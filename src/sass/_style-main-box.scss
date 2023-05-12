@@ -1,3 +1,14 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 1440px) {
+  .main-container {
+    flex-direction: row;
+  }
+}
+
 .container-main-gallery {
   display: flex;
   flex-direction: column;
@@ -11,13 +22,28 @@
   justify-content: flex-start;
   row-gap: 40px;
   column-gap: 24px;
-
 }
 .sidebar {
-  width: 360px;
-  outline: 1px solid green;
+  width: 100%;
+  // outline: 1px solid green;
 }
-
+@media screen and (min-width: 768px) {
+  .sidebar {
+    display: flex;
+    gap: 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .sidebar {
+    width: 380px;
+    flex-direction: column;
+    gap: 0;
+  }
+}
+.categories {
+  padding-top: 40px;
+  width: 100%;
+}
 .books__list {
   display: flex;
   margin-bottom: 32px;
@@ -242,4 +268,3 @@
   text-transform: uppercase;
   color: var(--light-accent-color);
 }
-
