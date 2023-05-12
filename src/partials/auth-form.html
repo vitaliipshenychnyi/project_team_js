@@ -6,17 +6,32 @@
       </svg>
     </div>
     <div class="auth-content">
-      <input type="text" placeholder="Name" name="uname" required />
+      <!-- <input type="text" placeholder="Name" name="uname" id="uname" required /> -->
 
-      <input type="email" placeholder="email" name="uemail" required />
+      <input
+        type="email"
+        placeholder="email"
+        name="uemail"
+        id="uemail"
+        required
+      />
 
-      <input type="password" placeholder="Password" name="upassword" required />
+      <input
+        type="password"
+        placeholder="Password"
+        name="upassword"
+        id="upassword"
+        required
+      />
 
-      <button class="signup-btn" type="submit">SIGN UP</button>
+      <button class="signup-btn" type="submit" id="btnSignup">SIGN UP</button>
+      <button class="signup-btn" type="submit" id="btnLogin">SIGN IN</button>
+
       <div class="auth-form-links">
         <a href="">SIGN UP</a>
         <a href="">SIGN IN</a>
       </div>
+      <button class="signup-btn" type="submit" id="btnLogout">LOG OUT</button>
     </div>
   </form>
 </div>
