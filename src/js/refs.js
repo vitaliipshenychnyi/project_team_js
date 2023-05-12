@@ -7,7 +7,8 @@ export default {
   authFormBackdrop: document.querySelector('.auth-backdrop'),
   authFormCloseBtn: document.querySelector('.auth-form-close-btn'),
   regFormEl: document.querySelector('.auth-form'),
-  supportEl: document.querySelector('.support'),
+  supportEl: document.querySelector('.support-container'),
+  supportLoadBtn: document.querySelector('.support-button'),
   footerProfilesEl: document.querySelector('.profile-list'),
   pixelJsCakeBtn: document.querySelector('.pixel-js-cake-btn'),
 };
