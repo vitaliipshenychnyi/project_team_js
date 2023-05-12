@@ -32,6 +32,7 @@ console.log('support');
 
   };
 
+
 renderRowGallery(icons);
 
 const button = document.createElement('support-button'); 
@@ -55,7 +56,7 @@ function swapElements() {
 
    
   document.body.appendChild(button); 
-  renderRowGallery();
+  // renderRowGallery();
 
 
 
@@ -63,101 +64,3 @@ function swapElements() {
 
 
 
-
-
-
-// function renderRowGallery(row) {
-//   const sortedRow = row.sort((a, b) => a.position - b.position);
-//   const limitedRow = sortedRow.slice(0, 6);
-
-//   let markup = limitedRow.map(elem =>
-//     <div class="support">
-//       <a href="${elem.url}">
-//         <img src="${elem.icon}" alt="" loading="lazy"/> 
-//         <p>${elem.title}</p>
-//       </a>
-//     </div>
-//   ).join('');
-
-//   refs.supportEl.insertAdjacentHTML('beforebegin', markup);
-// }
-
-// renderRowGallery(icons);
-
-
-
-
-
-
-
-// const supportBtn = document.querySelector('.support-button');
-// let currentIndex = 0;
-// let reverse = false;
-
-// function updateGallery() {
-//   const start = currentIndex + (reverse ? -1 : 1);
-//   const end = start + 5;
-//   if (start < 0 || end > icons.length) {
-//     reverse = !reverse;
-//     start = currentIndex + (reverse ? -1 : 1);
-//     end = start + 5;
-//   }
-//   const row = icons.slice(start, end);
-//   renderRowGallery(row);
-//   currentIndex = start;
-// }
-
-// supportBtn.addEventListener('click', updateGallery);
-
-// <ul class="customers-box">
-//             <li class="customers-item">
-//               <a href="/" class="customers-link">
-//                 <svg class="customers-svg" width="104px" height="56px">
-//                   <use
-//                     href="./images/customers/symbol-defs.svg#icon-yasgo"
-//                   ></use>
-//                 </svg>
-//               </a>
-//             </li>
-//             </ul>
-
-// const iconContainer = document.querySelector('.icon-container');
-// const icons = Array.from(iconContainer.children).map((icon) => ({
-//   id: icon.querySelector('span').textContent,
-//   icon: icon.querySelector('img').getAttribute('src'),
-// }));
-
-// const nextButton = document.querySelector('#next-btn');
-
-// nextButton.addEventListener('click', () => {
-//   const firstIcon = icons.shift();
-//   icons.push({ id: ${Number(firstIcon.id) + 1}.padStart(2, '0'), icon: icon${Number(firstIcon.id) + 1}.svg });
-//   iconContainer.innerHTML = '';
-//   icons.forEach((icon) => {
-//     const iconElement = document.createElement('div');
-//     iconElement.classList.add('icon');
-//     iconElement.innerHTML = `
-//       <img src="${icon.icon}" alt="Icon ${icon.id}" />
-//       <span>${icon.id}</span>
-//     `;
-//     iconContainer.appendChild(iconElement);
-//   });
-// });
-
-// const iconContainer = document.querySelector('.icon-container');
-
-// icons.forEach((icon, index) => {
-//   const iconId = index < 9 ? 0${index + 1} : ${index + 1};
-//   const iconElement = document.createElement('div');
-//   iconElement.classList.add('icon');
-//   iconElement.innerHTML = `
-//     <img src="${icon.icon}" alt="Icon ${iconId}" />
-//     <span>${iconId}</span>
-//   `;
-//   iconElement.addEventListener('click', () => {
-//     window.location.href = icon.url;
-//   });
-//   iconContainer.appendChild(iconElement);
-// });
-
-// export default icons;

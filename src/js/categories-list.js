@@ -1,4 +1,5 @@
-import { getCategoriesList } from "./API-main-gallary";
+import { getCategoriesList, mainGalleryCategory, mainGallery } from "./API-main-gallary";
+import { renderGallery, renderRowGallery } from "./render-main-gallery";
 import refs from "./refs";
 
 function createMarkupCategoriesList(categories) {
@@ -21,11 +22,19 @@ getCategoriesList().then(async resp => {
         refs.categoriesList.innerHTML = listFillingError;
     })
 refs.categoriesList.addEventListener("click", onCategoryClick);
+
 function onCategoryClick(evt) {
     const categoryName = evt.target;
+    console.log(categoryName);
+    if (categoryName.textContent === 'All categories') { 
+        mainGallery();
+        return;
+    } else {
+        mainGalleryCategory(categoryName.textContent);
+    };
     const listOfCategories = [...evt.currentTarget.children];
     if (!(categoryName.classList.contains("category") && categoryName.classList.contains("all-categories"))) {
-        for (i = 0; i < listOfCategories.length; i++){
+        for (let i = 0; i < listOfCategories.length; i++){
             if (listOfCategories[i].classList.contains("first-elem-js")) {
                 listOfCategories[i].firstChild.classList.remove("all-categories");
             }

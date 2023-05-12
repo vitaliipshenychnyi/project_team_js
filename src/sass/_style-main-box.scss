@@ -3,11 +3,18 @@
   flex-direction: column;
   justify-content: flex-end;
   padding-left: 40px;
-  padding-top: 40px;
+  padding-top: 0px;
 }
+.gal-category {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  row-gap: 40px;
+  column-gap: 24px;
 
+}
 .sidebar {
-  width: 500px;
+  width: 360px;
   outline: 1px solid green;
 }
 
@@ -40,7 +47,9 @@
 }
 
 .category-title {
-  margin-bottom: 40px;
+  padding-top: 40px;
+  padding-left: 40px;
+  padding-bottom: 40px;
   font-weight: 700;
   font-size: 48px;
   line-height: calc(52 / 48);
@@ -48,7 +57,7 @@
   color: var(--dark-header-bg-color);
 }
 
-.category-title-snap {
+.category-title-span {
   color: var(--dark-accent-color);
 }
 
@@ -161,24 +170,24 @@
 
 // Sidebar
 // Секція список категорій
-.categories{
-  margin-top: 40px;
-}
-@media screen and (min-width: 768px) and (max-width:1139px) {
+// .categories {
+//   margin-top: 40px;
+// }
+@media screen and (min-width: 768px) and (max-width: 1139px) {
   .categories {
     max-width: 337px;
     margin-right: 32px;
   }
 }
-.categories-list{
+.categories-list {
   max-height: 228px;
   overflow-y: scroll;
 }
 @media screen and (min-width: 768px) {
-  .categories-list{
+  .categories-list {
     max-height: 472px;
-    }
   }
+}
 .categories-list::-webkit-scrollbar {
   width: 8px;
   height: 114px;
@@ -186,25 +195,25 @@
 @media screen and (min-width: 768px) {
   .categories-list::-webkit-scrollbar {
     height: 167px;
+  }
 }
-    }
 .categories-list::-webkit-scrollbar-thumb {
-    border-radius: 12px;
-    background-color: #E0E0E0;
+  border-radius: 12px;
+  background-color: #e0e0e0;
 }
 .categories-list::-webkit-scrollbar-track {
   display: none;
 }
-  
-.category-list-item:not(:last-child){
+
+.category-list-item:not(:last-child) {
   margin-bottom: 24px;
-  }
+}
 @media screen and (min-width: 768px) {
-    .category-list-item:not(:last-child) {
-      margin-bottom: 32px;
-    }
-    }
-.category{
+  .category-list-item:not(:last-child) {
+    margin-bottom: 32px;
+  }
+}
+.category {
   background-color: inherit;
   border: none;
   text-align: left;
@@ -212,34 +221,33 @@
   line-height: 1.12px;
   letter-spacing: -0.02em;
   color: rgba(17, 17, 17, 0.6);
-  transition: text-transform 400ms cubic-bezier(0.075, 0.82, 0.165, 1), font-weight 400ms cubic-bezier(0.075, 0.82, 0.165, 1), color 400ms cubic-bezier(0.075, 0.82, 0.165, 1), font-size 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: text-transform 400ms cubic-bezier(0.075, 0.82, 0.165, 1),
+    font-weight 400ms cubic-bezier(0.075, 0.82, 0.165, 1),
+    color 400ms cubic-bezier(0.075, 0.82, 0.165, 1),
+    font-size 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 @media screen and (min-width: 768px) {
   .category {
     font-size: 18px;
     line-height: 1.33px;
-      }
+  }
 }
 
 .category:active,
 .category:focus,
 .category:hover,
-.category.all-categories{
+.category.all-categories {
   font-size: 14;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--light-accent-color);
 }
 @media screen and (min-width: 768px) {
-      .category:active,
-      .category:focus,
-      .category:hover,
-      .category.all-categories{
+  .category:active,
+  .category:focus,
+  .category:hover,
+  .category.all-categories {
     font-size: 16px;
     line-height: 1.33px;
   }
 }
-
-
-
-  
