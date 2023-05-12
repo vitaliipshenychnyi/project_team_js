@@ -6,7 +6,7 @@ export default {
   userLoginBtn: document.querySelector('.user-login'),
   authFormBackdrop: document.querySelector('.auth-backdrop'),
   authFormCloseBtn: document.querySelector('.auth-form-close-btn'),
-  regFormEl: document.querySelector('.auth-form'),
+  authForm: document.querySelector('.js-register-form'),
   supportEl: document.querySelector('.support-container'),
   supportLoadBtn: document.querySelector('.support-button'),
   footerProfilesEl: document.querySelector('.profile-list'),
