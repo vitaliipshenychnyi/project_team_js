@@ -21,6 +21,7 @@ getCategoriesList().then(async resp => {
         refs.categoriesList.innerHTML = listFillingError;
     })
 refs.categoriesList.addEventListener("click", onCategoryClick);
+
 function onCategoryClick(evt) {
     const categoryName = evt.target;
      mainGalleryCategory(categoryName.textContent);

@@ -42,7 +42,7 @@ export function renderGallery(books) {
           <ul">
             <li class="books__list">${renderRowGallery(elem.books)}</li>
           </ul>
-          <button class="button-see-more" type="button">SEE MORE</button>
+          <button class="button-see-more" type="button" data-cat="${elem.list_name}">SEE MORE</button>
         </div>`
     )
     .join('');
