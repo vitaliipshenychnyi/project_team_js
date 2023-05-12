@@ -1,8 +1,7 @@
 import refs from './refs';
 
 function renderRowGallery(row) {
-  return row
-    .map(elem =>
+  return row.map(elem =>
       elem.title.length < 20
         ? `<div class="book-card-wrapper"><a class="overlay link" href="${elem.amazon_product_url}">
             <img src="${elem.book_image}" alt="${elem.title}" height="256" loading="lazy"/> 
@@ -30,7 +29,6 @@ function renderRowGallery(row) {
 
 export function renderGallery(books) {
   let markUp = '';
-  //console.log(books);
   markUp = books
     .map(elem =>
         `<div class="books-category">
@@ -44,40 +42,13 @@ export function renderGallery(books) {
 }
 
 export function renderGalleryCat(books, cat) {
-    refs.mainGalleryEl.innerHTML = "";
-    refs.mainGalleryTitleEl.textContent = `${cat}`;
-    let markUp = "";
-   // console.log(markUp);
+  refs.mainGalleryEl.innerHTML = "";
+  idx = Math.trunc(cat.split(' ').length / 2);
+  refs.mainGalleryTitleEl.innerHTML = `${cat.split(' ').splice(0, idx).join(' ')} 
+  <span class="category-title-span">${cat.split(' ').splice(idx, idx).join(' ')}</span>`;
+  let markUp = "";
     //console.log(books);
-  markUp = books.map(elem =>
-    elem.title.length < 20
-      ? `<div class="book-card-wrapper"><a class="overlay link" href="${elem.amazon_product_url}">
-            <img src="${elem.book_image}" alt="${elem.title}" height="256" loading="lazy"/> 
-            <div class="overlay-field">
-              <p class="overlay-text">QUICK VIEW</p>
-            </div>
-            <p class="book-name">${elem.title}</p>
-            <p class="book-author">${elem.author}</p>
-          </a></div>`
-      : `<div class="book-card-wrapper"><a class="overlay link" href="${elem.amazon_product_url
-      }">
-            <img src="${elem.book_image}" alt="${elem.title
-      }" height="256" loading="lazy"/> 
-            <div class="overlay-field">
-              <p class="overlay-text">QUICK VIEW</p>
-            </div>
-            <p class="book-name">${elem.title.split('').slice(0, 20).join('')}...</p>
-            <p class="book-author">${elem.author}</p>
-          </a></div>`
-  ).join('');
-       /* `<div class="book-card-wrapper">
-            <a class="overlay link" href="${elem.amazon_product_url}">
-                <img src="${elem.book_image}" alt="" loading="lazy"/> 
-                <p class"book-name">${elem.title}</p>
-                <p class"book-author">${elem.author}</p>
-            </a>
-        </div>`).join('');*/
-    //console.log(markUp);
-    refs.mainGalleryEl.classList.add("gal-category");
-    refs.mainGalleryEl.insertAdjacentHTML('beforeend', markUp);
+  markUp = renderRowGallery(books);
+  refs.mainGalleryEl.classList.add("gal-category");
+  refs.mainGalleryEl.insertAdjacentHTML('beforeend', markUp);
 }
