@@ -15,7 +15,7 @@ async function mainGallery() {
     }
 }
 
-async function mainGalleryCategory(cat) {
+export async function mainGalleryCategory(cat) {
     try {
         const response = await axios.get(`${BASE_URL}category?category=${cat}`);
         console.log(response.data);

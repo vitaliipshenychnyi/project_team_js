@@ -1,4 +1,4 @@
-import { getCategoriesList } from "./API-main-gallary";
+import { getCategoriesList, mainGalleryCategory } from "./API-main-gallary";
 import refs from "./refs";
 
 function createMarkupCategoriesList(categories) {
@@ -23,6 +23,7 @@ getCategoriesList().then(async resp => {
 refs.categoriesList.addEventListener("click", onCategoryClick);
 function onCategoryClick(evt) {
     const categoryName = evt.target;
+     mainGalleryCategory(categoryName.textContent);
     const listOfCategories = [...evt.currentTarget.children];
     if (!(categoryName.classList.contains("category") && categoryName.classList.contains("all-categories"))) {
         for (let i = 0; i < listOfCategories.length; i++){
