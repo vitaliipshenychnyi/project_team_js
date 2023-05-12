@@ -1,3 +1,6 @@
+.main {
+  width: 100%;
+}
 .main-container {
   padding-bottom: 80px;
 
@@ -15,8 +18,14 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-left: 40px;
+  padding-left: 0;
   padding-top: 0px;
+}
+
+@media screen and (min-width: 1440px) {
+  .container-main-gallery {
+    padding-left: 40px;
+  }
 }
 .gal-category {
   flex-direction: row;
@@ -37,7 +46,7 @@
 }
 @media screen and (min-width: 1440px) {
   .sidebar {
-    width: 380px;
+    flex-basis: 380px;
     flex-direction: column;
     gap: 0;
   }
@@ -45,12 +54,24 @@
 .categories {
   padding-top: 40px;
   width: 100%;
+  height: 475px;
 }
 .books__list {
   display: flex;
-  margin-bottom: 32px;
-  gap: 24px;
-  // outline: 1px solid orange;
+  margin-bottom: 8px;
+}
+@media screen and (min-width: 768px) {
+  .books__list {
+    margin-bottom: 20px;
+    justify-content: space-between;
+    gap: 25px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .books__list {
+    margin-bottom: 32px;
+    gap: 25px;
+  }
 }
 
 .books-category {
@@ -65,13 +86,43 @@
 
 .book-card {
   padding: 5px;
-  width: 180px;
+  width: 100%;
   height: 256px;
 }
 
 .book-card-wrapper {
-  width: 180px;
+  width: 335px;
+  height: 535px;
   // outline: 1px solid gray;
+}
+
+.book-card-wrapper img {
+  width: 100%;
+  height: 485px;
+}
+
+@media screen and (min-width: 768px) {
+  .book-card-wrapper {
+    width: 218px;
+    height: 366px;
+  }
+
+  .book-card-wrapper img {
+    width: 100%;
+    height: 316px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .book-card-wrapper {
+    width: 180px;
+    height: 306px;
+  }
+
+  .book-card-wrapper img {
+    width: 100%;
+    height: 256px;
+  }
 }
 
 .category-title {
@@ -79,10 +130,23 @@
   padding-left: 40px;
   padding-bottom: 40px;
   font-weight: 700;
-  font-size: 48px;
-  line-height: calc(52 / 48);
+  font-size: 32px;
+  line-height: calc(38 / 32);
   letter-spacing: -0.04em;
   color: var(--dark-header-bg-color);
+}
+
+@media screen and (min-width: 1440px) {
+  .category-title {
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-bottom: 40px;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: calc(52 / 48);
+    letter-spacing: -0.04em;
+    color: var(--dark-header-bg-color);
+  }
 }
 
 .category-title-span {
@@ -162,13 +226,15 @@
   border-radius: 8px;
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+
+  transition: box-shadow 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .overlay-field {
   position: absolute;
   padding: 26px 48px;
-  top: 186;
-  width: 180px;
+  bottom: 50;
+  width: 100%;
   height: 70px;
   background: #eac645;
   border-radius: 0px 0px 8px 8px;
@@ -198,15 +264,6 @@
 
 // Sidebar
 // Секція список категорій
-// .categories {
-//   margin-top: 40px;
-// }
-// @media screen and (min-width: 768px) and (max-width: 1139px) {
-//   .categories {
-//     max-width: 337px;
-//     margin-right: 32px;
-//   }
-// }
 .categories-list {
   width: 100%;
   max-height: 228px;
@@ -243,6 +300,7 @@
   }
 }
 .category {
+  width: 100%;
   background-color: inherit;
   border: none;
   text-align: left;
@@ -251,6 +309,9 @@
   letter-spacing: -0.02em;
   color: rgba(17, 17, 17, 0.6);
   cursor: pointer;
+  // transition: text-transform 400ms cubic-bezier(0.075, 0.82, 0.165, 1),
+  //   font-weight 400ms cubic-bezier(0.075, 0.82, 0.165, 1),
+  //   color 400ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 @media screen and (min-width: 768px) {
   .category {
@@ -264,6 +325,7 @@
 .category:hover,
 .category.all-categories {
   font-weight: 700;
+  font-size: 14px;
   text-transform: uppercase;
   color: var(--light-accent-color);
 }
