@@ -1,5 +1,5 @@
 const checkbox = document.querySelector('input[type="checkbox"]');
-const header = document.querySelector('.header')
+
 // перевіряємо, чи була вже встановлена попередня тема
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {

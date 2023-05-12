@@ -8,5 +8,7 @@ import './js/mobile-menu';
 import './js/togle-theme';
 import './js/support';
 
+
+import './js/scroll-up'
 onLoginBtn();
 
