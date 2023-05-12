@@ -1,5 +1,5 @@
 export default {
-    mainGalleryEl: document.querySelector('.container-main-gallery'),
+  mainGalleryEl: document.querySelector('.container-main-gallery'),
   mainGalleryTitleEl: document.querySelector('.category-title'),
   mainGalleryTitleSpanEl: document.querySelector('.category-title-span'),
   categoriesList: document.querySelector('.categories-list'),
@@ -8,4 +8,6 @@ export default {
   authFormCloseBtn: document.querySelector('.auth-form-close-btn'),
   regFormEl: document.querySelector('.auth-form'),
   supportEl: document.querySelector('.support'),
+  footerProfilesEl: document.querySelector('.profile-list'),
+  pixelJsCakeBtn: document.querySelector('.pixel-js-cake-btn'),
 };
