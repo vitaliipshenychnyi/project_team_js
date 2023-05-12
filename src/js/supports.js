@@ -36,6 +36,7 @@ refs.supportLoadBtn.addEventListener('click', onClick);
 const iconsShow = icons.slice(0, 6);
 let isChangeIcon = true;
 
+
 function onClick() {
 console.log(iconsShow)
 console.log(isChangeIcon)
