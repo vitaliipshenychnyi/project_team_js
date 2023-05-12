@@ -46,7 +46,9 @@
   @media screen and (min-width: '768px') {
     flex-basis: 40%;
   }
-  // margin-bottom: 40px;
+  @media screen and (min-width: '1440px') {
+    flex-basis: 25%;
+  }
 }
 
 .footer-content a {
@@ -112,7 +114,7 @@
   }
 
   @media screen and (min-width: '1440px') {
-    flex-basis: 50%;
+    flex-basis: 66%;
   }
 }
 
