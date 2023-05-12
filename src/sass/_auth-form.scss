@@ -70,6 +70,8 @@ body.auth-form-open {
 
   display: block;
 
+  cursor: pointer;
+
   @media screen and (min-width: '579px') {
     top: 24px;
     right: 24px;
@@ -182,6 +184,8 @@ body.auth-form-open {
   border: transparent;
   border-radius: 40px;
   transition: background-color var(--animation);
+
+  cursor: pointer;
 }
 
 .signup-btn:hover,
