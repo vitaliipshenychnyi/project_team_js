@@ -8,13 +8,13 @@
 .gal-category {
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   row-gap: 40px;
+  column-gap: 24px;
 
 }
 .sidebar {
-  padding-top: 40px;
-  width: 356px;
+  width: 360px;
   outline: 1px solid green;
 }
 

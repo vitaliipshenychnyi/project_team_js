@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { renderGallery, renderGalleryCat } from './render-main-gallery';
+import refs from './refs';
 
 
 
@@ -27,6 +28,10 @@ export async function mainGalleryCategory(cat) {
 
 mainGallery();
 // mainGalleryCategory('Series Books');
+refs.mainGalleryEl.addEventListener('click', onBtnSeeMoreCategory);
+function onBtnSeeMoreCategory(evt) {
+    if (evt.target.dataset.cat) { mainGalleryCategory(evt.target.dataset.cat) }
+}
 
 export async function getCategoriesList() {
   return await axios.get(`${BASE_URL}category-list`);
