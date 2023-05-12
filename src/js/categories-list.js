@@ -1,4 +1,5 @@
-import { getCategoriesList, mainGalleryCategory } from "./API-main-gallary";
+import { getCategoriesList, mainGalleryCategory, mainGallery } from "./API-main-gallary";
+import { renderGallery, renderRowGallery } from "./render-main-gallery";
 import refs from "./refs";
 
 function createMarkupCategoriesList(categories) {
@@ -24,7 +25,13 @@ refs.categoriesList.addEventListener("click", onCategoryClick);
 
 function onCategoryClick(evt) {
     const categoryName = evt.target;
-     mainGalleryCategory(categoryName.textContent);
+    console.log(categoryName);
+    if (categoryName.textContent === 'All categories') { 
+        mainGallery();
+        return;
+    } else {
+        mainGalleryCategory(categoryName.textContent);
+    };
     const listOfCategories = [...evt.currentTarget.children];
     if (!(categoryName.classList.contains("category") && categoryName.classList.contains("all-categories"))) {
         for (i = 0; i < listOfCategories.length; i++){
