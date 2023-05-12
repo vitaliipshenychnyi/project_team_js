@@ -21,6 +21,7 @@
 .footer-content-wrapper {
   display: flex;
   flex-direction: column;
+  margin-bottom: 40px;
 
   position: relative;
 
@@ -42,8 +43,10 @@
 }
 
 .footer-content {
-  // flex-basis: 30%;
-  margin-bottom: 40px;
+  @media screen and (min-width: '768px') {
+    flex-basis: 40%;
+  }
+  // margin-bottom: 40px;
 }
 
 .footer-content a {
@@ -51,14 +54,19 @@
 }
 
 .profile-list {
+  padding-top: 30px;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  // gap: 8px;
 
   opacity: 1;
 
   transition: transform var(--animation) 500ms, opacity var(--animation) 500ms;
+
+  @media screen and (min-width: '768px') {
+    padding-top: 0;
+  }
 }
 
 .profile-icon {
@@ -87,29 +95,25 @@
   transform: translateY(100%);
 }
 
-// .profile-card {
-//   @media screen and (max-width: '767px') {
-//       margin-right: 8px;
-//     }
-// }
-
-// .profile-card:nth-child(4n),
-// .profile-card:last-child {
-//     @media screen and (max-width: '767px') {
-//         margin-right: 0;
-//       }
-// }
-
 .profile-card {
   flex-basis: 25%;
-}
 
-.profile-card:last-child {
-  flex-grow: 1;
+  @media screen and (min-width: '768px') {
+    flex-basis: auto;
+  }
 }
 
 .profiles-wrapper {
-  margin-bottom: 30px;
+  @media screen and (min-width: '768px') {
+    display: flex;
+    justify-content: flex-end;
+
+    flex-basis: 61%;
+  }
+
+  @media screen and (min-width: '1440px') {
+    flex-basis: 50%;
+  }
 }
 
 .profile-btn-wrapper + .profile-list.is-hidden {
@@ -120,5 +124,10 @@
 
 .profile-btn-wrapper {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
+  @media screen and (max-width: '767px') {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
 }
