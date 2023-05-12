@@ -1,6 +1,6 @@
 import refs from './refs';
 
-function renderRowGallery(row) {
+export function renderRowGallery(row) {
   return row.map(elem =>
       elem.title.length < 20
         ? `<div class="book-card-wrapper"><a class="overlay link" href="${elem.amazon_product_url}">
@@ -28,6 +28,9 @@ function renderRowGallery(row) {
 }
 
 export function renderGallery(books) {
+  refs.mainGalleryEl.classList.remove("gal-category");
+  refs.mainGalleryTitleEl.innerHTML = "Best Sellers <span class='category-title-span'>Books</span>";
+  refs.mainGalleryEl.innerHTML = "";
   let markUp = '';
   markUp = books
     .map(elem =>

@@ -6,7 +6,7 @@ import refs from './refs';
 
 const BASE_URL = 'https://books-backend.p.goit.global/books/';
 
-async function mainGallery() {
+export async function mainGallery() {
     try {
         const response = await axios.get(`${BASE_URL}top-books`);
         console.log(response.data);
