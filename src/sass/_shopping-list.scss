@@ -11,27 +11,27 @@
   margin: -1px;
 }
 
-.sidebar-shopping-list {
- display: none;
+// .sidebar-shopping-list {
+//   display: none;
 
-  @media screen and (min-width: 1440px) {
-  width: 356px;
-  padding: 0;
-  padding-top: 40px;
-  display: block;
-  }
-}
+//   @media screen and (min-width: 1440px) {
+//     width: 356px;
+//     padding: 0;
+//     padding-top: 40px;
+//     display: block;
+//   }
+// }
 
-.support-shopping-list {
- display: none;
+// .support-shopping-list {
+//   display: none;
 
-  @media screen and (min-width: 1440px) {
-  width: 356px;
-  padding: 0;
-  padding-top: 40px;
-  display: block;
-  }
-}
+//   @media screen and (min-width: 1440px) {
+//     width: 356px;
+//     padding: 0;
+//     padding-top: 40px;
+//     display: block;
+//   }
+// }
 
 .shopping-list-page {
   width: 100%;
@@ -149,9 +149,16 @@
 .book-info {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .book-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
   font-weight: 700;
   font-size: 16px;
   line-height: 1.12;
@@ -164,6 +171,12 @@
 }
 
 .book-genre {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.03em;
@@ -178,6 +191,12 @@
 }
 
 .shopping-book-author {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
   display: flex;
   font-style: italic;
   font-size: 12px;
@@ -200,6 +219,7 @@
 .shops-list-img {
   filter: grayscale(1);
   transition: filter;
+  border-radius: 0;
 }
 
 .shops-list-img:hover,
@@ -266,4 +286,29 @@
     width: 322px;
     height: 241px;
   }
+}
+
+.shopping-list-sidebar {
+  display: none;
+
+  @media screen and (min-width: 1440px) {
+    display: block;
+    width: 356px;
+  }
+}
+
+.shopping-list-support {
+  display: none;
+
+  @media screen and (min-width: 1440px) {
+    display: block;
+    width: 356px;
+  }
+}
+.support {
+  margin-top: 40px;
+}
+.support-container {
+  width: 356px;
+  margin-top: 40px;
 }
