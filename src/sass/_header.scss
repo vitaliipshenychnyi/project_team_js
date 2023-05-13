@@ -486,21 +486,23 @@ input:checked + .slider:before {
   position: absolute;
   top: 0;
   left: 0;
-  display: block;
-
   width: 184px;
-  display: flex;
+
   display: none;
+  // display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--light-body-color);
-  cursor: pointer;
-  z-index: 1;
+
+  background-color: var(--light-body-color);
+
+
   overflow: hidden;
+  cursor: pointer;
 }
 
 .header-profile-wrapper .user-logout.active {
   display: flex;
+  max-height: 100%;
   transform: translateY(100%);
 }
 
@@ -581,4 +583,11 @@ body.dark .signup-btn:focus {
 body.dark .auth-form-cross-icon:hover,
 body.dark .auth-form-cross-icon:focus {
   stroke: var(--light-accent-color);
+}
+body.dark .auth-form-linksBtn {
+  color: var(--dark-header-secondary-color)
+}
+
+body.dark .auth-form-linksBtn.active {
+  color: var(--light-accent-color);
 }
