@@ -1,10 +1,20 @@
 import refs from '../refs';
-// import { firebasePost, firebaseRead } from '../api-firebase';
+import { createAccount, loginAccount } from './firebase-login';
 
 refs.authForm.addEventListener('submit', onAuthFormData);
 
 function onAuthFormData(e) {
   e.preventDefault();
+
+  if (refs.authSubmitBtn.dataset.login === 'login') {
+    loginAccount();
+    console.log('welcome');
+  }
+
+  if (refs.authSubmitBtn.dataset.login === 'signup') {
+    createAccount();
+    console.log('user already registered');
+  }
   // const userData = {};
   // const { uname, uemail, upassword } = e.target.elements;
 
@@ -16,4 +26,3 @@ function onAuthFormData(e) {
 
   // firebasePost(userData, 'users.json');
 }
-

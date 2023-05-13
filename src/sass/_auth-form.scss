@@ -212,7 +212,9 @@ body.auth-form-open {
 }
 
 .auth-form-linksBtn.active {
+  text-transform: uppercase;
   text-decoration: underline;
   color: var(--light-accent-color);
 }
+
 

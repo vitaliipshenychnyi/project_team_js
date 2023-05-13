@@ -7,13 +7,14 @@ import {
   signInWithEmailAndPassword,
   connectAuthEmulator,
 } from 'firebase/auth';
+import refs from '../refs';
 
-const email = document.querySelector('#uemail');
-const password = document.querySelector('#upassword');
+// const emailInput = document.getElementById('uemail');
+// const passwordInput = document.getElementById('upassword');
 
-const btnLogin = document.querySelector('#btnLogin');
-const btnSignup = document.querySelector('#btnSignup');
-const btnLogout = document.querySelector('#btnLogout');
+// const btnLogin = document.getElementById('btnLogin');
+// const btnSignup = document.getElementById('btnSignup');
+// const btnLogout = document.getElementById('btnLogout');
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBOLF7-CSzRfScSFCuoeI5r8YT_1hxm0Jg',
@@ -41,17 +42,17 @@ const auth = getAuth(firebaseApp);
 
 // connectAuthEmulator(auth, 'http://localhost:9099');
 
-btnLogin.addEventListener('click', loginAccount);
-btnSignup.addEventListener('click', createAccount);
-btnLogout.addEventListener('click', logout);
+// refs.btnLogin.addEventListener('click', loginAccount);
+// refs.btnSignup.addEventListener('click', createAccount);
+refs.btnLogout.addEventListener('click', logout);
 AuthStateViewer();
 
-async function loginAccount() {
+export async function loginAccount() {
   try {
     const userCredential = await signInWithEmailAndPassword(
       auth,
-      email.value.trim(),
-      password.value
+      refs.emailInput.value.trim(),
+      refs.passwordInput.value
     );
     console.log('response loginAccount', userCredential.user);
   } catch (error) {
@@ -59,12 +60,12 @@ async function loginAccount() {
   }
 }
 
-async function createAccount() {
+export async function createAccount() {
   try {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
-      email.value.trim(),
-      password.value
+      refs.emailInput.value.trim(),
+      refs.passwordInput.value
     );
     console.log('response createAccount', userCredential.user);
   } catch (error) {

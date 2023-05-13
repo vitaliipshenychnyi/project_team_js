@@ -11,6 +11,13 @@ export default {
   supportLoadBtn: document.querySelector('.support-button'),
   footerProfilesEl: document.querySelector('.profile-list'),
   pixelJsCakeBtn: document.querySelector('.pixel-js-cake-btn'),
+  //form
   signUpFormBtn: document.getElementById('signup-formbtn'),
   loginFormBtn: document.getElementById('signin-formbtn'),
+  emailInput: document.getElementById('uemail'),
+  passwordInput: document.getElementById('upassword'),
+  btnLogin: document.getElementById('btnLogin'),
+  btnSignup: document.getElementById('btnSignup'),
+  btnLogout: document.getElementById('btnLogout'),
+  authSubmitBtn: document.getElementById('authform-submitBtn'),
 };
