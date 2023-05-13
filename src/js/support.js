@@ -1,42 +1,45 @@
 import refs from "./refs";
 const icons = [
-  { id: 1,  title: 'Save the Children', url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis', icon: 'icon1.svg', position: 1 },
-  { id: 2, title: 'Project HOPE', url: 'https://www.projecthope.org/country/ukraine/', icon: 'icon2.svg', position: 2 },
-  { id: 3,  title: 'UNITED24', url: 'https://u24.gov.ua/uk', icon: 'icon3.svg', position: 3 },
-  { id: 4,  title: 'International Medical Corps', url: 'https://internationalmedicalcorps.org/country/ukraine/', icon: 'icon4.svg', position: 4 },
-  { id: 5, title: 'Medicins Sans Frontieres', url: 'https://www.msf.org/ukraine', icon: 'icon5.svg', position: 5 },
-  { id: 6, title: 'RAZOM', url: 'https://www.razomforukraine.org/', icon: 'icon6.svg', position: 6 },
-  { id: 7, title: 'Action against hunger', url: 'https://www.actionagainsthunger.org/location/europe/ukraine/', icon: 'icon7.svg', position: 7 },
-  { id: 8, title: 'World vision', url: 'https://www.wvi.org/emergencies/ukraine', icon: 'icon8.svg', position: 8 },
-  { id: 9, title: 'Serhiy Prytula Charity Foundation', url: 'https://prytulafoundation.org/en', icon: 'icon9.svg', position: 9 },
+  { id: 1,  title: 'Save the Children', url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis', icon: "/img/svg/sprite.svg#emblem", position: 1 },
+  { id: 2, title: 'Project HOPE', url: 'https://www.projecthope.org/country/ukraine/', icon: '/src/img/support-Icon/support1x/ProjectHOPE@1x.png', position: 2 },
+  { id: 3,  title: 'UNITED24', url: 'https://u24.gov.ua/uk', icon: '/src/img/support-Icon/support1x/UNITED24@1x.png', position: 3 },
+  { id: 4,  title: 'International Medical Corps', url: 'https://internationalmedicalcorps.org/country/ukraine/', icon: '/src/img/support-Icon/support1x/Internationa@1x.png', position: 4 },
+  { id: 5, title: 'Medicins Sans Frontieres', url: 'https://www.msf.org/ukraine', icon: '/src/img/support-Icon/support1x/Medicins@1x.png', position: 5 },
+  { id: 6, title: 'RAZOM', url: 'https://www.razomforukraine.org/', icon: '/src/img/support-Icon/support1x/RAZOM@1x.png', position: 6 },
+  { id: 7, title: 'Action against hunger', url: 'https://www.actionagainsthunger.org/location/europe/ukraine/', icon: '/src/img/support-Icon/support1x/Action@1x.png', position: 7 },
+  { id: 8, title: 'World vision', url: 'https://www.wvi.org/emergencies/ukraine', icon: '/src/img/support-Icon/support1x/World@1x.png', position: 8 },
+  { id: 9, title: 'Serhiy Prytula Charity Foundation', url: 'https://prytulafoundation.org/en', icon: '/src/img/support-Icon/support1x/Serhiy@1x.png', position: 9 },
 ];
 
 const SUPPORT_ITEMS_QUERY = 6;
 
-function renderRowGallery() {
-  const markup = iconsShow
+function renderRowGallery(icons) {
+  // console.log(" vjzfhsfhs", tt)
+  const markup = icons
     .slice(0, SUPPORT_ITEMS_QUERY)
     .map(
       elem =>
-        `<div class="support-render">
-                  <a  href="${elem.url}">
-                      <p>${elem.id}</p>
-                      <img src="${elem.icon}" alt="" loading="lazy"/> 
-                      <p>${elem.title}</p>
-                  </a>
-              </div>`
+        `<div class="">
+        <a href="${elem.url}">
+          <p>${elem.id}</p>
+          <img src="${elem.icon}" alt="" loading="lazy"/> 
+          <p>${elem.title}</p>
+        </a>
+        
+      </div>`
     )
     .join('');
   
-  refs.supportEl.insertAdjacentHTML('beforeEnd', markup);
+  refs.supportRenderEl.innerHTML = markup;
   console.log(refs.supportEl);
 }
-refs.supportLoadBtn.addEventListener('click', onClick);
+
+
 
 const iconsShow = icons.slice(0, 6);
 let isChangeIcon = true;
-
-
+renderRowGallery(iconsShow);
+refs.supportLoadBtn.addEventListener('click', onClick);
 function onClick() {
 console.log(iconsShow)
 console.log(isChangeIcon)
@@ -55,6 +58,12 @@ console.log(isChangeIcon)
     iconsShow.unshift(icons[indexFirstElement - 1]);
     iconsShow.pop(); // delete last element
   }
+
+  if (iconsShow[0].id === 4 || iconsShow[0].id === 1) {
+    isChangeIcon = !isChangeIcon;
+  }
+  renderRowGallery(iconsShow);
 }
   
-renderRowGallery(icons);
+
+
