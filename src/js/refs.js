@@ -20,6 +20,7 @@ export default {
   //form
   signUpFormBtn: document.getElementById('signup-formbtn'),
   loginFormBtn: document.getElementById('signin-formbtn'),
+  nameInput: document.getElementById('uname'),
   emailInput: document.getElementById('uemail'),
   passwordInput: document.getElementById('upassword'),
   btnLogin: document.getElementById('btnLogin'),

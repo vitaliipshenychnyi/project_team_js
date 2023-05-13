@@ -10,6 +10,6 @@ import './js/togle-theme';
 import './js/support';
 import './js/footer';
 import './js/scroll-up';
-import './js/authentication-service/firebase-login';
+import './js/firebase-service/firebase-service';
 import './js/modal';
 import './js/shopingList';
