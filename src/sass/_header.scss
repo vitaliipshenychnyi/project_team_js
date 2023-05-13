@@ -93,10 +93,9 @@
   .home-link:hover,
   .home-link:hover {
     background-color: #eac645;
-        font-weight: 700;
-        transition: font-weight 300ms linear;
-      // text-shadow: 0 0 .65px #333, 0 0 .65px #333;
-
+    font-weight: 700;
+    transition: font-weight 300ms linear;
+    // text-shadow: 0 0 .65px #333, 0 0 .65px #333;
   }
 }
 @media screen and (min-width: 768px) {
@@ -113,15 +112,13 @@
     border-radius: 36px;
 
     color: var(--light-border-n-text-color);
-    transition: background-color 500ms linear, font-weight  300ms linear;
+    transition: background-color 500ms linear, font-weight 300ms linear;
   }
   .shopping-link:hover,
   .shopping-link:hover {
     background: #eac645;
     font-weight: 700;
-      // text-shadow: 0 0 .65px #333, 0 0 .65px #333;
-
-
+    // text-shadow: 0 0 .65px #333, 0 0 .65px #333;
   }
   .shopping-bag-icon {
     line-height: 0;
@@ -477,4 +474,41 @@ body.dark .category-title,
 body.dark .book-name,
 body.dark .button-see-more {
   color: var(--dark-border-n-text-color);
+}
+
+body.dark .auth-form{
+  background-color: #202024;
+  color: #f6f6f6;
+  border: 2px solid #f6f6f6;
+}
+
+body.dark .auth-content input {
+    background-color: #202024;
+   outline: 2px solid #f6f6f6;
+     color: #f6f6f6;
+
+ 
+}
+body.dark .auth-content input::placeholder {
+  color: #f6f6f6;
+}
+
+body.dark .auth-form-cross-icon {
+  stroke: #f6f6f6;
+}
+body.dark .signup-btn {
+  background-color: #f6f6f6;
+  color: #202024;
+}
+
+body.dark .signup-btn:hover,
+body.dark .signup-btn:focus {
+    background-color: var(--light-accent-color);
+    color: #f6f6f6;
+
+}
+
+body.dark  .auth-form-cross-icon:hover,
+body.dark  .auth-form-cross-icon:focus {
+  stroke: var(--light-accent-color);
 }

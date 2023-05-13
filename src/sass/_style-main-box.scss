@@ -1,6 +1,7 @@
 .main {
   position: relative;
   width: 100%;
+  padding-bottom: 72px;
 }
 .main-container {
   display: flex;
@@ -204,6 +205,9 @@
   text-transform: uppercase;
 
   color: var(--dark-header-bg-color);
+
+  transition: background-color 300ms linear, color 300ms linear;
+  cursor: pointer;
 }
 
 .button-see-more:hover,
