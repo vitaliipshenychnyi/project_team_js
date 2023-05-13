@@ -12,7 +12,7 @@ import './js/support';
 import './js/footer';
 import './js/scroll-up';
 import './js/authentication-service/firebase-login';
-import onPixelJsCakeBtn from './js/footer';
+// import onPixelJsCakeBtn from './js/footer';
 import './js/scroll-up'
 onLoginBtn();
 onPixelJsCakeBtn();
