@@ -10,6 +10,7 @@ export async function mainGallery() {
     const response = await axios.get(`${BASE_URL}top-books`);
     console.log(response.data);
     renderGallery(response.data);
+    refs.spinnerEl.setAttribute('hidden', true); // вимикає spiner
   } catch (error) {
     console.log(error);
   }
@@ -18,9 +19,11 @@ export async function mainGallery() {
 // функція отримання даних по книгам певної категорії
 export async function mainGalleryCategory(cat) {
   try {
+    refs.spinnerEl.removeAttribute('hidden'); // вмикає spiner
     const response = await axios.get(`${BASE_URL}category?category=${cat}`);
     console.log(response.data);
     renderGalleryCat(response.data, cat);
+    refs.spinnerEl.setAttribute('hidden', true); // вимикає spiner
   } catch (error) {
     console.log(error);
   }
