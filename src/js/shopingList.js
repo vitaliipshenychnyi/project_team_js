@@ -1,5 +1,3 @@
-// import  ФУНКЦІЯ ЗАПИСУ В LOCALSTORAGE from '';
-
 
 const shoppingList = document.querySelector('.shopping-list-js');
 const emptyList = document.querySelector('.empty-list-js');
