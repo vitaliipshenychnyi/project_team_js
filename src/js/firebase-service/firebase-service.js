@@ -19,7 +19,9 @@ refs.btnLogout.addEventListener('click', logout);
 AuthStateViewer();
 
 const LOCAL_STORAGE_TOKEN = 'user-token';
-const parsedToken = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TOKEN));
+export const parsedToken = JSON.parse(
+  localStorage.getItem(LOCAL_STORAGE_TOKEN)
+);
 
 export async function loginAccount() {
   try {
