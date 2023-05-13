@@ -9,6 +9,7 @@ if (savedTheme) {
 
 checkbox.addEventListener('change', changeTheme);
 
+// функція змін теми
 function changeTheme() {
   if (checkbox.checked) {
     document.body.classList.add('dark');

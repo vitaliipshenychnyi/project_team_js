@@ -1,5 +1,6 @@
 import refs from './refs';
 
+// функція створення карток книг
 export function renderRowGallery(row) {
   return row
     .map(elem =>
@@ -48,6 +49,7 @@ export function renderRowGallery(row) {
 //   refs.mainGalleryEl.insertAdjacentHTML('beforeend', markUp);
 // }
 
+// функція створення заголовку заголовку групи книг
 export function renderGalleryCat(books, cat) {
   refs.mainGalleryEl.innerHTML = '';
   let idx = Math.trunc(cat.split(' ').length / 2);
@@ -67,7 +69,7 @@ export function renderGalleryCat(books, cat) {
 }
 
 // ------------------------
-
+// функція, яка відтворює топові книги по своїх категоріх в залежності від розміру екрану
 export function renderGallery(books) {
   refs.mainGalleryEl.classList.remove('gal-category');
   refs.mainGalleryTitleEl.innerHTML =
