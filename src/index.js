@@ -2,14 +2,13 @@
 import './js/refs';
 import './js/categories-list';
 import './js/API-main-gallary';
-import onLoginBtn from './js/authentication-service/auth-form-toggle';
+import './js/authentication-service/auth-form-toggle';
+import './js/authentication-service/auth-formdata';
 import './js/api-firebase';
 import './js/mobile-menu';
 import './js/togle-theme';
 import './js/support';
-import onPixelJsCakeBtn from './js/footer';
-
-
-import './js/scroll-up'
-onLoginBtn();
-onPixelJsCakeBtn();
+import './js/footer';
+import './js/scroll-up';
+import './js/authentication-service/firebase-login';
+import './js/modal';

@@ -9,19 +9,32 @@
   width: 100%;
   height: 100%;
 
+  background-size: cover;
+    // background-image: linear-gradient(274.8deg,
+    //     #5737e9 -7.81%,
+    //     rgba(160, 142, 242, 0.76) 61.58%,
+    //     #b5a7f5 81.74%);
+     background-image: radial-gradient(
+    circle at top left,
+     rgba(204, 236, 231, 0.4) 10%,
+    #4F2EE8 50%
+  );
   background-color: var(--light-accent-color);
 
+
+  transform: scale(1);
   opacity: 1;
 
   overflow-y: auto;
   z-index: 999;
-  transition: opacity var(--animation);
+  transition: opacity var(--animation-slow), visibility var(--animation-slow), transform var(--animation-slow);
 }
 
 .auth-backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
+  transform: scale(0.3);
 }
 
 .auth-form {
@@ -70,6 +83,8 @@ body.auth-form-open {
 
   display: block;
 
+  cursor: pointer;
+
   @media screen and (min-width: '579px') {
     top: 24px;
     right: 24px;
@@ -117,17 +132,14 @@ body.auth-form-open {
 }
 
 .auth-content input:hover {
-  
   outline: 2px solid var(--light-accent-color);
 }
-
 
 .auth-content input:focus,
 .auth-content input:active {
   border: transparent;
   outline: 2px solid var(--light-accent-color-2);
 }
-
 
 .auth-content input::placeholder,
 .signup-btn {
@@ -181,7 +193,9 @@ body.auth-form-open {
   background-color: var(--light-border-n-text-color);
   border: transparent;
   border-radius: 40px;
-  transition: background-color var(--animation);
+  transition: background-color var(--animation-slow);
+
+  cursor: pointer;
 }
 
 .signup-btn:hover,
@@ -192,4 +206,18 @@ body.auth-form-open {
 .signup-btn:active {
   color: var(--light-border-n-text-color);
   background-color: var(--light-accent-color-2);
+}
+
+.auth-form-linksBtn{
+  color: #11111180;
+}
+
+.auth-form-linksBtn:not(:last-child) {
+  margin-right: 20px;
+}
+
+.auth-form-linksBtn.active {
+  text-transform: uppercase;
+  text-decoration: underline;
+  color: var(--light-accent-color);
 }
