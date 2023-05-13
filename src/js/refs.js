@@ -11,6 +11,7 @@ export default {
   authFormCloseBtn: document.querySelector('.auth-form-close-btn'),
   authForm: document.querySelector('.js-register-form'),
   supportEl: document.querySelector('.support-container'),
+  supportRenderEl: document.querySelector('.support-render'),
   supportLoadBtn: document.querySelector('.support-button'),
   footerProfilesEl: document.querySelector('.profile-list'),
   pixelJsCakeBtn: document.querySelector('.pixel-js-cake-btn'),
