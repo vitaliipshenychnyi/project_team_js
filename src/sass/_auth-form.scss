@@ -207,3 +207,17 @@ body.auth-form-open {
   color: var(--light-border-n-text-color);
   background-color: var(--light-accent-color-2);
 }
+
+.auth-form-linksBtn{
+  color: #11111180;
+}
+
+.auth-form-linksBtn:not(:last-child) {
+  margin-right: 20px;
+}
+
+.auth-form-linksBtn.active {
+  text-transform: uppercase;
+  text-decoration: underline;
+  color: var(--light-accent-color);
+}
