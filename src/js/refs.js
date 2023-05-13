@@ -17,6 +17,8 @@ export default {
   pixelJsCakeBtn: document.querySelector('.pixel-js-cake-btn'),
   spinnerEl: document.querySelector('.breeding-rhombus-spinner'),
   wrapperBookEl: document.querySelector('.wrapper-book'),
+  buttonAddBookEl: document.querySelector('.form__button'),
+  // buttonDeleteBookEl: document.querySelector('.deleteBook'),
   //form
   signUpFormBtn: document.getElementById('signup-formbtn'),
   loginFormBtn: document.getElementById('signin-formbtn'),
