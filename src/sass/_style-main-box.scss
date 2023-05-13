@@ -264,13 +264,18 @@
 // Sidebar
 // Секція список категорій
 .categories-list {
-  width: 100%;
+  width: 336px;
   max-height: 228px;
   overflow-y: scroll;
 }
 @media screen and (min-width: 768px) {
   .categories-list {
     max-height: 472px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .categories-list {
+    width: 356px;
   }
 }
 .categories-list::-webkit-scrollbar {
