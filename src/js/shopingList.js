@@ -1,4 +1,3 @@
-console.log('df');
 const shoppingList = document.querySelector('.shopping-list-js');
 const emptyList = document.querySelector('.empty-list-js');
 
@@ -175,7 +174,9 @@ const a = [
   },
 ];
 
-const amazon = require('../img/amazon@1x.png');
+import amazonImg from '../img/amazon@2x.png';
+import appleBooksImg from '../img/appleBooks@2x.png';
+import booksAMillionImg from '../img/booksAMillion@2x.png';
 
 localStorage.setItem('books-data', JSON.stringify(a));
 
@@ -209,8 +210,7 @@ function createCardMarkup(dataBooks) {
 
     return dataBooks
       .map(book => {
-        console.log(book);
-        // const amazon = buy_links.find(link => link.name === 'Amazon').url;
+         // const amazon = buy_links.find(link => link.name === 'Amazon').url;
         // const appleBooks = buy_links.find(
         //   link => link.name === 'Apple Books'
         //   ).url;
@@ -238,13 +238,13 @@ function createCardMarkup(dataBooks) {
            <a href="${book.buy_links[0].url}" class="shop-item-link">
            <picture class="shop-list-icon">
            <source
-           srcset="
-           ${amazon} 1x,
-           ${amazon} 2x
-           "
-           <img
-           src="${amazon}"
-           alt="Amazon"
+              srcset="
+                /src/img/appleBooks@1x.png 1x,
+                /src/img/appleBooks@2x.png 2x
+              "
+             <img
+              src="/src/img/appleBooks@1x.png"
+              alt="Apple Books"
             />
             </picture>
             </a>
@@ -292,13 +292,11 @@ function removeCardMarkup(event) {
   if (event.target.dataset.action !== 'delete') {
     return;
   }
-  
+
   const parentNode = event.target.closest('.shopping-list-item');
   const bookToRemoveId = parentNode.dataset.id;
-  
-  dataBooks = dataBooks.filter(book => book._id !== bookToRemoveId);
-  console.log(dataBooks);
 
+  dataBooks = dataBooks.filter(book => book._id !== bookToRemoveId);
   saveToLocalStorage(dataBooks);
   // parentNode.remove();
   if (!dataBooks || dataBooks.length === 0) {
