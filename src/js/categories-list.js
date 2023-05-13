@@ -2,6 +2,7 @@ import { getCategoriesList, mainGalleryCategory, mainGallery } from "./API-main-
 import { renderGallery, renderRowGallery } from "./render-main-gallery";
 import refs from "./refs";
 
+// функція створення списку категорій у сайдбарі 
 function createMarkupCategoriesList(categories) {
     return categories.map(({list_name}) =>
     `<li class="category-list-item"><button type="button" class="category">${list_name}</button></li>`).join("");
@@ -9,7 +10,7 @@ function createMarkupCategoriesList(categories) {
 
 const listFillingError = '<li class="category-list-item"><p class="categories-err">The list of categories is empty</p></li>';
 
-// рендеринг списку категорій
+// функція відтворення списку категорій
 getCategoriesList().then(async resp => {
     const categories = resp.data;
         if (categories.length === 0) {
@@ -23,9 +24,10 @@ getCategoriesList().then(async resp => {
     })
 refs.categoriesList.addEventListener("click", onCategoryClick);
 
+// функція вибору категорії зі списку
 function onCategoryClick(evt) {
     const categoryName = evt.target;
-    console.log(categoryName);
+    // console.log(categoryName);
     if (categoryName.textContent === 'All categories') { 
         mainGallery();
         return;
