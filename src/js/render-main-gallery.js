@@ -2,6 +2,7 @@ import refs from './refs';
 
 // функція створення карток книг
 export function renderRowGallery(row) {
+  
   return row
     .map(elem =>
       elem.title.length < 17
