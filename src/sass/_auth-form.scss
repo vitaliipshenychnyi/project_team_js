@@ -21,6 +21,7 @@
   );
   background-color: var(--light-accent-color);
 
+
   transform: scale(1);
   opacity: 1;
 
@@ -131,17 +132,14 @@ body.auth-form-open {
 }
 
 .auth-content input:hover {
-  
   outline: 2px solid var(--light-accent-color);
 }
-
 
 .auth-content input:focus,
 .auth-content input:active {
   border: transparent;
   outline: 2px solid var(--light-accent-color-2);
 }
-
 
 .auth-content input::placeholder,
 .signup-btn {
