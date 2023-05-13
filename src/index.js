@@ -1,6 +1,5 @@
 // import './js/test'; ПШЕНИЧНИЙ (не чипати)
 import './js/refs';
-import './js/modal';
 import './js/categories-list';
 import './js/API-main-gallary';
 import './js/authentication-service/auth-form-toggle';
@@ -12,7 +11,4 @@ import './js/support';
 import './js/footer';
 import './js/scroll-up';
 import './js/authentication-service/firebase-login';
-// import onPixelJsCakeBtn from './js/footer';
-import './js/scroll-up'
-onLoginBtn();
-onPixelJsCakeBtn();
+import './js/modal';
