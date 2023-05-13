@@ -13,10 +13,7 @@ const profiles = [
   { name: 'name', image: '' },
 ];
 
-export default function onPixelJsCakeBtn() {
-  refs.pixelJsCakeBtn.addEventListener('click', displayFooterProfilesEl);
-  // refs.authFormCloseBtn.addEventListener('click', toggleAuthForm);
-}
+refs.pixelJsCakeBtn.addEventListener('click', displayFooterProfilesEl);
 
 function displayFooterProfilesEl() {
   refs.footerProfilesEl.classList.toggle('is-hidden');

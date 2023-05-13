@@ -11,4 +11,6 @@ export default {
   supportLoadBtn: document.querySelector('.support-button'),
   footerProfilesEl: document.querySelector('.profile-list'),
   pixelJsCakeBtn: document.querySelector('.pixel-js-cake-btn'),
+  signUpFormBtn: document.getElementById('signup-formbtn'),
+  loginFormBtn: document.getElementById('signin-formbtn'),
 };
