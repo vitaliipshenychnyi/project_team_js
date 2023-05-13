@@ -26,9 +26,20 @@ const firebaseConfig = {
   appId: '1:416053417126:web:e76de3bab9e0af76599067',
 };
 
-const auth = getAuth(initializeApp(firebaseConfig));
+const firebaseApp = initializeApp(firebaseConfig);
+const auth = getAuth(firebaseApp);
 
-connectAuthEmulator(auth, 'http://localhost:9099');
+// const db = getFirestore(app);
+
+// Get a list of cities from your database
+// async function getCities(db) {
+//   const citiesCol = collection(db, 'cities');
+//   const citySnapshot = await getDocs(citiesCol);
+//   const cityList = citySnapshot.docs.map(doc => doc.data());
+//   return cityList;
+// }
+
+// connectAuthEmulator(auth, 'http://localhost:9099');
 
 btnLogin.addEventListener('click', loginAccount);
 btnSignup.addEventListener('click', createAccount);
