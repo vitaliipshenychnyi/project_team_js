@@ -1,28 +1,36 @@
 import refs from '../refs';
-import { createAccount, loginAccount } from './firebase-login';
+import {
+  createAccount,
+  loginAccount,
+  AuthStateViewer,
+} from '../firebase-service/firebase-service';
+import { postUserIntoDatebase } from '../firebase-service/firebase-database';
 
 refs.authForm.addEventListener('submit', onAuthFormData);
 
-function onAuthFormData(e) {
+async function onAuthFormData(e) {
   e.preventDefault();
 
   if (refs.authSubmitBtn.dataset.login === 'login') {
-    loginAccount();
-    console.log('welcome');
+    try {
+      loginAccount().then(r => console.log(r.json));
+      // .then(r => postUserIntoDatebase());
+    } catch (error) {
+      console.log(error.message);
+    }
   }
 
   if (refs.authSubmitBtn.dataset.login === 'signup') {
-    createAccount();
-    console.log('user already registered');
+    try {
+      createAccount();
+    } catch (error) {
+      console.log('user already registered');
+      return;
+    }
   }
-  // const userData = {};
-  // const { uname, uemail, upassword } = e.target.elements;
 
-  // userData.name = uname.value;
-  // userData.email = uemail.value;
-  // userData.password = upassword.value;
-
-  // console.log(userData);
-
-  // firebasePost(userData, 'users.json');
+  AuthStateViewer()
+    .then(console.log('--------------> logged'))
+    .catch(e => console.log('--------------> no login'));
+  // refs.authFormBackdrop.classList.add('is-hidden');
 }
