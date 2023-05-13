@@ -6,14 +6,13 @@ const BASE_URL = 'https://books-backend.p.goit.global/books/';
 
 // функція отримання даних по топовим книгам
 export async function mainGallery() {
-  try {
-    const response = await axios.get(`${BASE_URL}top-books`);
-    console.log(response.data);
-    renderGallery(response.data);
-    refs.spinnerEl.setAttribute('hidden', true); // вимикає spiner
-  } catch (error) {
-    console.log(error);
-  }
+    try {
+        const response = await axios.get(`${BASE_URL}top-books`);
+        console.log(response.data[0].books[0].id);
+        renderGallery(response.data);
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 // функція отримання даних по книгам певної категорії
