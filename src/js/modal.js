@@ -8,6 +8,7 @@ refs.modalCloseBtn.addEventListener('click', closeModal);
 function onBookCardClick(event) {
   const bookCard = event.target.closest('.book-card-wrapper');
   const idBook = bookCard.dataset.idbook;
+  console.log(idBook);
   if (!bookCard) return;
   openModal(idBook);
 }
@@ -18,7 +19,7 @@ async function getDataBook(idBook) {
     const response = await axios.get(
       `https://books-backend.p.goit.global/books/${idBook}`
     );
-    // console.log(response.data);
+    console.log(response.data);
     renderBookCard(response.data);
   } catch (error) {
     console.log(error);
@@ -33,7 +34,7 @@ function openModal(idBook) {
 
 // функція закриття модального вікна
 function closeModal() {
-  refs.modalContent = '';
+  // refs.modalContent.innerHTML = baseCodeModal;
   refs.modal.classList.add('is-hidden');
 }
 
@@ -52,6 +53,7 @@ function renderBookCard(book) {
       </ul>
     </div>
   `;
-
-  refs.modalContent.insertAdjacentHTML('afterbegin', bookCardMarkup);
+  // console.log(bookCardMarkup)
+  refs.wrapperBookEl.innerHTML= bookCardMarkup;
+  // console.log(refs.wrapperBookEl)
 }

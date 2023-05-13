@@ -13,7 +13,7 @@ export function renderRowGallery(row) {
             <p class="book-name">${elem.title}</p>
             <p class="book-author">${elem.author}</p>
           </a></div>`
-        : `<div class="book-card-wrapper" data-idbook="${elem._id}><a class="overlay link" href="#">
+        : `<div class="book-card-wrapper" data-idbook="${elem._id}"><a class="overlay link" href="#">
             <img src="${elem.book_image}" alt="${
             elem.title
           }" height="256" loading="lazy"/> 
