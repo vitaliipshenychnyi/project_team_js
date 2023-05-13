@@ -55,5 +55,6 @@ export async function firebaseRead(endpoint) {
     console.log('Ooops! It is error! FAREBASE');
   }
 }
-//firebaseRead('maildata.json');
+
 firebaseRead('users.json');
+

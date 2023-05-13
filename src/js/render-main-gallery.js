@@ -5,7 +5,7 @@ export function renderRowGallery(row) {
   return row
     .map(elem =>
       elem.title.length < 17
-        ? `<div class="book-card-wrapper"><a class="overlay link" href="${elem.amazon_product_url}">
+        ? `<div class="book-card-wrapper"data-modal-open><a class="overlay link" href="#">
             <img src="${elem.book_image}" alt="${elem.title}" height="256" loading="lazy"/> 
             <div class="overlay-field">
               <p class="overlay-text">QUICK VIEW</p>
@@ -13,9 +13,8 @@ export function renderRowGallery(row) {
             <p class="book-name">${elem.title}</p>
             <p class="book-author">${elem.author}</p>
           </a></div>`
-        : `<div class="book-card-wrapper"><a class="overlay link" href="${
-            elem.amazon_product_url
-          }">
+        : `<div class="book-card-wrapper"><a class="overlay link" href="#
+          ">
             <img src="${elem.book_image}" alt="${
             elem.title
           }" height="256" loading="lazy"/> 

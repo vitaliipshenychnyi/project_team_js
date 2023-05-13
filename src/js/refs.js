@@ -1,4 +1,7 @@
 export default {
+  modal: document.querySelector('.backdrop'),
+  modalContent: document.querySelector('.modal'),
+  modalCloseBtn: document.querySelector('[data-modal-close]'),
   mainGalleryEl: document.querySelector('.container-main-gallery'),
   mainGalleryTitleEl: document.querySelector('.category-title'),
   mainGalleryTitleSpanEl: document.querySelector('.category-title-span'),
