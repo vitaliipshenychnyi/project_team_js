@@ -31,3 +31,7 @@ export function onLogoutBtn() {
   // checkLoginToken;
   visibleSignupBtn;
 }
+
+export function hideAuthForm() {
+  refs.authFormBackdrop.classList.add('is-hidden');
+}

@@ -51,8 +51,8 @@ export async function createAccount() {
     );
     console.log('response createAccount', userCredential.user);
 
-    updateProfile(auth.currentUser, {
-      displayName: refs.nameInput.value,
+    await updateProfile(auth.currentUser, {
+      displayName: refs.nameInput.value.trim(),
       // photoURL: 'https://example.com/jane-q-user/profile.jpg',
     })
       .then(() => {
