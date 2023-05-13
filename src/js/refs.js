@@ -11,6 +11,7 @@ export default {
   supportLoadBtn: document.querySelector('.support-button'),
   footerProfilesEl: document.querySelector('.profile-list'),
   pixelJsCakeBtn: document.querySelector('.pixel-js-cake-btn'),
+  spinnerEl: document.querySelector('.breeding-rhombus-spinner'),
   //form
   signUpFormBtn: document.getElementById('signup-formbtn'),
   loginFormBtn: document.getElementById('signin-formbtn'),
