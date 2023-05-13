@@ -173,12 +173,27 @@
   }
 }
 
+.user-login.is-hidden {
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.header-profile-block.is-hidden {
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
 // ==========МОБІЛЬНЕ МЕНЮ========//
 
 @media screen and (max-width: 767px) {
   .mobile-menu-container {
     // height: 100%;
   }
+
   .mobile-menu {
     position: fixed;
     z-index: 2;
@@ -432,6 +447,52 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+.header-profile-wrapper {
+  position: relative;
+  // overflow: hidden;
+}
+
+.header-profile-wrapper.is-hidden{
+  display: none;
+}
+
+.header-profile-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 184px;
+  height: 45px;
+
+  background-color: var(--light-accent-color);
+  border-radius: 36px;
+
+  z-index: 999;
+
+  overflow: hidden;
+}
+
+.header-profile-wrapper .user-logout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+
+  width: 184px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 14px 12px;
+  background: var(--dark-accent-color);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.header-profile-wrapper .user-logout.active {
+  transform: translateY(100%);
+}
+
+
+
 .dark {
   background-color: var(--dark-body-color);
   color: var(--dark-border-n-text-color);
@@ -477,18 +538,16 @@ body.dark .button-see-more {
   color: var(--dark-border-n-text-color);
 }
 
-body.dark .auth-form{
+body.dark .auth-form {
   background-color: #202024;
   color: #f6f6f6;
   border: 2px solid #f6f6f6;
 }
 
 body.dark .auth-content input {
-    background-color: #202024;
-   outline: 2px solid #f6f6f6;
-     color: #f6f6f6;
-
- 
+  background-color: #202024;
+  outline: 2px solid #f6f6f6;
+  color: #f6f6f6;
 }
 body.dark .auth-content input::placeholder {
   color: #f6f6f6;
@@ -504,12 +563,11 @@ body.dark .signup-btn {
 
 body.dark .signup-btn:hover,
 body.dark .signup-btn:focus {
-    background-color: var(--light-accent-color);
-    color: #f6f6f6;
-
+  background-color: var(--light-accent-color);
+  color: #f6f6f6;
 }
 
-body.dark  .auth-form-cross-icon:hover,
-body.dark  .auth-form-cross-icon:focus {
+body.dark .auth-form-cross-icon:hover,
+body.dark .auth-form-cross-icon:focus {
   stroke: var(--light-accent-color);
 }

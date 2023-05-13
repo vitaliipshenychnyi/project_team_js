@@ -29,8 +29,8 @@ async function onAuthFormData(e) {
     }
   }
 
-  AuthStateViewer()
-    .then(console.log('--------------> logged'))
-    .catch(e => console.log('--------------> no login'));
+  // AuthStateViewer()
+  //   .then(console.log('--------------> logged'))
+  //   .catch(e => console.log('--------------> no login'));
   // refs.authFormBackdrop.classList.add('is-hidden');
 }
