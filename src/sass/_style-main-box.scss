@@ -328,10 +328,10 @@
   }
 }
 
-.category:active,
+
 .category:focus,
 .category:hover,
-.category.all-categories {
+.category.category-active {
   font-weight: 700;
   font-size: 14px;
   text-transform: uppercase;

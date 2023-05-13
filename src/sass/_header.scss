@@ -466,7 +466,8 @@ body.dark .category {
 }
 
 body.dark .category:hover,
-body.dark .category:focus {
+body.dark .category:focus,
+body.dark .category.category-active {
   color: #eac645;
 }
 
