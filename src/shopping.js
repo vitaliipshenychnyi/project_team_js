@@ -5,6 +5,7 @@ import './js/api-firebase';
 import './js/mobile-menu';
 import './js/togle-theme';
 import './js/support';
+import './js/shopingList';
 // import onPixelJsCakeBtn from './js/footer';
 
 

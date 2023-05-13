@@ -12,3 +12,4 @@ import './js/footer';
 import './js/scroll-up';
 import './js/authentication-service/firebase-login';
 import './js/modal';
+import './js/shopingList';
