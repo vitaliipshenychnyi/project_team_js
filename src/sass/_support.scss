@@ -27,6 +27,8 @@
   flex-direction: column;
   width: 159px;
   height: 292px;
+  overflow: hidden;
+  
   }
   .support-emblem{
     display: block;
@@ -52,8 +54,41 @@
     .support-button:hover {
       background-color: #d8d8d8;
     }
+    img.support-item {
+    width: 129px;
+    height: 32px;
+   }
+//  .support-scroll{
    
-  
+//     width: 159px;
+//     height: 292px;
+//    }
+  .support-link{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 159px;
+    height: 292px;
+  }
+   .support-p{
+    width: 14px;
+height: 18px;
+margin-right: 16px;
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 18px;
+
+
+display: flex;
+align-items: flex-end;
+letter-spacing: -0.04em;
+
+color: #FFFFFF;
+
+   }
     .support-icon{
         position: absolute;
         top: 50%;
