@@ -56,7 +56,7 @@ function renderBookCard(book) {
   }" height="256" loading="lazy"/>
       <div>
         <p class="modal-name">${book.title}</p>
-        <p class="modal-author">${book.author}</p>
+       <p class="modal-author">${book.author}</p>
         <div class="description">
           <p class="book-description">${book.description}</p>
         </div>
@@ -125,11 +125,12 @@ function objectBook({
   _id,
   book_image,
   title,
+  list_name,
   description,
   author,
   buy_links,
 }) {
-  objBook = { _id, book_image, title, description, author, buy_links };
+  objBook = { _id, book_image, title, list_name, description, author, buy_links };
 }
 
 // функція запису книги до сховища
