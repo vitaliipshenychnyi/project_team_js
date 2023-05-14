@@ -1,74 +1,26 @@
-import refs from './refs';
+import refs from "./refs";
 const icons = [
-  {
-    id: 1,
-    title: 'Save the Children',
-    url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
-    icon: '/img/svg/sprite.svg#emblem',
-    position: 1,
-  },
-  {
-    id: 2,
-    title: 'Project HOPE',
-    url: 'https://www.projecthope.org/country/ukraine/',
-    icon: '/src/img/support-Icon/support1x/ProjectHOPE@1x.png',
-    position: 2,
-  },
-  {
-    id: 3,
-    title: 'UNITED24',
-    url: 'https://u24.gov.ua/uk',
-    icon: '/src/img/support-Icon/support1x/UNITED24@1x.png',
-    position: 3,
-  },
-  {
-    id: 4,
-    title: 'International Medical Corps',
-    url: 'https://internationalmedicalcorps.org/country/ukraine/',
-    icon: '/src/img/support-Icon/support1x/Internationa@1x.png',
-    position: 4,
-  },
-  {
-    id: 5,
-    title: 'Medicins Sans Frontieres',
-    url: 'https://www.msf.org/ukraine',
-    icon: '/src/img/support-Icon/support1x/Medicins@1x.png',
-    position: 5,
-  },
-  {
-    id: 6,
-    title: 'RAZOM',
-    url: 'https://www.razomforukraine.org/',
-    icon: '/src/img/support-Icon/support1x/RAZOM@1x.png',
-    position: 6,
-  },
-  {
-    id: 7,
-    title: 'Action against hunger',
-    url: 'https://www.actionagainsthunger.org/location/europe/ukraine/',
-    icon: '/src/img/support-Icon/support1x/Action@1x.png',
-    position: 7,
-  },
-  {
-    id: 8,
-    title: 'World vision',
-    url: 'https://www.wvi.org/emergencies/ukraine',
-    icon: '/src/img/support-Icon/support1x/World@1x.png',
-    position: 8,
-  },
-  {
-    id: 9,
-    title: 'Serhiy Prytula Charity Foundation',
-    url: 'https://prytulafoundation.org/en',
-    icon: '/src/img/support-Icon/support1x/Serhiy@1x.png',
-    position: 9,
-  },
+  { id: 1,  title: 'Save the Children', url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis', icon: "../img/src/img/support-Icon/Action@1x.png", position: 1 },
+  { id: 2, title: 'Project HOPE', url: 'https://www.projecthope.org/country/ukraine/', icon: '/src/img/support-Icon/support1x/ProjectHOPE@1x.png', position: 2 },
+  { id: 3,  title: 'UNITED24', url: 'https://u24.gov.ua/uk', icon: '/src/img/support-Icon/support1x/UNITED24@1x.png', position: 3 },
+  { id: 4,  title: 'International Medical Corps', url: 'https://internationalmedicalcorps.org/country/ukraine/', icon: '/src/img/support-Icon/support1x/Internationa@1x.png', position: 4 },
+  { id: 5, title: 'Medicins Sans Frontieres', url: 'https://www.msf.org/ukraine', icon: '/src/img/support-Icon/support1x/Medicins@1x.png', position: 5 },
+  { id: 6, title: 'RAZOM', url: 'https://www.razomforukraine.org/', icon: '/src/img/support-Icon/support1x/RAZOM@1x.png', position: 6 },
+  { id: 7, title: 'Action against hunger', url: 'https://www.actionagainsthunger.org/location/europe/ukraine/', icon: '/src/img/support-Icon/support1x/Action@1x.png', position: 7 },
+  { id: 8, title: 'World vision', url: 'https://www.wvi.org/emergencies/ukraine', icon: '/src/img/support-Icon/support1x/World@1x.png', position: 8 },
+  { id: 9, title: 'Serhiy Prytula Charity Foundation', url: 'https://prytulafoundation.org/en', icon: '/src/img/support-Icon/support1x/Serhiy@1x.png', position: 9 },
 ];
 
 const SUPPORT_ITEMS_QUERY = 6;
 
+let itemsQuery = SUPPORT_ITEMS_QUERY;
+if (window.innerWidth >= 360 && window.innerWidth <= 767) {
+  itemsQuery = 4;
+}
+
 function renderRowGallery(icons) {
-  // console.log(" vjzfhsfhs", tt)
+
+// console.log(itemsQuery)
   const markup = icons
     .slice(0, SUPPORT_ITEMS_QUERY)
     .map(
@@ -83,34 +35,34 @@ function renderRowGallery(icons) {
       </div>`
     )
     .join('');
-
+  
   refs.supportRenderEl.innerHTML = markup;
-  console.log(refs.supportEl);
+  // console.log(refs.supportEl);
 }
 
-const iconsShow = icons.slice(0, 6);
+// console.log("nfjfjfjfjfjfj",itemsQuery)
+
+const iconsShow = icons.slice(0, itemsQuery);
 let isChangeIcon = true;
 renderRowGallery(iconsShow);
 refs.supportLoadBtn.addEventListener('click', onClick);
 function onClick() {
-  console.log(iconsShow);
-  console.log(isChangeIcon);
+
+
+// console.log(iconsShow)
+// console.log(isChangeIcon)
   if (isChangeIcon) {
     if (iconsShow[iconsShow.length - 1].id == 9) {
-      return (isChangeIcon = false);
+      return isChangeIcon = false;
     }
-    const indexLastElement = icons.findIndex(
-      element => element.id === iconsShow[iconsShow.length - 1].id
-    );
+    const indexLastElement = icons.findIndex((element) => element.id === iconsShow[iconsShow.length - 1].id);
     iconsShow.push(icons[indexLastElement + 1]);
     iconsShow.shift(); // delete first element
   } else {
     if (iconsShow[0].id === 1) {
-      return (isChangeIcon = true);
+      return isChangeIcon = true;
     }
-    const indexFirstElement = icons.findIndex(
-      element => element.id === iconsShow[0].id
-    );
+    const indexFirstElement = icons.findIndex((element) => element.id === iconsShow[0].id);
     iconsShow.unshift(icons[indexFirstElement - 1]);
     iconsShow.pop(); // delete last element
   }
@@ -118,5 +70,17 @@ function onClick() {
   if (iconsShow[0].id === 4 || iconsShow[0].id === 1) {
     isChangeIcon = !isChangeIcon;
   }
+
   renderRowGallery(iconsShow);
+
+//   if(isChangeIcon){
+//     refs.iconSvgBtnEl.innerHTML = <svg class="support-icon" width="7" height="13"> <use href= "/src/img/svg/sprite.svg#icon-scroll-down"></use>  </svg>
+// // вниз
+//   }else{
+//     refs.iconSvgBtnEl.innerHTML = <svg class="support-icon" width="7" height="13"> <use href= "/src/img/svg/sprite.svg#icon-scroll-up"></use>  </svg>
+// // вверх
+//   }
+
+
+
 }
