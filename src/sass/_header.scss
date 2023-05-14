@@ -510,7 +510,8 @@ input:checked + .slider:before {
   background-color: var(--dark-body-color);
   color: var(--dark-border-n-text-color);
 }
-body.dark .header {
+body.dark .header,
+body.dark .footer  {
   background-color: black;
   color: #ffffff;
   border: 1.5px solid #ffffff;
@@ -533,6 +534,7 @@ body.dark .home-link:hover,
 body.dark .home-link:focus {
   color: #111111;
   fill: #111111;
+  stroke: #111111;
 }
 
 body.dark .category {
@@ -557,7 +559,7 @@ body.dark .auth-form {
   border: 2px solid #f6f6f6;
 }
 
-body.dark .auth-content input {
+body.dark .auth-content input{
   background-color: #202024;
   outline: 2px solid #f6f6f6;
   color: #f6f6f6;
@@ -591,3 +593,8 @@ body.dark .auth-form-linksBtn {
 body.dark .auth-form-linksBtn.active {
   color: var(--light-accent-color);
 }
+
+body.dark .footer  {
+  background: black;
+}
+
