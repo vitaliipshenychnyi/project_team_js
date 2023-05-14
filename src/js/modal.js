@@ -2,12 +2,10 @@ import refs from './refs';
 import axios from 'axios';
 
 const arrDataBooks = [];
-let objBook;
+let objBook = {};
 
 refs.mainGalleryEl.addEventListener('click', onBookCardClick);
 refs.modalCloseBtn.addEventListener('click', closeModal);
-
-localStorage.setItem('books-data', JSON.stringify(arrDataBooks));
 
 // функція отримання id книги
 function onBookCardClick(event) {
@@ -19,13 +17,14 @@ function onBookCardClick(event) {
 
 // функція відкриття модального вікна
 function openModal(idBook) {
+  refs.modal.classList.remove('is-hidden');
   const booksInLocal = JSON.parse(localStorage.getItem('books-data'));
-
-  if (!booksInLocal.filter(el => el._id === idBook)) {
+  if (!booksInLocal.filter(el => el._id == idBook)) {
     refs.buttonAddBookEl.textContent = 'Add to shopping list';
   }
+  refs.addedTextEl.innerHTML =
+    '<p class="added-text">Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>';
 
-  refs.modal.classList.remove('is-hidden');
   getDataBook(idBook);
 }
 
@@ -46,18 +45,68 @@ async function getDataBook(idBook) {
 function renderBookCard(book) {
   const bookCardMarkup = `
     <div class="wrapper-modal-data">
-      <img class="img" src="${book.book_image}" alt="${book.title}" height="256" loading="lazy"/>
+      <img class="img" src="${book.book_image}" alt="${
+    book.title
+  }" height="256" loading="lazy"/>
       <div>
-        <p class="book-name modal-name">${book.title}</p>
-        <p class="book-author modal-author">${book.author}</p>
+        <p class="modal-name">${book.title}</p>
+        <p class="modal-author">${book.author}</p>
         <div class="description">
           <p class="book-description">${book.description}</p>
         </div>
-        <ul class="link-list">
-          <li><a class="buy-link link" href="${book.buy_links[0].url}">Amazon</a></li>
-          <li><a class="buy-link link" href="${book.buy_links[1].url}">Apple Books</a></li>
-          <li><a class="buy-link link" href="${book.buy_links[2].url}">Barnes and Noble</a></li>
-        </ul>
+                     <ul class="shops-links-list">
+             <li class="shop-item">
+             <a href="${
+               book.buy_links[0].url
+             }" class="shop-item-link" target=_blank>
+             <img
+             class="shops-item-icon"
+             srcset="
+             ${require('/src/img/amazon@1x.png')} 48w,
+             ${require('/src/img/amazon@2x.png')} 96w,
+             "
+             sizes="48px"
+              src="${require('/src/img/amazon@1x.png')}"
+              width="48" height="15"
+              alt="Amazon"
+              />
+              
+             </a>
+              </li>
+              <li class="shop-item">
+              <a href="${
+                book.buy_links[1].url
+              }" class="shop-item-link" target=_blank>
+               <img
+             class="shops-item-icon"
+             srcset="
+             ${require('/src/img/appleBooks@1x.png')} 28w,
+             ${require('/src/img/appleBooks@2x.png')} 56w,
+             "
+             sizes="28px"
+              src="${require('/src/img/appleBooks@1x.png')}"
+              width="28" height="27"
+              alt="Apple Books"
+              />
+             </a>
+              </li>
+              <li class="shop-item">
+              <a href="${
+                book.buy_links[4].url
+              }" class="shop-item-link" target=_blank>
+               <img
+             class="shops-item-icon"
+             srcset="
+             ${require('/src/img/booksAMillion@1x.png')} 32w,
+             ${require('/src/img/booksAMillion@2x.png')} 64w,
+             "sizes="32px"
+              src="${require('/src/img/booksAMillion@1x.png')}"
+              width="32" height="30"
+              alt="Bookshop"
+              />
+                </a>
+                  </li>
+                  </ul>
       </div>
     </div>
     `;
@@ -81,15 +130,16 @@ refs.buttonAddBookEl.addEventListener('click', saveBookToLocalStorage);
 
 // функція запису книги до сховища
 function saveBookToLocalStorage() {
-  const addedText =
+  refs.addedTextEl.innerHTML =
     '<p class="added-text">Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>';
   refs.buttonAddBookEl.textContent = 'REMOVE FROM THE SHOPPING LIST';
   arrDataBooks.push(objBook);
-  refs.buttonAddBookEl.insertAdjacentHTML('afterend', addedText);
+  localStorage.setItem('books-data', JSON.stringify(arrDataBooks));
 }
 
 // функція закриття модального вікна
 function closeModal() {
   refs.wrapperBookEl.innerHTML = '';
+  refs.addedTextEl.innerHTML = '';
   refs.modal.classList.add('is-hidden');
 }

@@ -18,6 +18,7 @@ export default {
   spinnerEl: document.querySelector('.breeding-rhombus-spinner'),
   wrapperBookEl: document.querySelector('.wrapper-book'),
   buttonAddBookEl: document.querySelector('.form__button'),
+  addedTextEl: document.querySelector('.added-text'),
   // buttonDeleteBookEl: document.querySelector('.deleteBook'),
   //form
   signUpFormBtn: document.getElementById('signup-formbtn'),
