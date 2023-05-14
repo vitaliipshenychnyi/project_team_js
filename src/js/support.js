@@ -95,14 +95,12 @@ function renderRowGallery(icons) {
     .slice(0, SUPPORT_ITEMS_QUERY)
     .map(
       elem =>
-        `<div class="">
-        <a href="${elem.url}">
-          <p>${elem.id}</p>
+        `
+        <a class="support-item" href="${elem.url}">
+          <p class="id-support">${elem.id}</p>
           <img src="${elem.icon}" alt="" loading="lazy"/> 
-         
         </a>
-        
-      </div>`
+`
     )
     .join('');
   
