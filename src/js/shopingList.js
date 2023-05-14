@@ -221,14 +221,14 @@ function createCardMarkup(dataBooks) {
               <p class="book-genre">${book.list_name}</p> 
              <p class="book-description">${book.description}</p>
              <div class="shopping-box">
-             <p class="book-author">${book.author}</p>
+             <p class="shopping-book-author">${book.author}</p>
              <ul class="shops-links-list">
              <li class="shop-item">
              <a href="${
                book.buy_links[0].url
              }" class="shop-item-link" target=_blank>
              <img
-             class="shops-item-icon"
+             class="shops-item-icon amazon-img"
              srcset="
              ${require('/src/img/amazon@1x.png')} 48w,
              ${require('/src/img/amazon@2x.png')} 96w,
@@ -246,7 +246,7 @@ function createCardMarkup(dataBooks) {
                 book.buy_links[1].url
               }" class="shop-item-link" target=_blank>
                <img
-             class="shops-item-icon"
+             class="shops-item-icon apple-img"
              srcset="
              ${require('/src/img/appleBooks@1x.png')} 28w,
              ${require('/src/img/appleBooks@2x.png')} 56w,
@@ -263,7 +263,7 @@ function createCardMarkup(dataBooks) {
                 book.buy_links[4].url
               }" class="shop-item-link" target=_blank>
                <img
-             class="shops-item-icon"
+             class="shops-item-icon bookshop-img"
              srcset="
              ${require('/src/img/booksAMillion@1x.png')} 32w,
              ${require('/src/img/booksAMillion@2x.png')} 64w,
@@ -295,14 +295,14 @@ function createCardMarkup(dataBooks) {
               <p class="book-genre">${book.list_name}</p> 
              <p class="book-description">Unfortunately, this book has no description yet.</p>
              <div class="shopping-box">
-             <p class="book-author">${book.author}</p>
+             <p class="shopping-book-author">${book.author}</p>
              <ul class="shops-links-list">
              <li class="shop-item">
             <a href="${
               book.buy_links[0].url
             }" class="shop-item-link" target=_blank>
              <img
-             class="shops-item-icon"
+             class="shops-item-icon amazon-img"
              srcset="
              ${require('/src/img/amazon@1x.png')} 48w,
              ${require('/src/img/amazon@2x.png')} 96w,
@@ -319,7 +319,7 @@ function createCardMarkup(dataBooks) {
                 book.buy_links[1].url
               }" class="shop-item-link" target=_blank>
                <img
-             class="shops-item-icon"
+             class="shops-item-icon apple-img"
              srcset="
              ${require('/src/img/appleBooks@1x.png')} 28w,
              ${require('/src/img/appleBooks@2x.png')} 56w,
@@ -336,7 +336,7 @@ function createCardMarkup(dataBooks) {
                 book.buy_links[4].url
               }" class="shop-item-link" target=_blank>
                <img
-             class="shops-item-icon"
+             class="shops-item-icon bookshop-img"
              srcset="
              ${require('/src/img/booksAMillion@1x.png')} 32w,
              ${require('/src/img/booksAMillion@2x.png')} 64w,
