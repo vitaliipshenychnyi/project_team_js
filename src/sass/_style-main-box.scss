@@ -355,6 +355,13 @@
 
 @media screen and (min-width: 768px) {
   .breeding-rhombus-spinner {
+    top: 70px;
+    left: 200;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .breeding-rhombus-spinner {
     top: 200;
     left: 200;
   }
