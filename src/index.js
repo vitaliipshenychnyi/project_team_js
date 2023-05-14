@@ -7,9 +7,10 @@ import './js/api-firebase';
 import './js/mobile-menu';
 import './js/togle-theme';
 import './js/support';
-import onPixelJsCakeBtn from './js/footer';
+// import onPixelJsCakeBtn from './js/footer';
+import './js/render-photo-card-footer'
 
 
 import './js/scroll-up'
 onLoginBtn();
-onPixelJsCakeBtn();
+// onPixelJsCakeBtn();

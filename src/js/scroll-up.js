@@ -57,7 +57,6 @@ function onScrollUpClick() {
  window.addEventListener('scroll', throttle(showScrollUpButton,1000));
  
 function showScrollUpButton(evt) {
-    console.log(evt);
     const scrollY = window.scrollY || document.documentElement.scrollTop;
    scrollY > 3000 ? showScrollUpBtn() : hideScrollUpBtn(); 
 }
