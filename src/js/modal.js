@@ -6,6 +6,10 @@ let objBook = {};
 
 refs.mainGalleryEl.addEventListener('click', onBookCardClick);
 
+if (localStorage.getItem('books-data')) {
+  arrDataBooks = JSON.parse(localStorage.getItem('books-data'));
+}
+
 // функція отримання id книги
 function onBookCardClick(event) {
   const bookCard = event.target.closest('.book-card-wrapper');
