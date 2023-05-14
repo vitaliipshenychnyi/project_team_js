@@ -2,6 +2,7 @@ import refs from './refs';
 import axios from 'axios';
 
 let arrDataBooks = [];
+let idBook = {};
 refs.mainGalleryEl.addEventListener('click', onBookCardClick);
 
 if (localStorage.getItem('books-data')) {
@@ -11,7 +12,7 @@ if (localStorage.getItem('books-data')) {
 // функція отримання id книги
 function onBookCardClick(event) {
   const bookCard = event.target.closest('.book-card-wrapper');
-  let idBook = bookCard.dataset.idbook;
+  idBook = bookCard.dataset.idbook;
   if (!bookCard) return;
   openModal(idBook);
 }
