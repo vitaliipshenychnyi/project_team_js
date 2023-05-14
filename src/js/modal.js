@@ -81,8 +81,11 @@ refs.buttonAddBookEl.addEventListener('click', saveBookToLocalStorage);
 
 // функція запису книги до сховища
 function saveBookToLocalStorage() {
+  const addedText =
+    '<p class="added-text">Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>';
   refs.buttonAddBookEl.textContent = 'REMOVE FROM THE SHOPPING LIST';
   arrDataBooks.push(objBook);
+  refs.buttonAddBookEl.insertAdjacentHTML('afterend', addedText);
 }
 
 // функція закриття модального вікна
