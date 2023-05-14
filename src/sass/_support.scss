@@ -71,6 +71,20 @@
   background-color: #d8d8d8;
 }
 
+.support{
+  margin-top: 40px;
+}
+@media screen and (min-width: 768px) {
+.support {
+    margin-top: 0;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .support {
+    margin-top: 86px;
+  }
+}
+
 .support-icon {
   position: absolute;
   top: 50%;
