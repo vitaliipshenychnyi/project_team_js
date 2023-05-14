@@ -29,4 +29,9 @@ export default {
   btnSignup: document.getElementById('btnSignup'),
   btnLogout: document.getElementById('btnLogout'),
   authSubmitBtn: document.getElementById('authform-submitBtn'),
+  //login
+  profileNameEl: document.querySelector('[data-profile-name]'),
+  headerProfileEl: document.getElementById('header-profile-btn'),
+  headerSignupEl: document.getElementById('header-signup'),
+  headerlogoutBtn: document.getElementById('header-logout'),
 };

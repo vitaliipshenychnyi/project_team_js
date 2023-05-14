@@ -9,17 +9,20 @@ import {
 } from 'firebase/auth';
 import refs from '../refs';
 import firebaseInitApp from './firebase-init';
+import {
+  checkLoginToken,
+  visibleProfileBtn,
+  visibleSignupBtn,
+} from '../authentication-service/auth-service';
 
 const auth = getAuth(firebaseInitApp);
-
 // connectAuthEmulator(auth, 'http://localhost:9099');
-
-refs.btnLogout.addEventListener('click', logout);
-
 AuthStateViewer();
 
 const LOCAL_STORAGE_TOKEN = 'user-token';
-const parsedToken = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TOKEN));
+export const parsedToken = JSON.parse(
+  localStorage.getItem(LOCAL_STORAGE_TOKEN)
+);
 
 export async function loginAccount() {
   try {
@@ -33,6 +36,7 @@ export async function loginAccount() {
     // console.log('token', userCredential.user.accessToken);
     // console.log('response user', userCredential.user);
     // console.log('response loginAccount', userCredential.user.uid);
+    visibleProfileBtn();
   } catch (error) {
     console.log(error);
   }
@@ -47,16 +51,15 @@ export async function createAccount() {
     );
     console.log('response createAccount', userCredential.user);
 
-    updateProfile(auth.currentUser, {
-      displayName: refs.nameInput.value,
+    await updateProfile(auth.currentUser, {
+      displayName: refs.nameInput.value.trim(),
       // photoURL: 'https://example.com/jane-q-user/profile.jpg',
     })
       .then(() => {
-        console.log(userCredential.user.displayName);
+        // console.log(userCredential.user.displayName);
       })
       .catch(error => {
         console.log(error.message);
-        console.log('enter your name');
       });
 
     userCredential.user.displayName = refs.nameInput.value;
@@ -68,15 +71,13 @@ export async function createAccount() {
 export async function AuthStateViewer() {
   onAuthStateChanged(auth, user => {
     if (user) {
+      refs.profileNameEl.textContent = user.displayName;
       console.log('Welcome ', user.displayName, '! email :', user.email);
-      // console.log(user);
-      console.log(user.displayName);
-      console.log(user.accessToken);
       localStorage.setItem(
         LOCAL_STORAGE_TOKEN,
         JSON.stringify(user.accessToken)
       );
-      // refs.authFormBackdrop.style.display = 'none';
+      checkLoginToken();
     } else {
       console.log('no user');
     }
@@ -86,4 +87,5 @@ export async function AuthStateViewer() {
 export async function logout() {
   await signOut(auth);
   localStorage.removeItem(LOCAL_STORAGE_TOKEN);
+  visibleSignupBtn();
 }
