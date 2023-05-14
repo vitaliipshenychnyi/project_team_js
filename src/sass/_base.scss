@@ -51,52 +51,6 @@ img {
   overflow: hidden;
 }
 
-// SUPPORT SECTION
-.support-container{
-  display: block;
-  justify-content: center;
-  align-items: start;
-  padding-top: 24px;
-  width: 356px;
-height: 490px;
-
-background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
-border-radius: 16px;
-outline: 2px solid tomato;
-align-items: center;       
-padding: 8px 24px;  
-
-}
-
-.support-render{
-display: flex;
-flex-direction: column;
-}
-
-.support-ukraine{ 
-
-   color:#FFFFFF;
-   margin-right: 12px;
-
-  }
-  .support-button{
-  width: 38px;
-    height: 38px;
-    cursor: pointer;
-    background-color: red;
-    
-    border-radius: 50%;
-    transition: opacity .3s linear, visibility .3s linear, background-color .3s linear;
-   
-    bottom: 100px;
-    right: 20px;
-
-  }
-  .support-icon{
-    background-color: #4F2EE8;
-
-  }
 // налаштування контейнерів
 @media screen and (min-width: 300px) {
   .container {

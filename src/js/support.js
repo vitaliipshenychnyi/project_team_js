@@ -1,6 +1,6 @@
 import refs from "./refs";
 const icons = [
-  { id: 1,  title: 'Save the Children', url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis', icon: "/img/svg/sprite.svg#emblem", position: 1 },
+  { id: 1,  title: 'Save the Children', url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis', icon: "../img/src/img/support-Icon/Action@1x.png", position: 1 },
   { id: 2, title: 'Project HOPE', url: 'https://www.projecthope.org/country/ukraine/', icon: '/src/img/support-Icon/support1x/ProjectHOPE@1x.png', position: 2 },
   { id: 3,  title: 'UNITED24', url: 'https://u24.gov.ua/uk', icon: '/src/img/support-Icon/support1x/UNITED24@1x.png', position: 3 },
   { id: 4,  title: 'International Medical Corps', url: 'https://internationalmedicalcorps.org/country/ukraine/', icon: '/src/img/support-Icon/support1x/Internationa@1x.png', position: 4 },
@@ -13,8 +13,14 @@ const icons = [
 
 const SUPPORT_ITEMS_QUERY = 6;
 
+
+
 function renderRowGallery(icons) {
-  // console.log(" vjzfhsfhs", tt)
+  let itemsQuery = SUPPORT_ITEMS_QUERY;
+  if (window.innerWidth >= 360 && window.innerWidth <= 767) {
+    itemsQuery = 4;
+  }
+ console.log(itemsQuery)
   const markup = icons
     .slice(0, SUPPORT_ITEMS_QUERY)
     .map(
