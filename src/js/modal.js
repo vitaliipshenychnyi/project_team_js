@@ -45,16 +45,20 @@ async function getDataBook(idBook) {
 // функція відтворення даних про книгу
 function renderBookCard(book) {
   const bookCardMarkup = `
-    <div>
-    <img src="${book.book_image}" alt="${book.title}" height="256" loading="lazy"/>
-    <p class="book-name">${book.title}</p>
-    <p class="book-author">${book.author}</p>
-    <p class="book-description">${book.description}</p>
-    <ul>
-    <li><a href="${book.buy_links[0].url}">Amazon</a></li>
-    <li><a href="${book.buy_links[1].url}">Apple Books</a></li>
-    <li><a href="${book.buy_links[2].url}">Barnes and Noble</a></li>
-    </ul>
+    <div class="wrapper-modal-data">
+      <img class="img" src="${book.book_image}" alt="${book.title}" height="256" loading="lazy"/>
+      <div>
+        <p class="book-name modal-name">${book.title}</p>
+        <p class="book-author modal-author">${book.author}</p>
+        <div class="description">
+          <p class="book-description">${book.description}</p>
+        </div>
+        <ul class="link-list">
+          <li><a class="buy-link link" href="${book.buy_links[0].url}">Amazon</a></li>
+          <li><a class="buy-link link" href="${book.buy_links[1].url}">Apple Books</a></li>
+          <li><a class="buy-link link" href="${book.buy_links[2].url}">Barnes and Noble</a></li>
+        </ul>
+      </div>
     </div>
     `;
 
@@ -77,7 +81,7 @@ refs.buttonAddBookEl.addEventListener('click', saveBookToLocalStorage);
 
 // функція запису книги до сховища
 function saveBookToLocalStorage() {
-  refs.buttonAddBookEl.textContent = 'remove from the shopping list';
+  refs.buttonAddBookEl.textContent = 'REMOVE FROM THE SHOPPING LIST';
   arrDataBooks.push(objBook);
 }
 
