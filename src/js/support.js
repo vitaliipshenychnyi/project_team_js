@@ -86,6 +86,38 @@ function renderRowGallery(icons) {
 }
 
 
+// const iconsShow = icons.slice(0, itemsQuery);
+// let isChangeIcon = true;
+// renderRowGallery(iconsShow);
+// refs.supportLoadBtn.addEventListener('click', onClick);
+// function onClick() {
+//   // console.log(iconsShow)
+//   // console.log(isChangeIcon)
+//   if (isChangeIcon) {
+//     if (iconsShow[iconsShow.length - 1].id == 9) {
+//       return (isChangeIcon = false);
+//     }
+//     const indexLastElement = icons.findIndex(
+//       element => element.id === iconsShow[iconsShow.length - 1].id
+//     );
+//     iconsShow.push(icons[indexLastElement + 1]);
+//     iconsShow.shift(); // delete first element
+//   } else {
+//     if (iconsShow[0].id === 1) {
+//       return (isChangeIcon = true);
+//     }
+//     const indexFirstElement = icons.findIndex(
+//       element => element.id === iconsShow[0].id
+//     );
+//     iconsShow.unshift(icons[indexFirstElement - 1]);
+//     iconsShow.pop(); // delete last element
+//   }
+
+//   if (iconsShow[0].id === 4 || iconsShow[0].id === 1) {
+//     isChangeIcon = !isChangeIcon;
+//   }
+
+//   renderRowGallery(iconsShow);
 
 
 const iconsShow = icons.slice(0, itemsQuery);
@@ -155,3 +187,4 @@ console.log(refs.iconSvgBtnEl)
 //   refs.supportRenderEl.innerHTML = '';
 //   refs.supportRenderEl.appendChild(container);
 // }
+

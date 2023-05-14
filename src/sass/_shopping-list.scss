@@ -48,6 +48,7 @@
   font-size: 32px;
   line-height: 1.19;
   display: block;
+  margin-bottom: 40px;
 
   @media screen and (min-width: 768px) {
     font-size: 48px;
@@ -125,7 +126,7 @@
   max-width: 98px;
   max-height: 139px;
 
-  margin-right: 20px;
+  margin-right: 14px;
   margin-bottom: 4px;
 
   @media screen and (min-width: 768px) {
@@ -142,7 +143,7 @@
   width: 100%;
 }
 
-.book-title {
+.shopping-book-title {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -150,17 +151,21 @@
   -webkit-box-orient: vertical;
 
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.12;
+  max-width: 120px;
 
-  @media screen and (max-width: 767px) {
-    max-width: 144px;
+  @media screen and (min-width: 768px) {
+    min-width: 100%;
+    font-size: 16px;
   }
 
   margin-bottom: 4px;
 }
 
 .book-genre {
+  width: 135px;
+
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -174,8 +179,12 @@
   color: var(--light-header-secondary-color);
 
   margin-bottom: 24px;
+  @media screen and (min-width: 425px) {
+    width: 170px;
+  }
 
   @media screen and (min-width: 768px) {
+    width: 100%;
     margin-bottom: 14px;
   }
 }
@@ -188,21 +197,25 @@
   -webkit-box-orient: vertical;
 
   display: flex;
+  flex-wrap: nowrap;
   font-style: italic;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 1.17;
 
   color: var(--light-header-secondary-color);
+  @media screen and (min-width: 425px) {
+    font-size: 14px;
 
-  @media screen and (max-width: 767px) {
-    max-width: 98px;
+    @media screen and (max-width: 767px) {
+      max-width: 98px;
+    }
   }
 }
 
 .shops-links-list {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 8px;
   margin-left: auto;
 }
 
@@ -215,6 +228,35 @@
 .shops-item-icon:hover,
 .shops-item-icon:focus {
   filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+}
+.amazon-img {
+  width: 32px;
+  height: 11px;
+}
+.apple-img {
+  width: 16px;
+  height: 16px;
+}
+.bookshop-img {
+  width: 16px;
+  height: 16px;
+}
+@media screen and (min-width: 768px) {
+  .amazon-img {
+    width: 48px;
+    height: 15px;
+  }
+  .apple-img {
+    width: 28px;
+    height: 27px;
+  }
+  .bookshop-img {
+    width: 32px;
+    height: 30px;
+  }
+  .shops-links-list {
+    gap: 14px;
+  }
 }
 
 .book-description {
@@ -273,6 +315,8 @@
   @media screen and (min-width: 1440px) {
     display: block;
     width: 356px;
+    margin-bottom: 168px;
+    margin-top: 40px;
   }
 }
 

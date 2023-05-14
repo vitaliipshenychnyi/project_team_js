@@ -1,6 +1,11 @@
 // ==========МОБІЛЬНА ВЕРСІЯ========//
 
 .header {
+  position: sticky;
+    width: 100vw;
+    z-index: 100;
+    top: 0;
+    right: 0;
   padding-top: 17px;
   padding-bottom: 16px;
 
@@ -10,15 +15,15 @@
   background-color: var(--light-header-bg-color);
   transition: background-color 1000ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-@media screen and (max-width: 767px) {
-  .header {
-    position: sticky;
-    width: 100vw;
-    z-index: 100;
-    top: 0;
-    right: 0;
-  }
-}
+// @media screen and (max-width: 767px) {
+//   .header {
+//     position: sticky;
+//     width: 100vw;
+//     z-index: 100;
+//     top: 0;
+//     right: 0;
+//   }
+// }
 .header-container {
   display: flex;
   align-items: center;
@@ -495,7 +500,6 @@ input:checked + .slider:before {
 
   background-color: var(--light-body-color);
 
-
   overflow: hidden;
   cursor: pointer;
 }
@@ -510,7 +514,8 @@ input:checked + .slider:before {
   background-color: var(--dark-body-color);
   color: var(--dark-border-n-text-color);
 }
-body.dark .header {
+body.dark .header,
+body.dark .footer {
   background-color: black;
   color: #ffffff;
   border: 1.5px solid #ffffff;
@@ -533,6 +538,7 @@ body.dark .home-link:hover,
 body.dark .home-link:focus {
   color: #111111;
   fill: #111111;
+  stroke: #111111;
 }
 
 body.dark .category {
@@ -575,7 +581,9 @@ body.dark .signup-btn {
 }
 
 body.dark .signup-btn:hover,
-body.dark .signup-btn:focus {
+body.dark .signup-btn:focus,
+body.dark .form__button:hover,
+body.dark .form__button:focus {
   background-color: var(--light-accent-color);
   color: #f6f6f6;
 }
@@ -585,9 +593,32 @@ body.dark .auth-form-cross-icon:focus {
   stroke: var(--light-accent-color);
 }
 body.dark .auth-form-linksBtn {
-  color: var(--dark-header-secondary-color)
+  color: var(--dark-header-secondary-color);
 }
 
 body.dark .auth-form-linksBtn.active {
   color: var(--light-accent-color);
 }
+
+body.dark .footer,
+body.dark .shopping-list-item {
+  background: black;
+}
+
+body.dark .modal {
+  background-color: #202024;
+  border: 2px solid #ffffff;
+}
+
+body.dark .modal-name,
+body.dark .book-description,
+body.dark .form__button,
+body.dark .added-text {
+  color: #ffffff;
+}
+
+body.dark .form__button {
+  background-color: #202024;
+}
+
+

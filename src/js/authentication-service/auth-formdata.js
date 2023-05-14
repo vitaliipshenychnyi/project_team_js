@@ -12,10 +12,13 @@ async function onAuthFormData(e) {
 
   if (refs.authSubmitBtn.dataset.login === 'login') {
     try {
-      loginAccount().then(() => {
-        hideAuthForm();
-        refs.authForm.reset();
-      });
+      loginAccount()
+        .then(() => {
+          hideAuthForm();
+          refs.authForm.reset();
+        })
+        .catch()
+        .finally();
     } catch (error) {
       console.log(error.message);
     }

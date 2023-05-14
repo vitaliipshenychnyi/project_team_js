@@ -15,14 +15,23 @@ import {
   visibleSignupBtn,
 } from '../authentication-service/auth-service';
 import { postUserIntoDatebase } from './firebase-database';
+import { async } from '@firebase/util';
 
 export const auth = getAuth(firebaseInitApp);
 // connectAuthEmulator(auth, 'http://localhost:9099');
 
-const LOCAL_STORAGE_TOKEN = 'user-token';
+const LOCAL_STORAGE_TOKEN = 'userToken';
 export const parsedToken = JSON.parse(
   localStorage.getItem(LOCAL_STORAGE_TOKEN)
 );
+
+export async function getUserId() {
+  if (user === null) {
+    return;
+  }
+  return user.uid;
+}
+
 AuthStateViewer();
 
 export async function loginAccount() {
@@ -45,13 +54,14 @@ export async function createAccount() {
       refs.emailInput.value.trim(),
       refs.passwordInput.value
     );
-    updateProfile(auth.currentUser, {
+    updateProfile(user, {
       displayName: refs.nameInput.value.trim(),
       // photoURL: 'https://example.com/jane-q-user/profile.jpg',
     });
-    postUserIntoDatebase(userCredential.user);
+    AuthStateViewer();
+    postUserIntoDatebase(user);
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 }
 
@@ -63,6 +73,7 @@ export async function AuthStateViewer() {
         LOCAL_STORAGE_TOKEN,
         JSON.stringify(user.accessToken)
       );
+      userId = user.uid;
       checkLoginToken();
     } else {
       console.log('NO USER');
