@@ -1,13 +1,13 @@
 import refs from './refs';
-import img1 from '../img/support-icon/action@1x.png';
-import img2 from '../img/support-icon/internationa@2x.png';
-import img3 from '../img/support-icon/medicins@2x.png';
-import img4 from '../img/support-icon/projectHOPE@2x.png';
-import img5 from '../img/support-icon/razom@2x.png';
-import img6 from '../img/support-icon/save@2x.png';
-import img7 from '../img/support-icon/serhiy@2x.png';
-import img8 from '../img/support-icon/united24@2x.png';
-import img9 from '../img/support-icon/world@2x.png';
+// import img1 from '../img/support-icon/action@1x.png';
+// import img2 from '../img/support-icon/internationa@2x.png';
+// import img3 from '../img/support-icon/medicins@2x.png';
+// import img4 from '../img/support-icon/projectHOPE@2x.png';
+// import img5 from '../img/support-icon/razom@2x.png';
+// import img6 from '../img/support-icon/save@2x.png';
+// import img7 from '../img/support-icon/serhiy@2x.png';
+// import img8 from '../img/support-icon/united24@2x.png';
+// import img9 from '../img/support-icon/world@2x.png';
 
 const icons = [
   {
