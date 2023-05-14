@@ -3,7 +3,7 @@ import axios from 'axios';
 
 let arrDataBooks = [];
 let objBook = {};
-
+let idBook = 0;
 refs.mainGalleryEl.addEventListener('click', onBookCardClick);
 
 if (localStorage.getItem('books-data')) {
@@ -13,7 +13,7 @@ if (localStorage.getItem('books-data')) {
 // функція отримання id книги
 function onBookCardClick(event) {
   const bookCard = event.target.closest('.book-card-wrapper');
-  const idBook = bookCard.dataset.idbook;
+  idBook = bookCard.dataset.idbook;
   if (!bookCard) return;
   openModal(idBook);
 }
@@ -21,17 +21,17 @@ function onBookCardClick(event) {
 // функція відкриття модального вікна
 function openModal(idBook) {
   refs.modalCloseBtn.addEventListener('click', closeModal);
-  refs.buttonAddBookEl.addEventListener('click', saveBookToLocalStorage);
   refs.modal.classList.remove('is-hidden');
-  const booksInLocal = JSON.parse(localStorage.getItem('books-data'));
-  if (!booksInLocal.some(el => el._id === idBook)) {
-    refs.buttonAddBookEl.textContent = 'ADD TO SHOPPING LIST';
-  } else {
+  getDataBook(idBook);
+  if (arrDataBooks.some(el => el._id === idBook)) {
     refs.addedTextEl.innerHTML =
       '<p class="added-text">Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>';
+    refs.buttonAddBookEl.textContent = 'REMOVE FROM THE SHOPPING LIST';
+    refs.buttonAddBookEl.addEventListener('click', deleteBookToLocalStorage);
+  } else {
+    refs.buttonAddBookEl.textContent = 'ADD TO SHOPPING LIST';
+    refs.buttonAddBookEl.addEventListener('click', saveBookToLocalStorage);
   }
-
-  getDataBook(idBook);
 }
 
 // функція отримання розширених даних книги
@@ -139,6 +139,9 @@ function saveBookToLocalStorage() {
   refs.addedTextEl.innerHTML =
     '<p class="added-text">Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>';
   refs.buttonAddBookEl.textContent = 'REMOVE FROM THE SHOPPING LIST';
+  if (!objBook) {
+    return;
+  }
   arrDataBooks.push(objBook);
   localStorage.setItem('books-data', JSON.stringify(arrDataBooks));
 }
@@ -149,6 +152,12 @@ function deleteBookToLocalStorage() {
   refs.buttonAddBookEl.addEventListener('click', saveBookToLocalStorage);
   refs.addedTextEl.innerHTML = '';
   refs.buttonAddBookEl.textContent = 'ADD TO SHOPPING LIST';
+
+  const permId = arrDataBooks.findIndex(el => el._id === idBook);
+  arrDataBooks.splice(
+    arrDataBooks.findIndex(el => el._id === idBook),
+    permId
+  );
 }
 
 // функція закриття модального вікна
