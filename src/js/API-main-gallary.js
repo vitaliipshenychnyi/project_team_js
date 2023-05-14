@@ -8,7 +8,7 @@ const BASE_URL = 'https://books-backend.p.goit.global/books/';
 export async function mainGallery() {
   try {
     const response = await axios.get(`${BASE_URL}top-books`);
-    console.log(response.data);
+    // console.log(response.data[0].books[0]);
     renderGallery(response.data);
     refs.spinnerEl.setAttribute('hidden', true); // вимикає spiner
   } catch (error) {

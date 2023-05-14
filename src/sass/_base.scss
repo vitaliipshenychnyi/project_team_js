@@ -53,7 +53,6 @@ img {
 
 // SUPPORT SECTION
 .support {
-  padding-top: 40px;
   width: 100%;
 }
 
@@ -70,7 +69,7 @@ img {
   align-items: start;
   padding-top: 24px;
   width: 100%;
-  height: 490px;
+  height: 352px;
 
   background: radial-gradient(
       183.6% 183.01% at 59.76% -23.42%,
@@ -84,29 +83,44 @@ img {
   align-items: center;
   padding: 8px 24px;
 }
-.support-emblem {
-  display: flex;
-  outline: 2px solid tomato;
+
+@media screen and (min-width: 768px) {
+  .support-container {
+    height: 490px;
+  }
 }
+
 .support-render {
   display: flex;
-  outline: 2px solid tomato;
+  flex-direction: column;
 }
 
 .support-ukraine {
   color: #ffffff;
   margin-right: 12px;
-  outline: 2px solid tomato;
 }
 .support-button {
-  display: flex;
   width: 38px;
   height: 38px;
+  cursor: pointer;
+  background-color: red;
+
   border-radius: 50%;
-  background-color: black;
-  padding: 16px 32px;
+  transition: opacity 0.3s linear, visibility 0.3s linear,
+    background-color 0.3s linear;
+
+  bottom: 100px;
+  right: 20px;
+}
+.support-icon {
+  background-color: #4f2ee8;
+}
+
+.support-emblem {
+  display: flex;
   outline: 2px solid tomato;
 }
+
 // налаштування контейнерів
 @media screen and (min-width: 300px) {
   .container {
