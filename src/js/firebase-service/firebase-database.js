@@ -69,3 +69,6 @@ function getBookFromDatabase(userId, reference, bookId) {
       console.error(error);
     });
 }
+
+
+
