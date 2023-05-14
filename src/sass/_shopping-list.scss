@@ -143,7 +143,7 @@
   width: 100%;
 }
 
-.book-title {
+.shopping-book-title {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -154,8 +154,9 @@
   font-size: 14px;
   line-height: 1.12;
   max-width: 120px;
+
   @media screen and (min-width: 768px) {
-    max-width: 144px;
+    min-width: 100%;
     font-size: 16px;
   }
 
@@ -163,6 +164,8 @@
 }
 
 .book-genre {
+width: 135px;
+
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -176,8 +179,12 @@
   color: var(--light-header-secondary-color);
 
   margin-bottom: 24px;
+  @media screen and (min-width: 425px) {
+    width: 170px;
+  }
 
   @media screen and (min-width: 768px) {
+    width: 100%;
     margin-bottom: 14px;
   }
 }

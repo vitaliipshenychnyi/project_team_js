@@ -217,7 +217,7 @@ function createCardMarkup(dataBooks) {
               </button>
               <img class="shopping-img" src="${book.book_image}" alt="book">
               <div class="book-info">
-              <h2 class="book-title">${book.title}</h2>
+              <h2 class="shopping-book-title">${book.title}</h2>
               <p class="book-genre">${book.list_name}</p> 
              <p class="book-description">${book.description}</p>
              <div class="shopping-box">
@@ -291,7 +291,7 @@ function createCardMarkup(dataBooks) {
               </button>
               <img class="shopping-img" src="${book.book_image}" alt="book">
               <div class="book-info">
-              <h2 class="book-title">${book.title}</h2>
+              <h2 class="shopping-book-title">${book.title}</h2>
               <p class="book-genre">${book.list_name}</p> 
              <p class="book-description">Unfortunately, this book has no description yet.</p>
              <div class="shopping-box">
