@@ -1,11 +1,10 @@
 import refs from './refs';
 import axios from 'axios';
 
-const arrDataBooks = [];
+let arrDataBooks = [];
 let objBook = {};
 
 refs.mainGalleryEl.addEventListener('click', onBookCardClick);
-refs.modalCloseBtn.addEventListener('click', closeModal);
 
 // функція отримання id книги
 function onBookCardClick(event) {
@@ -17,13 +16,16 @@ function onBookCardClick(event) {
 
 // функція відкриття модального вікна
 function openModal(idBook) {
+  refs.modalCloseBtn.addEventListener('click', closeModal);
+  refs.buttonAddBookEl.addEventListener('click', saveBookToLocalStorage);
   refs.modal.classList.remove('is-hidden');
   const booksInLocal = JSON.parse(localStorage.getItem('books-data'));
-  if (!booksInLocal.filter(el => el._id == idBook)) {
-    refs.buttonAddBookEl.textContent = 'Add to shopping list';
+  if (!booksInLocal.some(el => el._id === idBook)) {
+    refs.buttonAddBookEl.textContent = 'ADD TO SHOPPING LIST';
+  } else {
+    refs.addedTextEl.innerHTML =
+      '<p class="added-text">Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>';
   }
-  refs.addedTextEl.innerHTML =
-    '<p class="added-text">Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>';
 
   getDataBook(idBook);
 }
@@ -44,8 +46,8 @@ async function getDataBook(idBook) {
 // функція відтворення даних про книгу
 function renderBookCard(book) {
   const bookCardMarkup = `
-    <div class="wrapper-modal-data">
-      <img class="img" src="${book.book_image}" alt="${
+  <div class="wrapper-modal-data">
+  <img class="img" src="${book.book_image}" alt="${
     book.title
   }" height="256" loading="lazy"/>
       <div>
@@ -126,10 +128,10 @@ function objectBook({
   objBook = { _id, book_image, title, description, author, buy_links };
 }
 
-refs.buttonAddBookEl.addEventListener('click', saveBookToLocalStorage);
-
 // функція запису книги до сховища
 function saveBookToLocalStorage() {
+  refs.buttonAddBookEl.removeEventListener('click', saveBookToLocalStorage);
+  refs.buttonAddBookEl.addEventListener('click', deleteBookToLocalStorage);
   refs.addedTextEl.innerHTML =
     '<p class="added-text">Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>';
   refs.buttonAddBookEl.textContent = 'REMOVE FROM THE SHOPPING LIST';
@@ -137,8 +139,18 @@ function saveBookToLocalStorage() {
   localStorage.setItem('books-data', JSON.stringify(arrDataBooks));
 }
 
+// функція видалення книги зі сховища
+function deleteBookToLocalStorage() {
+  refs.buttonAddBookEl.removeEventListener('click', deleteBookToLocalStorage);
+  refs.buttonAddBookEl.addEventListener('click', saveBookToLocalStorage);
+  refs.addedTextEl.innerHTML = '';
+  refs.buttonAddBookEl.textContent = 'ADD TO SHOPPING LIST';
+}
+
 // функція закриття модального вікна
 function closeModal() {
+  refs.modalCloseBtn.removeEventListener('click', closeModal);
+  refs.buttonAddBookEl.removeEventListener('click', saveBookToLocalStorage);
   refs.wrapperBookEl.innerHTML = '';
   refs.addedTextEl.innerHTML = '';
   refs.modal.classList.add('is-hidden');
