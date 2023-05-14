@@ -12,4 +12,5 @@ export default {
   supportLoadBtn: document.querySelector('.support-button'),
   footerProfilesEl: document.querySelector('.profile-list'),
   pixelJsCakeBtn: document.querySelector('.pixel-js-cake-btn'),
+  iconSvgBtnEl: document.querySelector('.support-icon-div'),
 };

@@ -13,14 +13,14 @@ const icons = [
 
 const SUPPORT_ITEMS_QUERY = 6;
 
-
+let itemsQuery = SUPPORT_ITEMS_QUERY;
+if (window.innerWidth >= 360 && window.innerWidth <= 767) {
+  itemsQuery = 4;
+}
 
 function renderRowGallery(icons) {
-  let itemsQuery = SUPPORT_ITEMS_QUERY;
-  if (window.innerWidth >= 360 && window.innerWidth <= 767) {
-    itemsQuery = 4;
-  }
 
+// console.log(itemsQuery)
   const markup = icons
     .slice(0, SUPPORT_ITEMS_QUERY)
     .map(
@@ -40,15 +40,17 @@ function renderRowGallery(icons) {
   console.log(refs.supportEl);
 }
 
+// console.log("nfjfjfjfjfjfj",itemsQuery)
 
-
-const iconsShow = icons.slice(0, 6);
+const iconsShow = icons.slice(0, itemsQuery);
 let isChangeIcon = true;
 renderRowGallery(iconsShow);
 refs.supportLoadBtn.addEventListener('click', onClick);
 function onClick() {
-console.log(iconsShow)
-console.log(isChangeIcon)
+
+
+// console.log(iconsShow)
+// console.log(isChangeIcon)
   if (isChangeIcon) {
     if (iconsShow[iconsShow.length - 1].id == 9) {
       return isChangeIcon = false;
@@ -68,7 +70,18 @@ console.log(isChangeIcon)
   if (iconsShow[0].id === 4 || iconsShow[0].id === 1) {
     isChangeIcon = !isChangeIcon;
   }
+
   renderRowGallery(iconsShow);
+  if(isChangeIcon){
+    refs.iconSvgBtnEl.innerHTML = `<svg class="support-icon" width="7" height="13"> <use href= "/src/img/svg/sprite.svg#icon-scroll-down"></use>  </svg>`
+// вниз
+  }else{
+    refs.iconSvgBtnEl.innerHTML = `<svg class="support-icon" width="7" height="13"> <use href= "/src/img/svg/sprite.svg#icon-scroll-up"></use>  </svg>`
+// вверх
+  }
+
+
+
 }
   
 
