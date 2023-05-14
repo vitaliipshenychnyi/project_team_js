@@ -159,6 +159,8 @@
   line-height: calc(18 / 14);
   letter-spacing: -0.01em;
   cursor: pointer;
+
+  transition: background-color 300ms linear;
 }
 
 @media screen and (min-width: 768px) {
