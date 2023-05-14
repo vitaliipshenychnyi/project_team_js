@@ -6,7 +6,7 @@
 
 .scroll-up {
   position: fixed;
-  bottom: 250px;
+  bottom: 20px;
   right: 20px;
   width: 54px;
   height: 54px;
@@ -19,4 +19,14 @@
 }
 .scroll-up:hover {
 background-color: #37209d;
+}
+@media screen and (min-width: 768px) {
+.scroll-up {
+    bottom: 140px;
+}
+}
+@media screen and (min-width: 1440px) {
+.scroll-up {
+    bottom: 150px;
+}
 }
