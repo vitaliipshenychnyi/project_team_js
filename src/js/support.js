@@ -20,7 +20,7 @@ function renderRowGallery(icons) {
   if (window.innerWidth >= 360 && window.innerWidth <= 767) {
     itemsQuery = 4;
   }
- console.log(itemsQuery)
+
   const markup = icons
     .slice(0, SUPPORT_ITEMS_QUERY)
     .map(

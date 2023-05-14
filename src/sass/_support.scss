@@ -11,7 +11,7 @@
   background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
   box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
   border-radius: 16px;
-  outline: 2px solid tomato;
+
   align-items: center;       
   padding: 24px 40px;  
   
@@ -62,6 +62,7 @@
         width: 24px;
         height: 24px;
         fill: #4F2EE8;
+        color: red;
         transition: transform 0.3s ease-in-out;
       }
     
