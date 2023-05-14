@@ -72,6 +72,7 @@ function onClick() {
   }
 
   renderRowGallery(iconsShow);
+  
   if(isChangeIcon){
     refs.iconSvgBtnEl.innerHTML = `<svg class="support-icon" width="7" height="13"> <use href= "/src/img/svg/sprite.svg#icon-scroll-down"></use>  </svg>`
 // вниз
