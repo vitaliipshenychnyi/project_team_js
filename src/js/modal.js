@@ -11,7 +11,7 @@ if (localStorage.getItem('books-data')) {
 // функція отримання id книги
 function onBookCardClick(event) {
   const bookCard = event.target.closest('.book-card-wrapper');
-  idBook = bookCard.dataset.idbook;
+  let idBook = bookCard.dataset.idbook;
   if (!bookCard) return;
   openModal(idBook);
 }
