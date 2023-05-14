@@ -48,7 +48,6 @@
   font-size: 32px;
   line-height: 1.19;
   display: block;
-  margin-bottom: 40px;
 
   @media screen and (min-width: 768px) {
     font-size: 48px;
@@ -117,7 +116,7 @@
 }
 
 .shopping-button-icon {
-   pointer-events: none;
+  pointer-events: none;
 }
 
 .shopping-img {
@@ -284,11 +283,4 @@
     display: block;
     width: 356px;
   }
-}
-.support {
-  margin-top: 40px;
-}
-.support-container {
-  width: 356px;
-  margin-top: 40px;
 }
