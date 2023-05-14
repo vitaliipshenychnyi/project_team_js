@@ -222,7 +222,7 @@ function saveBookToLocalStorage() {
 }
 
 // функція видалення книги зі сховища
-function deleteBookToLocalStorage() {
+function deleteBookToLocalStorage(idBook) {
   refs.buttonAddBookEl.removeEventListener('click', deleteBookToLocalStorage);
   refs.buttonAddBookEl.addEventListener('click', saveBookToLocalStorage);
   refs.addedTextEl.innerHTML = '';
