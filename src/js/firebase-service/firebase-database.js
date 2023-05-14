@@ -21,4 +21,4 @@ export function postUserIntoDatebase({ uid: userId, email, displayName }) {
   });
 }
 
-console.log(db);
+// console.log(db);

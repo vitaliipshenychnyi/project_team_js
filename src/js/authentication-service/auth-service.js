@@ -1,6 +1,7 @@
 import refs from '../refs';
 import { parsedToken } from '../firebase-service/firebase-service';
 import { logout } from '../firebase-service/firebase-service';
+import { auth } from '../firebase-service/firebase-service';
 
 refs.headerProfileEl.addEventListener('click', onProfileEl);
 refs.headerlogoutBtn.addEventListener('click', onLogoutBtn);
@@ -8,6 +9,8 @@ refs.headerlogoutBtn.addEventListener('click', onLogoutBtn);
 export function checkLoginToken() {
   if (parsedToken) {
     visibleProfileBtn();
+    console.log(auth.currentUser.displayName);
+    refs.profileNameEl.textContent = auth.currentUser.displayName;
     refs.authFormBackdrop.classList.add('is-hidden');
   }
 }
