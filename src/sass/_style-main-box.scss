@@ -2,12 +2,12 @@
   position: relative;
   width: 100%;
   padding-bottom: 72px;
-  padding-left: 40px;
 }
 
 @media screen and (min-width: 1440px) {
   .main {
     padding-top: 40px;
+    padding-left: 40px;
   }
 }
 .main-container {
@@ -345,12 +345,19 @@
 
 // spinner
 .breeding-rhombus-spinner {
+  position: absolute;
   height: 65px;
   width: 65px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 60;
+  left: 120;
   transform: rotate(45deg);
+}
+
+@media screen and (min-width: 768px) {
+  .breeding-rhombus-spinner {
+    top: 80;
+    left: 200;
+  }
 }
 
 .breeding-rhombus-spinner,
