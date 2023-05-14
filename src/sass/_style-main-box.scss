@@ -4,6 +4,12 @@
   padding-bottom: 72px;
   padding-left: 40px;
 }
+
+@media screen and (min-width: 1440px) {
+  .main {
+    padding-top: 40px;
+  }
+}
 .main-container {
   display: flex;
   flex-direction: column;
