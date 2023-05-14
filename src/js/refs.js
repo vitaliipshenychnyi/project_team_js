@@ -12,7 +12,7 @@ export default {
   authForm: document.querySelector('.js-register-form'),
   supportEl: document.querySelector('.support-container'),
   supportRenderEl: document.querySelector('.support-render'),
-  iconSvgBtnEl: document.querySelector('.support-div'),
+  iconSvgBtnEl: document.querySelector('.support-icon'),
   supportLoadBtn: document.querySelector('.support-button'),
   footerProfilesEl: document.querySelector('.profile-list'),
   pixelJsCakeBtn: document.querySelector('.pixel-js-cake-btn'),
