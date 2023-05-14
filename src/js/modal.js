@@ -2,8 +2,6 @@ import refs from './refs';
 import axios from 'axios';
 
 let arrDataBooks = [];
-let objBook = {};
-let idBook = 0;
 refs.mainGalleryEl.addEventListener('click', onBookCardClick);
 
 if (localStorage.getItem('books-data')) {
@@ -130,7 +128,15 @@ function objectBook({
   author,
   buy_links,
 }) {
-  objBook = { _id, book_image, title, list_name, description, author, buy_links };
+  objBook = {
+    _id,
+    book_image,
+    title,
+    list_name,
+    description,
+    author,
+    buy_links,
+  };
 }
 
 // функція запису книги до сховища
@@ -140,10 +146,7 @@ function saveBookToLocalStorage() {
   refs.addedTextEl.innerHTML =
     '<p class="added-text">Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>';
   refs.buttonAddBookEl.textContent = 'REMOVE FROM THE SHOPPING LIST';
-  if (!objBook) {
-    return;
-  }
-  arrDataBooks.push(objBook);
+   arrDataBooks.push(objBook);
   localStorage.setItem('books-data', JSON.stringify(arrDataBooks));
 }
 
@@ -153,12 +156,10 @@ function deleteBookToLocalStorage() {
   refs.buttonAddBookEl.addEventListener('click', saveBookToLocalStorage);
   refs.addedTextEl.innerHTML = '';
   refs.buttonAddBookEl.textContent = 'ADD TO SHOPPING LIST';
-
+  console.log('before =' + arrDataBooks);
   const permId = arrDataBooks.findIndex(el => el._id === idBook);
-  arrDataBooks.splice(
-    arrDataBooks.findIndex(el => el._id === idBook),
-    permId
-  );
+  arrDataBooks.splice(permId, 1);
+  localStorage.setItem('books-data', JSON.stringify(arrDataBooks));
 }
 
 // функція закриття модального вікна
