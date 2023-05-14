@@ -10,7 +10,9 @@ import './js/togle-theme';
 import './js/support';
 import './js/footer';
 import './js/scroll-up';
+
 import './js/firebase-service/firebase-service';
 import './js/authentication-service/auth-service';
+
 import './js/modal';
 import './js/shopingList';
