@@ -1,8 +1,11 @@
 import refs from './refs';
 import axios from 'axios';
+import { renderBookCard } from './render-modal-book-card';
 
 let arrDataBooks = [];
-let objBook = {};
+let objBookOne = [];
+let idBookOne = [];
+
 refs.mainGalleryEl.addEventListener('click', onBookCardClick);
 
 if (localStorage.getItem('books-data')) {
@@ -11,23 +14,22 @@ if (localStorage.getItem('books-data')) {
 
 // функція отримання id книги
 function onBookCardClick(event) {
+  idBookOne = []; // стираємо дані з idBookOne про id книги
   const bookCard = event.target.closest('.book-card-wrapper');
-  let idBook = bookCard.dataset.idbook;
+  const idBook = bookCard.dataset.idbook;
   if (!bookCard) return;
+  idBookOne.push(idBook); // додаємо до idBookOne дані про id книги
   openModal(idBook);
 }
 
 // функція відкриття модального вікна
 function openModal(idBook) {
-  console.log(
-    'Кількість книг відкритті модального вікна = ' + arrDataBooks.length
-  );
   refs.modalCloseBtn.addEventListener('click', closeModal);
   refs.modal.classList.remove('is-hidden');
   getDataBook(idBook);
   if (arrDataBooks.some(el => el._id === idBook)) {
     refs.addedTextEl.innerHTML =
-      '<p class="added-text">Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>';
+      '<p class="added-text">Сongratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".</p>';
     refs.buttonAddBookEl.textContent = 'REMOVE FROM THE SHOPPING LIST';
     refs.buttonAddBookEl.addEventListener('click', deleteBookToLocalStorage);
   } else {
@@ -49,149 +51,6 @@ async function getDataBook(idBook) {
   }
 }
 
-// функція відтворення даних про книгу
-function renderBookCard(book) {
-  if (!book.description) {
-    const bookCardMarkup = `
-  <div class="wrapper-modal-data">
-  <img class="img" src="${book.book_image}" alt="${
-      book.title
-    }" height="256" loading="lazy"/>
-      <div>
-        <p class="modal-name">${book.title}</p>
-       <p class="modal-author">${book.author}</p>
-        <div class="description">
-          <p class="book-description">Unfortunately, this book has no description yet.</p>
-        </div>
-                     <ul class="shops-links-list">
-             <li class="shop-item">
-             <a href="${
-               book.buy_links[0].url
-             }" class="shop-item-link" target=_blank>
-             <img
-             class="shops-item-icon"
-             srcset="
-             ${require('/src/img/amazon@1x.png')} 48w,
-             ${require('/src/img/amazon@2x.png')} 96w,
-             "
-             sizes="48px"
-              src="${require('/src/img/amazon@1x.png')}"
-              width="48" height="15"
-              alt="Amazon"
-              />
-              
-             </a>
-              </li>
-              <li class="shop-item">
-              <a href="${
-                book.buy_links[1].url
-              }" class="shop-item-link" target=_blank>
-               <img
-             class="shops-item-icon"
-             srcset="
-             ${require('/src/img/appleBooks@1x.png')} 28w,
-             ${require('/src/img/appleBooks@2x.png')} 56w,
-             "
-             sizes="28px"
-              src="${require('/src/img/appleBooks@1x.png')}"
-              width="28" height="27"
-              alt="Apple Books"
-              />
-             </a>
-              </li>
-              <li class="shop-item">
-              <a href="${
-                book.buy_links[4].url
-              }" class="shop-item-link" target=_blank>
-               <img
-             class="shops-item-icon"
-             srcset="
-             ${require('/src/img/booksAMillion@1x.png')} 32w,
-             ${require('/src/img/booksAMillion@2x.png')} 64w,
-             "sizes="32px"
-              src="${require('/src/img/booksAMillion@1x.png')}"
-              width="32" height="30"
-              alt="Bookshop"
-              />
-                </a>
-                  </li>
-                  </ul>
-      </div>
-    </div>
-    `;
-    refs.wrapperBookEl.innerHTML = bookCardMarkup;
-  } else {
-    const bookCardMarkup = `
-  <div class="wrapper-modal-data">
-  <img class="img" src="${book.book_image}" alt="${
-      book.title
-    }" height="256" loading="lazy"/>
-      <div>
-        <p class="modal-name">${book.title}</p>
-       <p class="modal-author">${book.author}</p>
-        <div class="description">
-          <p class="book-description">${book.description}</p>
-        </div>
-                     <ul class="shops-links-list">
-             <li class="shop-item">
-             <a href="${
-               book.buy_links[0].url
-             }" class="shop-item-link" target=_blank>
-             <img
-             class="shops-item-icon"
-             srcset="
-             ${require('/src/img/amazon@1x.png')} 48w,
-             ${require('/src/img/amazon@2x.png')} 96w,
-             "
-             sizes="48px"
-              src="${require('/src/img/amazon@1x.png')}"
-              width="48" height="15"
-              alt="Amazon"
-              />
-              
-             </a>
-              </li>
-              <li class="shop-item">
-              <a href="${
-                book.buy_links[1].url
-              }" class="shop-item-link" target=_blank>
-               <img
-             class="shops-item-icon"
-             srcset="
-             ${require('/src/img/appleBooks@1x.png')} 28w,
-             ${require('/src/img/appleBooks@2x.png')} 56w,
-             "
-             sizes="28px"
-              src="${require('/src/img/appleBooks@1x.png')}"
-              width="28" height="27"
-              alt="Apple Books"
-              />
-             </a>
-              </li>
-              <li class="shop-item">
-              <a href="${
-                book.buy_links[4].url
-              }" class="shop-item-link" target=_blank>
-               <img
-             class="shops-item-icon"
-             srcset="
-             ${require('/src/img/booksAMillion@1x.png')} 32w,
-             ${require('/src/img/booksAMillion@2x.png')} 64w,
-             "sizes="32px"
-              src="${require('/src/img/booksAMillion@1x.png')}"
-              width="32" height="30"
-              alt="Bookshop"
-              />
-                </a>
-                  </li>
-                  </ul>
-      </div>
-    </div>
-    `;
-    refs.wrapperBookEl.innerHTML = bookCardMarkup;
-  }
-}
-
 // функція формування об'єкту даних книги
 function objectBook({
   _id,
@@ -202,7 +61,8 @@ function objectBook({
   author,
   buy_links,
 }) {
-  return (objBook = {
+  objBookOne = []; // стираємо дані з objBookOne про книги
+  const objBook = {
     _id,
     book_image,
     title,
@@ -210,36 +70,48 @@ function objectBook({
     description,
     author,
     buy_links,
-  });
+  };
+  objBookOne.push(objBook); // записуємо дані з objBookOne про книги
 }
-// *****************************************************************
+
 // функція запису книги до сховища
 function saveBookToLocalStorage() {
   refs.buttonAddBookEl.removeEventListener('click', saveBookToLocalStorage);
   refs.addedTextEl.innerHTML =
-    '<p class="added-text">Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>';
+    '<p class="added-text">Сongratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".</p>';
   refs.buttonAddBookEl.textContent = 'REMOVE FROM THE SHOPPING LIST';
-  arrDataBooks.push(objBook);
+  arrDataBooks.push(objBookOne[0]);
   console.log('Кількість книг після додавання = ' + arrDataBooks.length);
   localStorage.setItem('books-data', JSON.stringify(arrDataBooks));
-  refs.buttonAddBookEl.addEventListener('click', deleteBookToLocalStorage);
+  closeModal();
 }
 
 // функція видалення книги зі сховища
-function deleteBookToLocalStorage(idBook) {
+function deleteBookToLocalStorage() {
   refs.buttonAddBookEl.removeEventListener('click', deleteBookToLocalStorage);
-  refs.buttonAddBookEl.addEventListener('click', saveBookToLocalStorage);
   refs.addedTextEl.innerHTML = '';
   refs.buttonAddBookEl.textContent = 'ADD TO SHOPPING LIST';
-  const permId = arrDataBooks.findIndex(el => el._id === idBook);
+  const permId = arrDataBooks.findIndex(el => el._id === idBookOne[0]);
   arrDataBooks.splice(permId, 1);
   console.log('Кількість книг після видалення = ' + arrDataBooks.length);
   localStorage.setItem('books-data', JSON.stringify(arrDataBooks));
+  closeModal();
 }
-// *****************************************************************
 
 // функція закриття модального вікна
 function closeModal() {
   refs.modalCloseBtn.removeEventListener('click', closeModal);
   refs.modal.classList.add('is-hidden');
 }
+
+
+
+
+
+
+
+
+
+
+
+
