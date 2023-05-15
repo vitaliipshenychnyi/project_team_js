@@ -213,10 +213,11 @@
 .icon-close-modal-book {
   stroke: black;
   transition: 250ms linear;
+  // transform: rotate(0deg) scale(1) ;
 }
 
 .modal__icon:hover .icon-close-modal-book,
 .modal__icon:focus .icon-close-modal-book {
   stroke: #4f2ee8;
-  transform: rotate(90deg) scale(1.1);
+  // transform: rotate(90deg) scale(1.1);
 }

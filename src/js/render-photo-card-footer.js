@@ -23,7 +23,7 @@ const cards = [
   },
   {
     id: 3,
-    link: 'https://github.com/vitaliipshenychnyi',
+    link: 'https://github.com/Vanchenko',
     src: imgEnvanchenko,
     alt: 'evgenvanchenko',
   },
@@ -59,7 +59,7 @@ const cards = [
   },
   {
     id: 9,
-    link: '#',
+    link: 'https://github.com/ivan-2908',
     src: imgRusnak,
     alt: 'ivanrusnak',
   },
