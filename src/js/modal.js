@@ -34,6 +34,7 @@ function openModal(idBook) {
     refs.buttonAddBookEl.addEventListener('click', deleteBookToLocalStorage);
   } else {
     refs.buttonAddBookEl.textContent = 'ADD TO SHOPPING LIST';
+    refs.addedTextEl.innerHTML = "";
     refs.buttonAddBookEl.addEventListener('click', saveBookToLocalStorage);
   }
 }
