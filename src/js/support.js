@@ -13,57 +13,104 @@ import svgdown from '/src/img/svg/svgdown.svg';
 import svgup from '/src/img/svg/svgup.svg';
 
 const icons = [
-  { id: 1,  title: 'Save the Children',
-   url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis', 
-   icon: img1,
-   position: "01",
+  {
+    id: 1,
+    title: 'Save the Children',
+    url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
+    icon: img1,
+    position: '01',
     className: 'icon',
-    width: 64,
-    height: 32
-    },  
-  { id: 2, title: 'Project HOPE',
-   url: 'https://www.projecthope.org/country/ukraine/',
-    icon: img2, position: "02",
-    className: 'icon', width: 103,
-        height: 32
-    },
-    { id: 3,  title: 'International Medical Corps',
-    url: 'https://internationalmedicalcorps.org/country/ukraine/', 
+    width: '131',
+    height: '32',
+    class: 'save-children',
+  },
+  {
+    id: 2,
+    title: 'Project HOPE',
+    url: 'https://www.projecthope.org/country/ukraine/',
+    icon: img2,
+    position: '02',
+    className: 'icon',
+    width: '62',
+    height: '32',
+    class: 'project-hope',
+  },
+  {
+    id: 3,
+    title: 'International Medical Corps',
+    url: 'https://internationalmedicalcorps.org/country/ukraine/',
     icon: img3,
-    position: "03",
-        className: 'icon', height: 32
-    },
-    { id: 4, title: 'RAZOM', url: 'https://www.razomforukraine.org/',
-   icon: img4,
-    position: "04",
-        className: 'icon', height: 32
-    },
-    { id: 5, title: 'Action against hunger',
-   url:'https://www.actionagainsthunger.org/location/europe/ukraine/',
+    position: '03',
+    className: 'icon',
+    width: '101',
+    height: '32',
+    class: 'medical-corps',
+  },
+  {
+    id: 4,
+    title: 'RAZOM',
+    url: 'https://www.razomforukraine.org/',
+    icon: img4,
+    position: '04',
+    className: 'icon',
+    width: '82',
+    height: '32',
+    class: 'razom',
+  },
+  {
+    id: 5,
+    title: 'Action against hunger',
+    url: 'https://www.actionagainsthunger.org/location/europe/ukraine/',
     icon: img5,
-     position: "05",
-        className: 'icon', height: 32
-    },
-     { id: 6, title: 'Serhiy Prytula Charity Foundation', 
-  url: 'https://prytulafoundation.org/en', 
-  icon: img6, 
-  position: "06",
-        className: 'icon', height: 32
-    },
-  { id: 7, title: 'Medicins Sans Frontieres',
-   url:'https://www.msf.org/ukraine',
+    position: '05',
+    className: 'icon',
+    width: '55',
+    height: '32',
+    class: 'against-hunger',
+  },
+  {
+    id: 6,
+    title: 'Serhiy Prytula Charity Foundation',
+    url: 'https://prytulafoundation.org/en',
+    icon: img6,
+    position: '06',
+    className: 'icon',
+    width: '115',
+    height: '32',
+    class: 'serhiy-prytula',
+  },
+  {
+    id: 7,
+    title: 'Medicins Sans Frontieres',
+    url: 'https://www.msf.org/ukraine',
     icon: img7,
-     position: "07",
-        className: 'icon', height: 32
-    },
-     { id: 8, title: 'World vision', url: 'https://www.wvi.org/emergencies/ukraine',
-   icon: img8,
-    position: "08",
-    className: 'icon', height: 32  },
-  { id: 9,  title: 'UNITED24', url: 'https://u24.gov.ua/uk',
-   icon: img9,
-    position: "09",
-    className: 'icon', height: 32  },
+    position: '07',
+    className: 'icon',
+    width: '129',
+    height: '35',
+    class: 'medicins-sans',
+  },
+  {
+    id: 8,
+    title: 'World vision',
+    url: 'https://www.wvi.org/emergencies/ukraine',
+    icon: img8,
+    position: '08',
+    className: 'icon',
+    width: '81',
+    height: '39',
+    class: 'world-vision',
+  },
+  {
+    id: 9,
+    title: 'UNITED24',
+    url: 'https://u24.gov.ua/uk',
+    icon: img9,
+    position: '09',
+    className: 'icon',
+    width: '149',
+    height: '15',
+  },
 ];
 
 const SUPPORT_ITEMS_QUERY = 6;
@@ -82,9 +129,9 @@ function renderRowGallery(icons) {
     .map(
       elem =>
         `
-        <a class = "support-link"  href="${elem.url}">
-          <p class ="support-p">${elem.position}</p>
-          <img src="${elem.icon}" class = "support-item"   alt="" loading="lazy"/> 
+        <a class = "support-link link"  href="${elem.url}">
+          ${elem.position}
+          <img src="${elem.icon}" class = "support-item" width="${elem.width}" height="${elem.height}"  alt="" loading="lazy"/> 
          
         </a>
        
@@ -130,7 +177,7 @@ function renderRowGallery(icons) {
 
 //   renderRowGallery(iconsShow);
 
-
+const iconSupport = document.querySelector('.support-icon');
 const iconsShow = icons.slice(0, itemsQuery);
 let isChangeIcon = true;
 renderRowGallery(iconsShow);
@@ -162,11 +209,13 @@ function onClick() {
   renderRowGallery(iconsShow);
 
   if(isChangeIcon){
-    refs.iconSvgBtnEl.innerHTML = `<use href= "${svgdown}"></use>`;
+    console.log(iconSupport.classList);
+           iconSupport.classList.remove('up');
+    // refs.iconSvgBtnEl.innerHTML = `<use href= "${svgdown}"></use>`;
 // вниз
   }else{
-   
-    refs.iconSvgBtnEl.innerHTML = `<use href= "${svgup}"></use>`;
+    iconSupport.classList.add('up');
+    // refs.iconSvgBtnEl.innerHTML = `<use href= "${svgup}"></use>`;
 // вверх
   }
 console.log(refs.iconSvgBtnEl)
