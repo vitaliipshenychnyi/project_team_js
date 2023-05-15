@@ -14,8 +14,8 @@ import {
   visibleProfileBtn,
   visibleSignupBtn,
 } from '../authentication-service/auth-service';
-import { postUserIntoDatebase } from './firebase-database';
-import { async } from '@firebase/util';
+import { writeUserToDatabase } from './firebase-database';
+import { showProfile } from '../authentication-service/auth-service';
 
 export const auth = getAuth(firebaseInitApp);
 // connectAuthEmulator(auth, 'http://localhost:9099');
@@ -37,12 +37,12 @@ AuthStateViewer();
 
 export async function loginAccount() {
   try {
-    const userCredential = await signInWithEmailAndPassword(
+    const { user } = await signInWithEmailAndPassword(
       auth,
       refs.emailInput.value.trim(),
       refs.passwordInput.value
     );
-
+    showProfile(user.displayName);
     visibleProfileBtn();
   } catch (error) {
     console.log(error);
@@ -54,16 +54,16 @@ export async function createAccount() {
     const email = refs.emailInput.value.trim();
     const password = refs.passwordInput.value;
     const uName = refs.nameInput.value.trim();
-    const userCredential = await createUserWithEmailAndPassword(
+    const { user } = await createUserWithEmailAndPassword(
       auth,
       email,
       password
     );
-    // onAuthStateChanged(auth, user => console.log(user));
     await updateProfile(user, {
-      displayName: uName ?? '',
+      displayName: uName,
     });
-    writeUserToDatabase(user);
+    await showProfile(auth.currentUser.displayName);
+    await writeUserToDatabase(user);
   } catch (error) {
     console.log(error);
   }
@@ -77,7 +77,7 @@ export async function AuthStateViewer() {
         LOCAL_STORAGE_TOKEN,
         JSON.stringify(user.accessToken)
       );
-      showProfile();
+      showProfile(user.displayName);
     } else {
       console.log('NO USER');
     }

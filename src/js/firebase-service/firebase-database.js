@@ -11,12 +11,12 @@ import {
 } from 'firebase/database';
 
 import { app } from '../firebase-service/firebase-init';
-import { userId } from '../firebase-service/firebase-service';
+// import { userId } from '../firebase-service/firebase-service';
 
-// const db = getDatabase(app);
+const db = getDatabase(app);
 // console.log(userId);
 
-export function writeUserToDatabase({ uid: userId, email, displayName }) {
+export async function writeUserToDatabase({ uid: userId, email, displayName }) {
   set(ref(db, `users/${userId}/userData`), {
     username: displayName,
     email,
