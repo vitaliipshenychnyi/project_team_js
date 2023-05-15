@@ -63,6 +63,7 @@ refs.mainGalleryEl.addEventListener('click', onBtnSeeMore);
 
 // функція зміни категорії при натисканні кнопки SeeMore
 function onBtnSeeMore(evt) {
+ // console.log("2 Listener - categories-list.js");
   const categName = evt.target.dataset.cat;
   const categList = [...refs.categoriesList.children];
   if (categName) {

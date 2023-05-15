@@ -56,5 +56,5 @@ export async function firebaseRead(endpoint) {
   }
 }
 //firebaseRead('maildata.json');
-firebaseRead('users.json');
+//firebaseRead('users.json');
 
