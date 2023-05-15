@@ -205,7 +205,7 @@
 
   color: var(--light-header-secondary-color);
   @media screen and (min-width: 425px) {
-    font-size: 14px;
+    font-size: 12px;
 
     @media screen and (max-width: 767px) {
       max-width: 98px;
@@ -283,22 +283,29 @@
   flex-direction: column;
   align-items: center;
 
-  margin-top: 80px;
+  margin-top: 120px;
   margin-bottom: 72px;
 
   @media screen and (min-width: 768px) {
-    margin-top: 100px;
+    margin-top: 140px;
   }
 }
 
 .empty-list-text {
   text-align: center;
-  max-width: 349px;
+  max-width: 244px;
 
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1.33;
 
-  margin-bottom: 20px;
+  margin-bottom: 14px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 349px;
+    margin-bottom: 20px;
+
+    font-size: 18px;
+  }
 }
 
 .empty-list-img {
