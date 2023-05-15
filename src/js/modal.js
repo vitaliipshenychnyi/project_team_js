@@ -2,7 +2,7 @@ import refs from './refs';
 import axios from 'axios';
 
 let arrDataBooks = [];
-// let objBook = {};
+let objBook = {};
 refs.mainGalleryEl.addEventListener('click', onBookCardClick);
 
 if (localStorage.getItem('books-data')) {
