@@ -338,9 +338,16 @@
 .category:hover,
 .category.category-active {
   font-weight: 700;
-  font-size: 14px;
+  font-size: 12px;
   text-transform: uppercase;
   color: var(--light-accent-color);
+}
+@media screen and (min-width: 768px) {
+  .category:focus,
+  .category:hover,
+  .category.category-active {
+    font-size: 14px;
+  }
 }
 
 // spinner
