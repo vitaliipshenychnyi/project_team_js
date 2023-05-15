@@ -92,7 +92,7 @@ function createMArkUp(cards) {
   return cards
     .map(({ id, link, src, alt }) => {
       return `<li class="card-item" data-id=${id}>
-<a href="${link}" class="card-link">
+<a href="${link}" class="card-link" target="_blank">
 <img src="${src}" alt="${alt}">
 </a>
 </li>`;

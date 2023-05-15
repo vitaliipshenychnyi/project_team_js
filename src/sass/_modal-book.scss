@@ -8,9 +8,9 @@
   border: 2px solid #111111;
   border-radius: 18px;
   background-color: #ffffff;
-  overflow: auto;
 
   @media screen and (min-width: 768px) {
+      padding: 40px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
@@ -34,7 +34,13 @@
     max-width: 400px;
     height: auto;
     max-height: 100vh;
+  overflow: auto;
   }
+.wrapper-modal-data {
+  width: auto;
+  max-width: 287px;
+  margin: 0 auto;
+}
 }
 .added-text {
   margin-top: 8px;
@@ -94,11 +100,7 @@
   letter-spacing: -0.04em;
   color: var(--dark-header-secondary-color);
 }
-.wrapper-modal-data {
-  width: auto;
-  max-width: 287px;
-  margin: 0 auto;
-}
+
 @media screen and (min-width: 768px) {
   .modal-author {
     font-size: 14px;
