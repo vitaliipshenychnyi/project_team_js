@@ -7,24 +7,11 @@ refs.headerProfileEl.addEventListener('click', onProfileEl);
 refs.mHeaderProfileEl.addEventListener('click', onProfileEl);
 refs.mheaderSignupEl.addEventListener('click', showAuthForm);
 refs.headerlogoutBtn.addEventListener('click', onLogoutBtn);
-
 refs.mheaderlogoutBtn.addEventListener('click', onLogoutBtn);
 
-export function checkLoginToken() {
-  if (parsedToken) {
-    visibleProfileBtn();
-    onLoginDisplayInfo();
-    // console.log(user.displayName);
-
-    // console.log(parsedToken);
-    // console.log(auth.currentUser);
-    // if (auth.currentUser) {
-    // refs.authFormBackdrop.classList.add('is-hidden');
-    // }
-  }
-}
-if (user) {
-  console.log(user);
+export function showProfile() {
+  visibleProfileBtn();
+  onLoginDisplayInfo();
 }
 
 function onLoginDisplayInfo() {
@@ -65,7 +52,6 @@ export function onProfileEl() {
 
 export function onLogoutBtn() {
   logout();
-  // checkLoginToken;
   visibleSignupBtn;
 }
 

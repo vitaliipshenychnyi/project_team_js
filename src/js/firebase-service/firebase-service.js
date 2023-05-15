@@ -10,7 +10,7 @@ import {
 import refs from '../refs';
 import firebaseInitApp from './firebase-init';
 import {
-  checkLoginToken,
+  showProfile,
   visibleProfileBtn,
   visibleSignupBtn,
 } from '../authentication-service/auth-service';
@@ -51,19 +51,21 @@ export async function loginAccount() {
 
 export async function createAccount() {
   try {
+    const email = refs.emailInput.value.trim();
+    const password = refs.passwordInput.value;
+    const uName = refs.nameInput.value.trim();
     const userCredential = await createUserWithEmailAndPassword(
       auth,
-      refs.emailInput.value.trim(),
-      refs.passwordInput.value
+      email,
+      password
     );
-    updateProfile(user, {
-      displayName: refs.nameInput.value.trim(),
-      // photoURL: 'https://example.com/jane-q-user/profile.jpg',
+    // onAuthStateChanged(auth, user => console.log(user));
+    await updateProfile(user, {
+      displayName: uName ?? '',
     });
-    AuthStateViewer();
-    postUserIntoDatebase(user);
+    writeUserToDatabase(user);
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
   }
 }
 
@@ -75,8 +77,7 @@ export async function AuthStateViewer() {
         LOCAL_STORAGE_TOKEN,
         JSON.stringify(user.accessToken)
       );
-      // userId = user.uid;
-      checkLoginToken();
+      showProfile();
     } else {
       console.log('NO USER');
     }
