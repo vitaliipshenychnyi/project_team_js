@@ -33,7 +33,11 @@ export default {
   authSubmitBtn: document.getElementById('authform-submitBtn'),
   //login
   profileNameEl: document.querySelector('[data-profile-name]'),
+  mProfileNameEl: document.querySelector('[data-profile-mname]'),
   headerProfileEl: document.getElementById('header-profile-btn'),
   headerSignupEl: document.getElementById('header-signup'),
   headerlogoutBtn: document.getElementById('header-logout'),
+  mHeaderProfileEl: document.getElementById('mobile-header-profile-btn'),
+  mheaderSignupEl: document.getElementById('mobile-header-signup'),
+  mheaderlogoutBtn: document.getElementById('mobile-header-logout'),
 };

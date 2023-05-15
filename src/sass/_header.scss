@@ -467,7 +467,12 @@ input:checked + .slider:before {
 }
 
 .header-profile-wrapper {
+  display: none;
   position: relative;
+
+  @media screen and (min-width: '768px') {
+    display: block;
+  }
   // overflow: hidden;
 }
 
@@ -512,7 +517,15 @@ input:checked + .slider:before {
   align-items: center;
   justify-content: space-between;
 
-  background-color: var(--light-body-color);
+  color: var(--light-border-n-text-color);
+  letter-spacing: -0.04em;
+  background: #fff;
+  border: 1.5px solid #111;
+  border-radius: 18px;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.29;
 
   overflow: hidden;
   cursor: pointer;
@@ -522,6 +535,15 @@ input:checked + .slider:before {
   display: flex;
   max-height: 100%;
   transform: translateY(100%);
+}
+
+.header-profile-block.user-login-mobile {
+  background-color: transparent;
+}
+
+.user-sign-up-mobile.is-hidden,
+.loged-in-wrapper.is-hidden {
+  display: none;
 }
 
 .dark {
@@ -636,9 +658,9 @@ body.dark .form__button {
 }
 
 body.dark .shops-item-icon.amazon-img {
-filter:contrast(0)}
+  filter: contrast(0);
+}
 
-
-body.dark  .icon-close-modal-book {
-  stroke:#ffffff
+body.dark .icon-close-modal-book {
+  stroke: #ffffff;
 }
