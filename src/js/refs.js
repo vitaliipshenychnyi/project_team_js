@@ -36,4 +36,7 @@ export default {
   headerProfileEl: document.getElementById('header-profile-btn'),
   headerSignupEl: document.getElementById('header-signup'),
   headerlogoutBtn: document.getElementById('header-logout'),
+  //shopping-list
+  shoppingList: document.querySelector('.shopping-list-js'),
+  emptyList: document.querySelector('.empty-list-js'),
 };
