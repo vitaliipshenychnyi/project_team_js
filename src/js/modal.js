@@ -51,6 +51,7 @@ async function getDataBook(idBook) {
   }
 }
 
+
 // функція формування об'єкту даних книги
 function objectBook({
   _id,
