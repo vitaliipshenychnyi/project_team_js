@@ -8,95 +8,92 @@
     <!-- <link rel="icon" type="images/x-icon" href="./images/favicon.png" /> -->
     <link rel="stylesheet" href="./sass/index.scss" />
   </head>
-  <body>
+  <body class="margin-top">
     <!-- підключення HEADER -->
     <include src="./partials/header.html"></include>
 
-    <main class="container">
+    <main >
       <!-- Sidebar -->
 
-      <aside class="shopping-list-sidebar">
-        <section class="support">
-          <div class="support-container">
-            <h2 class="support-ukraine">
-              Support Ukraine
-              <svg class="support-emblem" width="20" height="32">
-                <use href="/src/img/svg/sprite.svg#emblem"></use>
-              </svg>
-            </h2>
-            <div class="support-render"></div>
-
-            <!--   
-    <picture class="support-list">
-      <source
-        srcset="
-        /src/img/support-Icon/Save@1x.png
-        /src/img/support-Icon/Save@2x.png
-        /src/img/support-Icon/ProjectHOPE@1x.png
-        /src/img/support-Icon/ProjectHOPE@2x.png
-        /src/img/support-Icon/UNITED24@1x.png
-        /src/img/support-Icon/UNITED24@2x.png
-        /src/img/support-Icon/Internationa@1x.png
-        /src/img/support-Icon/Internationa@2x.png
-        /src/img/support-Icon/sMedicins@1x.png
-        /src/img/support-Icon/Medicins@2x.png
-        /src/img/support-Icon/RAZOM@1x.png
-        /src/img/support-Icon/RAZOM@2x.png
-        /src/img/support-Icon/Action@1x.png
-        /src/img/support-Icon/Action@2x.png
-        /src/img/support-Icon/World@1x.png
-        /src/img/support-Icon/World@2x.png
-        /src/img/support-Icon/Serhiy@1x.png
-        /src/img/support-Icon/Serhiy@2x.png
-        "
-        media="(min-width: 1024px)"
-      />
-   
-    </picture> -->
-
-            <button type="button" class="support-button">
-              <svg class="support-icon" width="15" height="20">
-                <use href="/src/img/svg/sprite.svg#icon-scroll-up"></use>
-              </svg>
-            </button>
+      <div class="container">
+        <aside class="shopping-list-sidebar">
+          <section class="support">
+            <div class="support-container">
+              <h2 class="support-ukraine">
+                Support Ukraine
+                <svg class="support-emblem" width="20" height="32">
+                  <use href="/src/img/svg/sprite.svg#emblem"></use>
+                </svg>
+              </h2>
+              <div class="support-render"></div>
+              <!--   
+            <picture class="support-list">
+        <source
+          srcset="
+          /src/img/support-Icon/Save@1x.png
+          /src/img/support-Icon/Save@2x.png
+          /src/img/support-Icon/ProjectHOPE@1x.png
+          /src/img/support-Icon/ProjectHOPE@2x.png
+          /src/img/support-Icon/UNITED24@1x.png
+          /src/img/support-Icon/UNITED24@2x.png
+          /src/img/support-Icon/Internationa@1x.png
+          /src/img/support-Icon/Internationa@2x.png
+          /src/img/support-Icon/sMedicins@1x.png
+          /src/img/support-Icon/Medicins@2x.png
+          /src/img/support-Icon/RAZOM@1x.png
+          /src/img/support-Icon/RAZOM@2x.png
+          /src/img/support-Icon/Action@1x.png
+          /src/img/support-Icon/Action@2x.png
+          /src/img/support-Icon/World@1x.png
+          /src/img/support-Icon/World@2x.png
+          /src/img/support-Icon/Serhiy@1x.png
+          /src/img/support-Icon/Serhiy@2x.png
+          "
+          media="(min-width: 1024px)"
+        />
+           
+            </picture> -->
+              <button type="button" class="support-button">
+                <svg class="support-icon" width="15" height="20">
+                  <use href="/src/img/svg/sprite.svg#icon-scroll-up"></use>
+                </svg>
+              </button>
+            </div>
+          </section>
+        </aside>
+        <!-- Main box -->
+        <div class="container shopping-list-page">
+          <h1 class="shopping-main-title">
+            Shopping
+            <span class="shopping-list-color">List</span>
+          </h1>
+          <div class="empty-list-js">
+            <p class="empty-list-text">
+              This page is empty, add some books and proceed to order.
+            </p>
+            <picture class="empty-list-img">
+              <source
+                srcset="
+                  /src/img/shopping-list-img/Books_tablet@1x.png 1x,
+                  /src/img/shopping-list-img/Books_tablet@2x.png 2x
+                "
+                media="(min-width: 1024px)"
+              />
+              <source
+                srcset="
+                  /src/img/shopping-list-img/Books_mobile@1x.png 1x,
+                  /src/img/shopping-list-img/Books_mobile@2x.png 2x
+                "
+                media="(max-width: 1023px)"
+              />
+              <img
+                src="/src/img/shopping-list-img/Books_tablet@1x.png"
+                alt="Books"
+              />
+            </picture>
           </div>
-        </section>
-      </aside>
-
-      <!-- Main box -->
-      <div class="container shopping-list-page">
-        <h1 class="shopping-main-title">
-          Shopping
-          <span class="shopping-list-color">List</span>
-        </h1>
-
-        <div class="empty-list-js">
-          <p class="empty-list-text">
-            This page is empty, add some books and proceed to order.
-          </p>
-          <picture class="empty-list-img">
-            <source
-              srcset="
-                /src/img/shopping-list-img/Books_tablet@1x.png 1x,
-                /src/img/shopping-list-img/Books_tablet@2x.png 2x
-              "
-              media="(min-width: 1024px)"
-            />
-            <source
-              srcset="
-                /src/img/shopping-list-img/Books_mobile@1x.png 1x,
-                /src/img/shopping-list-img/Books_mobile@2x.png 2x
-              "
-              media="(max-width: 1023px)"
-            />
-            <img
-              src="/src/img/shopping-list-img/Books_tablet@1x.png"
-              alt="Books"
-            />
-          </picture>
+          <ul class="shopping-list-js"></ul>
         </div>
-
-        <ul class="shopping-list-js"></ul>
       </div>
     </main>
 
