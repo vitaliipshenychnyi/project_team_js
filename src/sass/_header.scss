@@ -97,8 +97,8 @@
 @media screen and (min-width: 768px) {
   .shopping-link {
     padding: 7px 16px;
-    // display: inline-flex;
-    display: none;
+    display: inline-flex;
+    // display: none;
     align-items: center;
     gap: 8px;
     font-size: 14px;
@@ -115,12 +115,12 @@
   .shopping-link:hover {
     background: #eac645;
     // font-weight: 700;
-    
   }
   .shopping-bag-icon {
     line-height: 0;
   }
 }
+
 
 @media screen and (min-width: 768px) {
   .user-login {
@@ -141,7 +141,6 @@
     border: 1.5px solid #111111;
     border-radius: 18px;
     transition: background-color 300ms linear;
-
   }
   .user-login:hover,
   .user-login:focus {
@@ -271,7 +270,6 @@
     stroke: #eac645;
   }
 
-
   // користувач залогінений стилі
   .loged-in-wrapper {
     width: 100%;
@@ -400,6 +398,7 @@
     margin-right: 24px;
   }
 }
+
 .switch input {
   display: none;
 }
@@ -526,6 +525,10 @@ input:checked + .slider:before {
 
 .user-sign-up-mobile.is-hidden,
 .loged-in-wrapper.is-hidden {
+  display: none;
+}
+
+.nav-item#header-shopping-link {
   display: none;
 }
 

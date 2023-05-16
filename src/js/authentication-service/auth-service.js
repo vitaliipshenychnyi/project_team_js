@@ -12,6 +12,8 @@ refs.mheaderlogoutBtn.addEventListener('click', onLogoutBtn);
 export async function showProfile(name) {
   visibleProfileBtn();
   showLoginProfileName(name);
+  showShoppingListBtn();
+  enableAddRemoveShoppingBtn();
 }
 
 export function showLoginProfileName(name) {
@@ -26,7 +28,6 @@ export function visibleSignupBtn() {
   hideEl(refs.headerProfileEl);
   hideEl(refs.mHeaderProfileEl);
   hideEl(refs.mheaderlogoutBtn);
-  refs.headerShoppingBtn.style.display = 'none';
 }
 
 export function visibleProfileBtn() {
@@ -36,8 +37,6 @@ export function visibleProfileBtn() {
 
   hideEl(refs.headerSignupEl);
   hideEl(refs.mheaderSignupEl);
-  refs.headerShoppingBtn.style.display = 'inline-flex';
-  refs.footerShoppingBtn.style.display = 'inline-flex';
 }
 
 export function onProfileEl() {
@@ -46,9 +45,9 @@ export function onProfileEl() {
 
 export function onLogoutBtn() {
   logout();
-  visibleSignupBtn;
-  refs.headerShoppingBtn.style.display = 'none';
-  refs.footerShoppingBtn.style.display = 'none';
+  visibleSignupBtn();
+  hideShoppingListBtn();
+  disableAddRemoveShoppingBtn();
 }
 
 export function hideAuthForm() {
@@ -64,4 +63,22 @@ function hideEl(elem) {
 
 function showEl(elem) {
   elem.classList.remove('is-hidden');
+}
+
+export function hideShoppingListBtn() {
+  refs.headerShoppingBtn.style.display = 'none';
+  refs.footerShoppingBtn.style.display = 'none';
+}
+
+export function showShoppingListBtn() {
+  refs.headerShoppingBtn.style.display = 'block';
+  refs.footerShoppingBtn.style.display = 'inline-flex';
+}
+
+export function enableAddRemoveShoppingBtn() {
+  refs.addRemoveShoppingBtn.disabled = false;
+}
+
+export function disableAddRemoveShoppingBtn() {
+  refs.addRemoveShoppingBtn.disabled = true;
 }

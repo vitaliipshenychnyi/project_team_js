@@ -223,3 +223,11 @@
   stroke: #4f2ee8;
   // transform: rotate(90deg) scale(1.1);
 }
+
+.form__button[disabled],
+.form__button[disabled]:hover,
+.form__button[disabled]:focus {
+  background-color: transparent;
+  border: 2px solid rgba(17, 17, 17, 0.4);
+  color:rgba(17, 17, 17, 0.4);
+}

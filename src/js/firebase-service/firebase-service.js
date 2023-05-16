@@ -20,7 +20,9 @@ import {
   showLoginError,
   showLoginState,
   showLogoutState,
+  showCreateAccountError,
 } from '../authentication-service/auth-ui';
+import { hideShoppingListBtn } from '../authentication-service/auth-service';
 
 export const auth = getAuth(firebaseInitApp);
 // connectAuthEmulator(auth, 'http://localhost:9099');
@@ -66,18 +68,17 @@ export async function createAccount() {
     await showLoginState(auth.currentUser.displayName);
     await writeUserToDatabase(user);
   } catch (error) {
-    console.log(error);
+    showCreateAccountError(error);
   }
 }
 
 export async function AuthStateViewer() {
   onAuthStateChanged(auth, user => {
     if (user) {
-      localStorage.setItem(
-        LOCAL_STORAGE_TOKEN,
-        JSON.stringify(user.accessToken)
-      );
+      localStorage.setItem(LOCAL_STORAGE_TOKEN, JSON.stringify(user.uid));
       showProfile(user.displayName);
+    } else {
+      hideShoppingListBtn();
     }
   });
 }
