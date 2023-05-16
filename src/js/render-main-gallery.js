@@ -80,7 +80,7 @@ export function renderGallery(books) {
       window.innerWidth >= 1440
         ? `<div class="books-category">
           <p class="books-category-title">${elem.list_name}</p>
-          <ul">
+          <ul>
             <li class="books__list">${renderRowGallery(elem.books)}</li>
           </ul>
           <button class="button-see-more" type="button" aria-label="button see more" data-cat="${
@@ -90,7 +90,7 @@ export function renderGallery(books) {
         : window.innerWidth >= 768
         ? `<div class="books-category">
           <p class="books-category-title">${elem.list_name}</p>
-          <ul">
+          <ul>
             <li class="books__list">${renderRowGallery(
               elem.books.slice(0, 3)
             )}</li>
@@ -101,7 +101,7 @@ export function renderGallery(books) {
         </div>`
         : `<div class="books-category">
           <p class="books-category-title">${elem.list_name}</p>
-          <ul">
+          <ul>
             <li class="books__list">${renderRowGallery(
               elem.books.slice(0, 1)
             )}</li>
