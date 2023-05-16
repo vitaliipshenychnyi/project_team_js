@@ -16,11 +16,8 @@ export function showLoginError(e) {
   }
 }
 
-export function showLoginState(user) {
-  Notify.success(
-    `Hello! You're logged in as ${user.displayName}`,
-    notifyConfig
-  );
+export async function showLoginState(name) {
+  Notify.success(`Hello! You're logged in as ${name}`, notifyConfig);
 }
 
 export function showLogoutState() {

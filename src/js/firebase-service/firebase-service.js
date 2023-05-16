@@ -41,6 +41,7 @@ export async function loginAccount() {
       refs.passwordInput.value
     );
     showProfile(user.displayName);
+    showLoginState(auth.currentUser.displayName);
     visibleProfileBtn();
   } catch (error) {
     console.log(error);
@@ -62,6 +63,7 @@ export async function createAccount() {
       displayName: uName,
     });
     await showProfile(auth.currentUser.displayName);
+    await showLoginState(auth.currentUser.displayName);
     await writeUserToDatabase(user);
   } catch (error) {
     console.log(error);
@@ -71,15 +73,11 @@ export async function createAccount() {
 export async function AuthStateViewer() {
   onAuthStateChanged(auth, user => {
     if (user) {
-      showLoginState(user);
-      console.log('Welcome: ', user.displayName, '! Email :', user.email);
       localStorage.setItem(
         LOCAL_STORAGE_TOKEN,
         JSON.stringify(user.accessToken)
       );
       showProfile(user.displayName);
-    } else {
-      console.log('NO USER');
     }
   });
 }
