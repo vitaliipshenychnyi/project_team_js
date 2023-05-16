@@ -114,17 +114,18 @@ const icons = [
 ];
 
 const SUPPORT_ITEMS_QUERY = 6;
+let stopper = 4;
 
 let itemsQuery = SUPPORT_ITEMS_QUERY;
 if (window.innerWidth >= 360 && window.innerWidth <= 767) {
   itemsQuery = 4;
+  stopper = 6;
 }
 
 function renderRowGallery(icons) {
   const markup = icons
     .slice(0, SUPPORT_ITEMS_QUERY)
-    .map(
-      elem =>
+    .map(elem =>
         `<a class = "support-link link"  href="${elem.url}">
           ${elem.position}
           <img src="${elem.icon}" class = "support-item" width="${elem.width}" height="${elem.height}"  alt="" loading="lazy"/> 
@@ -132,40 +133,6 @@ function renderRowGallery(icons) {
     .join('');
   refs.supportRenderEl.innerHTML = markup;
 }
-
-
-// const iconsShow = icons.slice(0, itemsQuery);
-// let isChangeIcon = true;
-// renderRowGallery(iconsShow);
-// refs.supportLoadBtn.addEventListener('click', onClick);
-// function onClick() {
-//   // console.log(iconsShow)
-//   // console.log(isChangeIcon)
-//   if (isChangeIcon) {
-//     if (iconsShow[iconsShow.length - 1].id == 9) {
-//       return (isChangeIcon = false);
-//     }
-//     const indexLastElement = icons.findIndex(
-//       element => element.id === iconsShow[iconsShow.length - 1].id
-//     );
-//     iconsShow.push(icons[indexLastElement + 1]);
-//     iconsShow.shift(); // delete first element
-//   } else {
-//     if (iconsShow[0].id === 1) {
-//       return (isChangeIcon = true);
-//     }
-//     const indexFirstElement = icons.findIndex(
-//       element => element.id === iconsShow[0].id
-//     );
-//     iconsShow.unshift(icons[indexFirstElement - 1]);
-//     iconsShow.pop(); // delete last element
-//   }
-
-//   if (iconsShow[0].id === 4 || iconsShow[0].id === 1) {
-//     isChangeIcon = !isChangeIcon;
-//   }
-
-//   renderRowGallery(iconsShow);
 
 const iconSupport = document.querySelector('.support-icon');
 const iconsShow = icons.slice(0, itemsQuery);
@@ -175,7 +142,7 @@ refs.supportLoadBtn.addEventListener('click', onClick);
 function onClick() {
 
   if (isChangeIcon) {
-    if (iconsShow[iconsShow.length - 1].id == 9) {
+    if (iconsShow[iconsShow.length - 1].id === 9) {
       return isChangeIcon = false;
     }
     const indexLastElement = icons.findIndex((element) => element.id === iconsShow[iconsShow.length - 1].id);
@@ -190,7 +157,7 @@ function onClick() {
     iconsShow.pop(); // delete last element
   }
 
-  if (iconsShow[0].id === 4 || iconsShow[0].id === 1) {
+  if (iconsShow[0].id === stopper || iconsShow[0].id === 1) {
     isChangeIcon = !isChangeIcon;
   }
 
@@ -199,41 +166,11 @@ function onClick() {
   if(isChangeIcon){
     console.log(iconSupport.classList);
            iconSupport.classList.remove('up');
-    // refs.iconSvgBtnEl.innerHTML = `<use href= "${svgdown}"></use>`;
 // вниз
   }else{
     iconSupport.classList.add('up');
-    // refs.iconSvgBtnEl.innerHTML = `<use href= "${svgup}"></use>`;
 // вверх
   }
 console.log(refs.iconSvgBtnEl)
 }
-
-// function renderRowGallery(icons) {
-//   const container = document.createElement('div');
-
-//   icons.slice(0, SUPPORT_ITEMS_QUERY).forEach((elem) => {
-//     const div = document.createElement('div');
-//     const link = document.createElement('a');
-//     const paragraph1 = document.createElement('p');
-//     const image = document.createElement('img');
-//     const paragraph2 = document.createElement('p');
-
-//     link.href = elem.url;
-//     paragraph1.textContent = elem.id;
-//     image.src = elem.icon;
-//     image.alt = '';
-//     image.loading = 'lazy';
-//     paragraph2.textContent = elem.title;
-
-//     link.appendChild(paragraph1);
-//     link.appendChild(image);
-//     link.appendChild(paragraph2);
-//     div.appendChild(link);
-//     container.appendChild(div);
-//   });
-
-//   refs.supportRenderEl.innerHTML = '';
-//   refs.supportRenderEl.appendChild(container);
-// }
 
