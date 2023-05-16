@@ -10,7 +10,7 @@ import {
   update,
 } from 'firebase/database';
 
-import { app } from '../firebase-service/firebase-init';
+import app from '../firebase-service/firebase-init';
 // import { userId } from '../firebase-service/firebase-service';
 
 const db = getDatabase(app);
