@@ -11,7 +11,7 @@ function createMarkupCategoriesList(categories) {
   return categories
     .map(
       ({ list_name }) =>
-        `<li class="category-list-item"><button type="button" class="category">${list_name}</button></li>`
+        `<li class="category-list-item"><button type="button" class="category" aria-label="button categories book">${list_name}</button></li>`
     )
     .join('');
 }
@@ -28,7 +28,7 @@ getCategoriesList()
       return;
     }
     const markup =
-      `<li class="category-list-item active"><button type="button" class="category category-active">All categories</button></li>` +
+      `<li class="category-list-item active"><button type="button" aria-label="button all categories" class="category category-active">All categories</button></li>` +
       createMarkupCategoriesList(categories);
     refs.categoriesList.innerHTML = markup;
   })
