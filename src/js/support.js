@@ -120,27 +120,17 @@ if (window.innerWidth >= 360 && window.innerWidth <= 767) {
   itemsQuery = 4;
 }
 
-
 function renderRowGallery(icons) {
-
-
   const markup = icons
     .slice(0, SUPPORT_ITEMS_QUERY)
     .map(
       elem =>
-        `
-        <a class = "support-link link"  href="${elem.url}">
+        `<a class = "support-link link"  href="${elem.url}">
           ${elem.position}
           <img src="${elem.icon}" class = "support-item" width="${elem.width}" height="${elem.height}"  alt="" loading="lazy"/> 
-         
-        </a>
-       
-      `
-    )
+         </a>`)
     .join('');
-  
   refs.supportRenderEl.innerHTML = markup;
-
 }
 
 
@@ -184,8 +174,6 @@ renderRowGallery(iconsShow);
 refs.supportLoadBtn.addEventListener('click', onClick);
 function onClick() {
 
-
-
   if (isChangeIcon) {
     if (iconsShow[iconsShow.length - 1].id == 9) {
       return isChangeIcon = false;
@@ -220,6 +208,7 @@ function onClick() {
   }
 console.log(refs.iconSvgBtnEl)
 }
+
 // function renderRowGallery(icons) {
 //   const container = document.createElement('div');
 
