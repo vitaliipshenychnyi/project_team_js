@@ -9,8 +9,6 @@ import img7 from '/src/img/icon-support-logo/msf_logo_2x.png';
 import img8 from '/src/img/icon-support-logo/wv_logo_2x.png';
 import img9 from '/src/img/icon-support-logo/united_logo_2x.png';
 
-import svgdown from '/src/img/svg/svgdown.svg';
-import svgup from '/src/img/svg/svgup.svg';
 
 const icons = [
   {
@@ -21,9 +19,7 @@ const icons = [
     position: '01',
     className: 'icon',
     width: '131',
-    height: '32',
-    class: 'save-children',
-  },
+    height: '32',  },
   {
     id: 2,
     title: 'Project HOPE',
@@ -33,7 +29,6 @@ const icons = [
     className: 'icon',
     width: '62',
     height: '32',
-    class: 'project-hope',
   },
   {
     id: 3,
@@ -44,7 +39,6 @@ const icons = [
     className: 'icon',
     width: '101',
     height: '32',
-    class: 'medical-corps',
   },
   {
     id: 4,
@@ -55,7 +49,6 @@ const icons = [
     className: 'icon',
     width: '82',
     height: '32',
-    class: 'razom',
   },
   {
     id: 5,
@@ -66,7 +59,6 @@ const icons = [
     className: 'icon',
     width: '55',
     height: '32',
-    class: 'against-hunger',
   },
   {
     id: 6,
@@ -77,7 +69,6 @@ const icons = [
     className: 'icon',
     width: '115',
     height: '32',
-    class: 'serhiy-prytula',
   },
   {
     id: 7,
@@ -88,7 +79,6 @@ const icons = [
     className: 'icon',
     width: '129',
     height: '35',
-    class: 'medicins-sans',
   },
   {
     id: 8,
@@ -99,7 +89,6 @@ const icons = [
     className: 'icon',
     width: '81',
     height: '39',
-    class: 'world-vision',
   },
   {
     id: 9,
@@ -125,10 +114,12 @@ function renderRowGallery(icons) {
     .slice(0, SUPPORT_ITEMS_QUERY)
     .map(
       elem =>
-        `<a class = "support-link link"  href="${elem.url}">
+        ` <a class="support-link link"  href="${elem.url}" target="_blank">
           ${elem.position}
           <img src="${elem.icon}" class = "support-item" width="${elem.width}" height="${elem.height}"  alt="" loading="lazy"/> 
-         </a>`)
+        </a>`
+    )
+
     .join('');
   refs.supportRenderEl.innerHTML = markup;
 }
@@ -197,16 +188,12 @@ function onClick() {
   renderRowGallery(iconsShow);
 
   if(isChangeIcon){
-    console.log(iconSupport.classList);
            iconSupport.classList.remove('up');
-    // refs.iconSvgBtnEl.innerHTML = `<use href= "${svgdown}"></use>`;
 // вниз
   }else{
     iconSupport.classList.add('up');
-    // refs.iconSvgBtnEl.innerHTML = `<use href= "${svgup}"></use>`;
 // вверх
   }
-console.log(refs.iconSvgBtnEl)
 }
 
 // function renderRowGallery(icons) {
