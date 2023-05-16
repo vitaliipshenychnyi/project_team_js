@@ -32,6 +32,7 @@ function removeCardMarkup(event) {
 
   dataBooks = dataBooks.filter(book => book._id !== bookToRemoveId);
   saveToLocalStorage(dataBooks);
+  parentNode.remove();
 
   if (!dataBooks || dataBooks.length === 0) {
     refs.emptyList.classList.remove('visually-hidden');
@@ -39,8 +40,6 @@ function removeCardMarkup(event) {
   if (dataBooks.length > 0) {
     refs.emptyList.classList.add('visually-hidden');
   }
-  refs.shoppingList.innerHTML = '';
-  renderShoppingList(dataBooks);
 }
 
 function saveToLocalStorage() {
