@@ -655,3 +655,11 @@ body.dark .wrapper-input svg {
   stroke: #fff;
   fill: #202024;
 }
+
+body.dark .form__button[disabled],
+body.dark .form__button[disabled]:hover,
+body.dark .form__button[disabled]:focus {
+  background-color: transparent;
+  border: 2px solid rgba(175, 175, 175, 0.4);
+  color: rgba(175, 175, 175, 0.4);
+}
