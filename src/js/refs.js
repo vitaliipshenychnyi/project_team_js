@@ -41,6 +41,11 @@ export default {
   mheaderlogoutBtn: document.getElementById('mobile-header-logout'),
   headerShoppingBtn: document.getElementById('header-shopping-link'),
   footerShoppingBtn: document.getElementById('footer-shopping-link'),
+  
+  //shopping-list
+  shoppingList: document.querySelector('.shopping-list-js'),
+  emptyList: document.querySelector('.empty-list-js'),
+
   // footer
   groupBtnEl: document.querySelector('.button-group-logo'),
   cardListEl: document.querySelector('.card-list'),
