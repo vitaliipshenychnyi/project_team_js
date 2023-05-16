@@ -9,6 +9,7 @@
   width: 100%;
   height: 100%;
 
+  // display: block;
   background-size: cover;
   background-image: radial-gradient(
     circle at top left,
@@ -21,10 +22,11 @@
 
   overflow-y: auto;
   z-index: 999;
-  transition: opacity var(--animation), visibility var(--animation);
+  transition: opacity var(--animation), visibility var(--animation), display var(--animation);
 }
 
 .auth-backdrop.is-hidden {
+  // display: none;
   opacity: 0;
   pointer-events: none;
   visibility: hidden;

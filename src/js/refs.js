@@ -41,7 +41,7 @@ export default {
   mheaderlogoutBtn: document.getElementById('mobile-header-logout'),
   headerShoppingBtn: document.getElementById('header-shopping-link'),
   footerShoppingBtn: document.getElementById('footer-shopping-link'),
-  
+  addRemoveShoppingBtn: document.getElementById('add-remove-shopping-btn'),
   //shopping-list
   shoppingList: document.querySelector('.shopping-list-js'),
   emptyList: document.querySelector('.empty-list-js'),
