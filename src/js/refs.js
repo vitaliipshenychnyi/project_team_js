@@ -40,4 +40,11 @@ export default {
   mHeaderProfileEl: document.getElementById('mobile-header-profile-btn'),
   mheaderSignupEl: document.getElementById('mobile-header-signup'),
   mheaderlogoutBtn: document.getElementById('mobile-header-logout'),
+  headerShoppingBtn: document.getElementById('header-shopping-link'),
+  footerShoppingBtn: document.getElementById('footer-shopping-link'),
+  // footer
+  groupBtnEl: document.querySelector('.button-group-logo'),
+  cardListEl: document.querySelector('.card-list'),
+  checkIconEl: document.querySelector('.group-logo-icon'),
+  teamParEl: document.querySelector('.our-team'),
 };

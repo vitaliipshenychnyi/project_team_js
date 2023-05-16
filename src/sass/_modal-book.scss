@@ -8,6 +8,7 @@
   border: 2px solid #111111;
   border-radius: 18px;
   background-color: #ffffff;
+  
 
   @media screen and (min-width: 768px) {
       padding: 40px;
@@ -32,7 +33,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
-    max-width: 400px;
+    max-width: 335px;
     height: auto;
     max-height: 100vh;
   overflow: auto;

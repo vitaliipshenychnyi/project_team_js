@@ -21,18 +21,18 @@
 
   overflow-y: auto;
   z-index: 999;
-  transition: opacity var(--animation);
+  transition: opacity var(--animation), visibility var(--animation);
+
 }
 
 .auth-backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
-  transition: opacity var(--animation);
 }
 
 .auth-backdrop.is-hidden .auth-form {
-  transform: scale(0.7);
+  transform: scale(0.8);
   transition: transform var(--animation-slow);
 }
 
@@ -222,4 +222,9 @@ body.auth-form-open {
   text-transform: uppercase;
   text-decoration: underline;
   color: var(--light-accent-color);
+}
+
+.notify-styles {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    top: 65px;
 }
