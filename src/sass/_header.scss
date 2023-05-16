@@ -15,15 +15,7 @@
   background-color: var(--light-header-bg-color);
   transition: background-color 1000ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-// @media screen and (max-width: 767px) {
-//   .header {
-//     position: sticky;
-//     width: 100vw;
-//     z-index: 100;
-//     top: 0;
-//     right: 0;
-//   }
-// }
+
 .header-container {
   display: flex;
   align-items: center;
@@ -100,13 +92,13 @@
     background-color: #eac645;
     font-weight: 700;
     transition: font-weight 300ms linear;
-    // text-shadow: 0 0 .65px #333, 0 0 .65px #333;
   }
 }
 @media screen and (min-width: 768px) {
   .shopping-link {
     padding: 7px 16px;
-    display: inline-flex;
+    // display: inline-flex;
+    display: none;
     align-items: center;
     gap: 8px;
     font-size: 14px;
@@ -122,8 +114,8 @@
   .shopping-link:hover,
   .shopping-link:hover {
     background: #eac645;
-    font-weight: 700;
-    // text-shadow: 0 0 .65px #333, 0 0 .65px #333;
+    // font-weight: 700;
+    
   }
   .shopping-bag-icon {
     line-height: 0;
@@ -149,11 +141,7 @@
     border: 1.5px solid #111111;
     border-radius: 18px;
     transition: background-color 300ms linear;
-    // font-weight: 700;
-    // font-size: 22px;
-    // letter-spacing: -0.02em;
-    // border-radius: 36px;
-    // border: transparent;
+
   }
   .user-login:hover,
   .user-login:focus {
@@ -283,11 +271,6 @@
     stroke: #eac645;
   }
 
-  // .user-login-mobile:hover,
-  // .user-login-mobile:focus {
-  //   background-color: var(--light-header-bg-color);
-  //   color: var(--dark-header-bg-color);
-  // }
 
   // користувач залогінений стилі
   .loged-in-wrapper {
@@ -467,7 +450,12 @@ input:checked + .slider:before {
 }
 
 .header-profile-wrapper {
+  display: none;
   position: relative;
+
+  @media screen and (min-width: '768px') {
+    display: block;
+  }
   // overflow: hidden;
 }
 
@@ -512,7 +500,15 @@ input:checked + .slider:before {
   align-items: center;
   justify-content: space-between;
 
-  background-color: var(--light-body-color);
+  color: var(--light-border-n-text-color);
+  letter-spacing: -0.04em;
+  background: #fff;
+  border: 1.5px solid #111;
+  border-radius: 18px;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.29;
 
   overflow: hidden;
   cursor: pointer;
@@ -522,6 +518,15 @@ input:checked + .slider:before {
   display: flex;
   max-height: 100%;
   transform: translateY(100%);
+}
+
+.header-profile-block.user-login-mobile {
+  background-color: transparent;
+}
+
+.user-sign-up-mobile.is-hidden,
+.loged-in-wrapper.is-hidden {
+  display: none;
 }
 
 .dark {
@@ -636,9 +641,14 @@ body.dark .form__button {
 }
 
 body.dark .shops-item-icon.amazon-img {
-filter:contrast(0)}
+  filter: contrast(0);
+}
 
+body.dark .icon-close-modal-book {
+  stroke: #ffffff;
+}
 
-body.dark  .icon-close-modal-book {
-  stroke:#ffffff
+body.dark .wrapper-input svg {
+  stroke: #fff;
+  fill: #202024;
 }

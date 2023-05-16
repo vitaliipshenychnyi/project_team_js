@@ -4,6 +4,8 @@ import {
   loginAccount,
 } from '../firebase-service/firebase-service';
 import { hideAuthForm } from './auth-service';
+import { LOCAL_STORAGE_TOKEN } from '../firebase-service/firebase-service';
+import { showProfile } from '../authentication-service/auth-service';
 
 refs.authForm.addEventListener('submit', onAuthFormData);
 
@@ -14,11 +16,13 @@ async function onAuthFormData(e) {
     try {
       loginAccount()
         .then(() => {
-          hideAuthForm();
-          refs.authForm.reset();
+          const token = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TOKEN));
+          if (token) {
+            hideAuthForm();
+            refs.authForm.reset();
+          }
         })
-        .catch()
-        .finally();
+        .catch(e => console.log(e.message));
     } catch (error) {
       console.log(error.message);
     }
@@ -26,10 +30,16 @@ async function onAuthFormData(e) {
 
   if (refs.authSubmitBtn.dataset.login === 'signup') {
     try {
-      createAccount().then(() => {
-        hideAuthForm();
-        refs.authForm.reset();
-      });
+      createAccount()
+        .then(() => {
+          const token = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TOKEN));
+          if (token) {
+            hideAuthForm();
+            // showProfile(refs.nameInput.value.trim());
+            refs.authForm.reset();
+          }
+        })
+        .catch(e => console.log(e.message));
     } catch (error) {
       console.log('user already registered');
       return;

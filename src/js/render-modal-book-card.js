@@ -18,7 +18,7 @@ export function renderBookCard(book) {
              <a href="${book.buy_links[0].url
             }" class="shop-item-link" target=_blank>
              <img
-             class="shops-item-icon"
+             class="shops-item-icon amazon-img"
              srcset="
              ${require('/src/img/amazon@1x.png')} 48w,
              ${require('/src/img/amazon@2x.png')} 96w,
@@ -83,7 +83,7 @@ export function renderBookCard(book) {
              <a href="${book.buy_links[0].url
             }" class="shop-item-link" target=_blank>
              <img
-             class="shops-item-icon"
+             class="shops-item-icon amazon-img"
              srcset="
              ${require('/src/img/amazon@1x.png')} 48w,
              ${require('/src/img/amazon@2x.png')} 96w,

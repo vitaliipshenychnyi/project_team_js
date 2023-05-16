@@ -11,7 +11,7 @@ function createMarkupCategoriesList(categories) {
   return categories
     .map(
       ({ list_name }) =>
-        `<li class="category-list-item"><button type="button" class="category">${list_name}</button></li>`
+        `<li class="category-list-item"><button type="button" class="category" aria-label="button categories book">${list_name}</button></li>`
     )
     .join('');
 }
@@ -28,7 +28,7 @@ getCategoriesList()
       return;
     }
     const markup =
-      `<li class="category-list-item active"><button type="button" class="category category-active">All categories</button></li>` +
+      `<li class="category-list-item active"><button type="button" aria-label="button all categories" class="category category-active">All categories</button></li>` +
       createMarkupCategoriesList(categories);
     refs.categoriesList.innerHTML = markup;
   })
@@ -41,7 +41,6 @@ refs.categoriesList.addEventListener('click', onCategoryClick);
 function onCategoryClick(evt) {
   const categoryName = evt.target;
   const listOfCategories = [...evt.currentTarget.children];
-  // console.log(categoryName);
   if (categoryName.classList.contains('category')) {
     if (categoryName.textContent === 'All categories') {
       removeActive(listOfCategories);
@@ -63,7 +62,6 @@ refs.mainGalleryEl.addEventListener('click', onBtnSeeMore);
 
 // функція зміни категорії при натисканні кнопки SeeMore
 function onBtnSeeMore(evt) {
- // console.log("2 Listener - categories-list.js");
   const categName = evt.target.dataset.cat;
   const categList = [...refs.categoriesList.children];
   if (categName) {

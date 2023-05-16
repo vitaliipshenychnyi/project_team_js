@@ -1,7 +1,6 @@
 import { createCardMarkup } from './createCardMarkup.js';
 import refs from './refs.js';
 
-
 let dataBooks = localStorage.getItem('books-data');
 
 try {

@@ -8,6 +8,7 @@
   border: 2px solid #111111;
   border-radius: 18px;
   background-color: #ffffff;
+  
 
   @media screen and (min-width: 768px) {
       padding: 40px;
@@ -23,7 +24,8 @@
     top: 15px;
     right: 15px;
     cursor: pointer;
-    transition: fill 250ms black;
+    // transition: fill 250ms black;
+    transition: fill 250ms;
   }
 }
 @media screen and (max-width: 767px) {
@@ -31,7 +33,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
-    max-width: 400px;
+    max-width: 335px;
     height: auto;
     max-height: 100vh;
   overflow: auto;
@@ -213,10 +215,11 @@
 .icon-close-modal-book {
   stroke: black;
   transition: 250ms linear;
+  // transform: rotate(0deg) scale(1) ;
 }
 
 .modal__icon:hover .icon-close-modal-book,
 .modal__icon:focus .icon-close-modal-book {
   stroke: #4f2ee8;
-  transform: rotate(90deg) scale(1.1);
+  // transform: rotate(90deg) scale(1.1);
 }

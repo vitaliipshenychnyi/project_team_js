@@ -20,7 +20,6 @@ export default {
   wrapperBookEl: document.querySelector('.wrapper-book'),
   buttonAddBookEl: document.querySelector('.form__button'),
   addedTextEl: document.querySelector('.added-text'),
-  // buttonDeleteBookEl: document.querySelector('.deleteBook'),
   //form
   signUpFormBtn: document.getElementById('signup-formbtn'),
   loginFormBtn: document.getElementById('signin-formbtn'),
@@ -33,10 +32,23 @@ export default {
   authSubmitBtn: document.getElementById('authform-submitBtn'),
   //login
   profileNameEl: document.querySelector('[data-profile-name]'),
+  mProfileNameEl: document.querySelector('[data-profile-mname]'),
   headerProfileEl: document.getElementById('header-profile-btn'),
   headerSignupEl: document.getElementById('header-signup'),
   headerlogoutBtn: document.getElementById('header-logout'),
+  mHeaderProfileEl: document.getElementById('mobile-header-profile-btn'),
+  mheaderSignupEl: document.getElementById('mobile-header-signup'),
+  mheaderlogoutBtn: document.getElementById('mobile-header-logout'),
+  headerShoppingBtn: document.getElementById('header-shopping-link'),
+  footerShoppingBtn: document.getElementById('footer-shopping-link'),
+  
   //shopping-list
   shoppingList: document.querySelector('.shopping-list-js'),
   emptyList: document.querySelector('.empty-list-js'),
+
+  // footer
+  groupBtnEl: document.querySelector('.button-group-logo'),
+  cardListEl: document.querySelector('.card-list'),
+  checkIconEl: document.querySelector('.group-logo-icon'),
+  teamParEl: document.querySelector('.our-team'),
 };

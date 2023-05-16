@@ -4,32 +4,40 @@ import { logout } from '../firebase-service/firebase-service';
 import { auth, user } from '../firebase-service/firebase-service';
 
 refs.headerProfileEl.addEventListener('click', onProfileEl);
+refs.mHeaderProfileEl.addEventListener('click', onProfileEl);
+refs.mheaderSignupEl.addEventListener('click', showAuthForm);
 refs.headerlogoutBtn.addEventListener('click', onLogoutBtn);
+refs.mheaderlogoutBtn.addEventListener('click', onLogoutBtn);
 
-export function checkLoginToken() {
-  if (parsedToken) {
-    visibleProfileBtn();
-    onLoginDisplayInfo();
-    console.log(auth.currentUser.displayName);
-
-    // console.log(parsedToken);
-    // console.log(auth.currentUser);
-  }
+export async function showProfile(name) {
+  visibleProfileBtn();
+  showLoginProfileName(name);
 }
 
-function onLoginDisplayInfo() {
-  refs.profileNameEl.textContent = auth.currentUser.displayName;
-  refs.authFormBackdrop.classList.add('is-hidden');
+export function showLoginProfileName(name) {
+  refs.profileNameEl.textContent = name;
+  refs.mProfileNameEl.textContent = name;
 }
 
 export function visibleSignupBtn() {
-  refs.headerSignupEl.classList.remove('is-hidden');
-  refs.headerProfileEl.classList.add('is-hidden');
+  showEl(refs.headerSignupEl);
+  showEl(refs.mheaderSignupEl);
+
+  hideEl(refs.headerProfileEl);
+  hideEl(refs.mHeaderProfileEl);
+  hideEl(refs.mheaderlogoutBtn);
+  refs.headerShoppingBtn.style.display = 'none';
 }
 
 export function visibleProfileBtn() {
-  refs.headerProfileEl.classList.remove('is-hidden');
-  refs.headerSignupEl.classList.add('is-hidden');
+  showEl(refs.headerProfileEl);
+  showEl(refs.mHeaderProfileEl);
+  showEl(refs.mheaderlogoutBtn);
+
+  hideEl(refs.headerSignupEl);
+  hideEl(refs.mheaderSignupEl);
+  refs.headerShoppingBtn.style.display = 'inline-flex';
+  refs.footerShoppingBtn.style.display = 'inline-flex';
 }
 
 export function onProfileEl() {
@@ -38,10 +46,22 @@ export function onProfileEl() {
 
 export function onLogoutBtn() {
   logout();
-  // checkLoginToken;
   visibleSignupBtn;
+  refs.headerShoppingBtn.style.display = 'none';
+  refs.footerShoppingBtn.style.display = 'none';
 }
 
 export function hideAuthForm() {
   refs.authFormBackdrop.classList.add('is-hidden');
+}
+export function showAuthForm() {
+  refs.authFormBackdrop.classList.remove('is-hidden');
+}
+
+function hideEl(elem) {
+  elem.classList.add('is-hidden');
+}
+
+function showEl(elem) {
+  elem.classList.remove('is-hidden');
 }

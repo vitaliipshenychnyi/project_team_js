@@ -7,7 +7,7 @@ import imgPikovska from '/src/img/card-photo/lizapikovska@2x.jpg';
 import imgBreslavets from '/src/img/card-photo/olexanderbreslavets@2x.jpg';
 import imgYarosh from '/src/img/card-photo/hennadiyyarosh@2x.jpg';
 import imgRusnak from '/src/img/card-photo/ivanrusnak@2x.jpg';
-
+import refs from './refs';
 const cards = [
   {
     id: 1,
@@ -23,7 +23,7 @@ const cards = [
   },
   {
     id: 3,
-    link: 'https://github.com/vitaliipshenychnyi',
+    link: 'https://github.com/Vanchenko',
     src: imgEnvanchenko,
     alt: 'evgenvanchenko',
   },
@@ -59,32 +59,26 @@ const cards = [
   },
   {
     id: 9,
-    link: '#',
+    link: 'https://github.com/ivan-2908',
     src: imgRusnak,
     alt: 'ivanrusnak',
   },
 ];
 
-const groupBtnEl = document.querySelector('.button-group-logo');
-const cardListEl = document.querySelector('.card-list');
-const checkIconEl = document.querySelector('.group-logo-icon');
-const teamParEl = document.querySelector('.our-team')
-groupBtnEl.addEventListener('click', onRollingOutClick);
+refs.groupBtnEl.addEventListener('click', onRollingOutClick);
 
 function onRollingOutClick(evt) {
-  if (cardListEl.childElementCount) {
-    checkIconEl.classList.remove('return-check');
-    // cardListEl.classList.remove('animation-appear');
-    cardListEl.classList.add('is-hidden');
-    teamParEl.classList.add('is-hidden');
+  if (refs.cardListEl.childElementCount) {
+    refs.checkIconEl.classList.remove('return-check');
+    refs.cardListEl.classList.add('is-hidden');
+    refs.teamParEl.classList.add('is-hidden');
 
-    cardListEl.innerHTML = '';
+    refs.cardListEl.innerHTML = '';
   } else {
-    checkIconEl.classList.add('return-check');
-    // cardListEl.classList.add('animation-appear');
-    teamParEl.classList.remove('is-hidden');
-        cardListEl.classList.remove('is-hidden');
-    cardListEl.innerHTML = createMArkUp(cards);
+    refs.checkIconEl.classList.add('return-check');
+    refs.teamParEl.classList.remove('is-hidden');
+    refs.cardListEl.classList.remove('is-hidden');
+    refs.cardListEl.innerHTML = createMArkUp(cards);
   }
 }
 

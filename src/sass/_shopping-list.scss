@@ -131,8 +131,8 @@
   margin-bottom: 4px;
 
   @media screen and (min-width: 768px) {
-    width: none;
-    height: none;
+    // width: none;
+    // height: none;
     margin-right: 24px;
     margin-bottom: 0;
   }
@@ -221,8 +221,9 @@
 }
 
 .shops-item-icon {
-  filter: grayscale(1);
-  transition: filter;
+  // filter: grayscale(1);
+  filter: grayscale(100%);
+  // transition: filter;
   border-radius: 0;
 }
 
