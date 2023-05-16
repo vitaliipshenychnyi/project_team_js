@@ -24,6 +24,7 @@ function onBookCardClick(event) {
 
 // функція відкриття модального вікна
 function openModal(idBook) {
+  refs.wrapperBookEl.innerHTML = '';
   refs.modalCloseBtn.addEventListener('click', closeModal);
   refs.modal.classList.remove('is-hidden');
   getDataBook(idBook);
