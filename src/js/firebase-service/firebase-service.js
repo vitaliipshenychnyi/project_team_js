@@ -20,17 +20,18 @@ import { async } from '@firebase/util';
 export const auth = getAuth(firebaseInitApp);
 // connectAuthEmulator(auth, 'http://localhost:9099');
 
-const LOCAL_STORAGE_TOKEN = 'userToken';
+export const LOCAL_STORAGE_TOKEN = 'userToken';
 export const parsedToken = JSON.parse(
   localStorage.getItem(LOCAL_STORAGE_TOKEN)
 );
+export const user = auth.currentUser;
 
-export async function getUserId() {
-  if (user === null) {
-    return;
-  }
-  return user.uid;
-}
+// export function getUserId() {
+//   if (!user) {
+//     return;
+//   }
+//   return user.uid;
+// }
 
 AuthStateViewer();
 
@@ -41,6 +42,7 @@ export async function loginAccount() {
       refs.emailInput.value.trim(),
       refs.passwordInput.value
     );
+
     visibleProfileBtn();
   } catch (error) {
     console.log(error);
@@ -73,7 +75,7 @@ export async function AuthStateViewer() {
         LOCAL_STORAGE_TOKEN,
         JSON.stringify(user.accessToken)
       );
-      userId = user.uid;
+      // userId = user.uid;
       checkLoginToken();
     } else {
       console.log('NO USER');
