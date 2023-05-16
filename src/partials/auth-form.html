@@ -6,25 +6,49 @@
       </svg>
     </div>
     <div class="auth-content">
-      <input type="text" placeholder="Name" name="uname" id="uname" required />
+      <span class="wrapper-input">
+        <input
+          class="auth-form-input"
+          type="text"
+          placeholder="Name"
+          name="uname"
+          id="uname"
+          required
+        />
+        </span>
+      <span class="wrapper-input">
+        <input
+          class="auth-form-input"
+          type="email"
+          placeholder="email"
+          name="uemail"
+          id="uemail"
+          required
+        />
+        <svg width="28" height="28">
+          <use href="./img/svg/sprite.svg#icon-mail"></use>
+        </svg>
+      </span>
+      <span class="wrapper-input">
+        <input
+          class="auth-form-input"
+          type="password"
+          placeholder="Password"
+          name="upassword"
+          id="upassword"
+          required
+        />
+        <svg width="28" height="28">
+          <use href="./img/svg/sprite.svg#icon-lock"></use>
+        </svg>
+      </span>
 
-      <input
-        type="email"
-        placeholder="email"
-        name="uemail"
-        id="uemail"
-        required
-      />
-
-      <input
-        type="password"
-        placeholder="Password"
-        name="upassword"
-        id="upassword"
-        required
-      />
-
-      <button class="signup-btn" type="submit" id="authform-submitBtn" aria-label="button sign up">
+      <button
+        class="signup-btn"
+        type="submit"
+        id="authform-submitBtn"
+        aria-label="button sign up"
+      >
         SIGN UP
       </button>
 

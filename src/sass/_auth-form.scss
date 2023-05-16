@@ -22,7 +22,6 @@
   overflow-y: auto;
   z-index: 999;
   transition: opacity var(--animation), visibility var(--animation);
-
 }
 
 .auth-backdrop.is-hidden {
@@ -114,25 +113,6 @@ body.auth-form-open {
   stroke: var(--light-accent-color-2);
 }
 
-.auth-content input {
-  padding-top: 16px;
-  padding-bottom: 16px;
-  padding-left: 24px;
-  margin-bottom: 24px;
-
-  outline: 2px solid var(--light-border-n-text-color);
-  border: transparent;
-  transition: border var(--animation);
-  border-radius: 40px;
-
-  @media screen and (min-width: 579px) {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 40px;
-    margin-bottom: 28px;
-  }
-}
-
 .auth-content input:hover {
   outline: 2px solid var(--light-accent-color);
 }
@@ -186,8 +166,8 @@ body.auth-form-open {
 }
 
 .signup-btn {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 17px;
+  padding-bottom: 17px;
   margin-bottom: 14px;
 
   color: var(--light-header-bg-color);
@@ -198,6 +178,11 @@ body.auth-form-open {
   transition: background-color var(--animation-slow);
 
   cursor: pointer;
+}
+@media screen and (min-width: 579px) {
+  .signup-btn {
+    margin-top: 12px;
+  }
 }
 
 .signup-btn:hover,
@@ -224,6 +209,49 @@ body.auth-form-open {
   color: var(--light-accent-color);
 }
 
+.wrapper-input {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+@media screen and (min-width: 579px) {
+  .auth-form-input {
+    font-size: 20px;
+    line-height: 1.33;
+
+    letter-spacing: -0.01em;
+  }
+}
+.wrapper-input svg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 32px;
+  stroke: #111;
+  fill: #fff;
+}
+
+.auth-form-input {
+  width: 100%;
+
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 24px;
+  padding-right: 65px;
+
+  outline: 2px solid var(--light-border-n-text-color);
+  border: transparent;
+  transition: border var(--animation);
+  border-radius: 40px;
+
+  @media screen and (min-width: 579px) {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 40px;
+  }
+}
 .notify-styles {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     top: 65px;
