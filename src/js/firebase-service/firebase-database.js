@@ -11,9 +11,11 @@ import {
 } from 'firebase/database';
 
 import app from '../firebase-service/firebase-init';
-// import { userId } from '../firebase-service/firebase-service';
+import { auth } from '../firebase-service/firebase-service';
+import { parsedToken } from '../firebase-service/firebase-service';
 
 const db = getDatabase(app);
+export const dbRef = ref(getDatabase());
 // console.log(userId);
 
 export async function writeUserToDatabase({ uid: userId, email, displayName }) {
@@ -24,6 +26,39 @@ export async function writeUserToDatabase({ uid: userId, email, displayName }) {
 }
 
 // console.log(db);
+
+export async function writeBookToDatabase(userId, dataBooks) {
+  try {
+    set(ref(db, `users/${userId}/booksData`), dataBooks);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getBooksFromDatabase(dataBooks) {
+  await get(child(dbRef, `users/${parsedToken}/booksData`))
+    .then(snapshot => {
+      if (snapshot.exists()) {
+        dataBooks = snapshot.val();
+        console.log('snapshot:', dataBooks);
+      } else {
+        console.log('No data available');
+      }
+    })
+    .catch(error => {
+      console.error(error);
+    });
+}
+
+export async function deleteBookFromDatabase(index, dataBooks) {
+  set(ref(db, `users/${parsedToken}/booksData/${index}`), null)
+    .then(() => {
+      console.log('after delete', dataBooks);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
 
 // export async function postBookToDatabase({ userId, dataBooks }) {
 //   const { _id, book_image, title, description, author, buy_links } = dataBooks;

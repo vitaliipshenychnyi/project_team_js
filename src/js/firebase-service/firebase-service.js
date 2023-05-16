@@ -24,15 +24,6 @@ export const LOCAL_STORAGE_TOKEN = 'userToken';
 export const parsedToken = JSON.parse(
   localStorage.getItem(LOCAL_STORAGE_TOKEN)
 );
-export const user = auth.currentUser;
-
-// export function getUserId() {
-//   if (!user) {
-//     return;
-//   }
-//   return user.uid;
-// }
-
 AuthStateViewer();
 
 export async function loginAccount() {
@@ -73,10 +64,7 @@ export async function AuthStateViewer() {
   onAuthStateChanged(auth, user => {
     if (user) {
       console.log('Welcome: ', user.displayName, '! Email :', user.email);
-      localStorage.setItem(
-        LOCAL_STORAGE_TOKEN,
-        JSON.stringify(user.accessToken)
-      );
+      localStorage.setItem(LOCAL_STORAGE_TOKEN, JSON.stringify(user.uid));
       showProfile(user.displayName);
     } else {
       console.log('NO USER');

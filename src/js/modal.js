@@ -1,16 +1,28 @@
 import refs from './refs';
 import axios from 'axios';
 import { renderBookCard } from './render-modal-book-card';
+import { auth, parsedToken } from './firebase-service/firebase-service';
+import {
+  writeBookToDatabase,
+  getBooksFromDatabase,
+  deleteBookFromDatabase,
+  dbRef,
+} from './firebase-service/firebase-database';
 
 let arrDataBooks = [];
 let objBookOne = [];
 let idBookOne = [];
 
+// const USER_ID = auth.currentUser.uid;
+
 refs.mainGalleryEl.addEventListener('click', onBookCardClick);
 
 if (localStorage.getItem('books-data')) {
   arrDataBooks = JSON.parse(localStorage.getItem('books-data'));
+  getBooksFromDatabase(arrDataBooks);
 }
+
+console.log('arrDataBooks', arrDataBooks);
 
 // функція отримання id книги
 function onBookCardClick(event) {
@@ -35,7 +47,7 @@ function openModal(idBook) {
     refs.buttonAddBookEl.addEventListener('click', deleteBookToLocalStorage);
   } else {
     refs.buttonAddBookEl.textContent = 'ADD TO SHOPPING LIST';
-    refs.addedTextEl.innerHTML = "";
+    refs.addedTextEl.innerHTML = '';
     refs.buttonAddBookEl.addEventListener('click', saveBookToLocalStorage);
   }
 }
@@ -52,7 +64,6 @@ async function getDataBook(idBook) {
     console.log(error);
   }
 }
-
 
 // функція формування об'єкту даних книги
 function objectBook({
@@ -78,27 +89,37 @@ function objectBook({
 }
 
 // функція запису книги до сховища
-function saveBookToLocalStorage() {
-  refs.buttonAddBookEl.removeEventListener('click', saveBookToLocalStorage);
-  refs.addedTextEl.innerHTML =
-    '<p class="added-text">Сongratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".</p>';
-  refs.buttonAddBookEl.textContent = 'REMOVE FROM THE SHOPPING LIST';
-  arrDataBooks.push(objBookOne[0]);
-  console.log('Кількість книг після додавання = ' + arrDataBooks.length);
-  localStorage.setItem('books-data', JSON.stringify(arrDataBooks));
-  closeModal();
+async function saveBookToLocalStorage() {
+  if (parsedToken) {
+    refs.buttonAddBookEl.removeEventListener('click', saveBookToLocalStorage);
+    refs.addedTextEl.innerHTML =
+      '<p class="added-text">Сongratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".</p>';
+    refs.buttonAddBookEl.textContent = 'REMOVE FROM THE SHOPPING LIST';
+    arrDataBooks.push(objBookOne[0]);
+    console.log('Кількість книг після додавання = ' + arrDataBooks.length);
+    console.log(arrDataBooks);
+    localStorage.setItem('books-data', JSON.stringify(arrDataBooks));
+    await writeBookToDatabase(auth.currentUser.uid, arrDataBooks);
+
+    closeModal();
+  }
 }
 
 // функція видалення книги зі сховища
 function deleteBookToLocalStorage() {
-  refs.buttonAddBookEl.removeEventListener('click', deleteBookToLocalStorage);
-  refs.addedTextEl.innerHTML = '';
-  refs.buttonAddBookEl.textContent = 'ADD TO SHOPPING LIST';
-  const permId = arrDataBooks.findIndex(el => el._id === idBookOne[0]);
-  arrDataBooks.splice(permId, 1);
-  console.log('Кількість книг після видалення = ' + arrDataBooks.length);
-  localStorage.setItem('books-data', JSON.stringify(arrDataBooks));
-  closeModal();
+  if (parsedToken) {
+    refs.buttonAddBookEl.removeEventListener('click', deleteBookToLocalStorage);
+    refs.addedTextEl.innerHTML = '';
+    refs.buttonAddBookEl.textContent = 'ADD TO SHOPPING LIST';
+    const permId = arrDataBooks.findIndex(el => el._id === idBookOne[0]);
+    arrDataBooks.splice(permId, 1);
+    console.log('Кількість книг після видалення = ' + arrDataBooks.length);
+
+    deleteBookFromDatabase(permId, arrDataBooks);
+    localStorage.setItem('books-data', JSON.stringify(arrDataBooks));
+
+    closeModal();
+  }
 }
 
 // функція закриття модального вікна
@@ -106,15 +127,3 @@ function closeModal() {
   refs.modalCloseBtn.removeEventListener('click', closeModal);
   refs.modal.classList.add('is-hidden');
 }
-
-
-
-
-
-
-
-
-
-
-
-
