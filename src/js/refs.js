@@ -40,4 +40,9 @@ export default {
   mHeaderProfileEl: document.getElementById('mobile-header-profile-btn'),
   mheaderSignupEl: document.getElementById('mobile-header-signup'),
   mheaderlogoutBtn: document.getElementById('mobile-header-logout'),
+  // footer
+  groupBtnEl: document.querySelector('.button-group-logo'),
+  cardListEl: document.querySelector('.card-list'),
+  checkIconEl: document.querySelector('.group-logo-icon'),
+  teamParEl: document.querySelector('.our-team'),
 };
