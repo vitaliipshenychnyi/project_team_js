@@ -67,23 +67,18 @@ async function getDataBook(idBook) {
 
 // функція формування об'єкту даних книги
 function objectBook({
-  _id,
-  book_image,
-  title,
-  list_name,
-  description,
-  author,
-  buy_links,
+  _id: { book_image, title, list_name, description, author, buy_links },
 }) {
   objBookOne = []; // стираємо дані з objBookOne про книги
   const objBook = {
-    _id,
-    book_image,
-    title,
-    list_name,
-    description,
-    author,
-    buy_links,
+    _id: {
+      book_image,
+      title,
+      list_name,
+      description,
+      author,
+      buy_links,
+    },
   };
   objBookOne.push(objBook); // записуємо дані з objBookOne про книги
 }
@@ -97,9 +92,8 @@ async function saveBookToLocalStorage() {
     refs.buttonAddBookEl.textContent = 'REMOVE FROM THE SHOPPING LIST';
     arrDataBooks.push(objBookOne[0]);
     console.log('Кількість книг після додавання = ' + arrDataBooks.length);
-    console.log(arrDataBooks);
     localStorage.setItem('books-data', JSON.stringify(arrDataBooks));
-    await writeBookToDatabase(auth.currentUser.uid, arrDataBooks);
+    await writeBookToDatabase(auth.currentUser.uid, objBookOne[0]);
 
     closeModal();
   }
@@ -112,10 +106,11 @@ function deleteBookToLocalStorage() {
     refs.addedTextEl.innerHTML = '';
     refs.buttonAddBookEl.textContent = 'ADD TO SHOPPING LIST';
     const permId = arrDataBooks.findIndex(el => el._id === idBookOne[0]);
+    console.log(permId);
     arrDataBooks.splice(permId, 1);
     console.log('Кількість книг після видалення = ' + arrDataBooks.length);
 
-    deleteBookFromDatabase(permId, arrDataBooks);
+    deleteBookFromDatabase(permId, idBookOne[0]);
     localStorage.setItem('books-data', JSON.stringify(arrDataBooks));
 
     closeModal();

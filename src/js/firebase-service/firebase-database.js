@@ -27,9 +27,11 @@ export async function writeUserToDatabase({ uid: userId, email, displayName }) {
 
 // console.log(db);
 
-export async function writeBookToDatabase(userId, dataBooks) {
+export async function writeBookToDatabase(dataBooks) {
   try {
-    set(ref(db, `users/${userId}/booksData`), dataBooks);
+    const bookId = dataBooks._id;
+
+    set(ref(db, `users/${parsedToken}/booksData/${bookId}`), dataBooks);
   } catch (error) {
     console.log(error);
   }
@@ -50,8 +52,9 @@ export async function getBooksFromDatabase(dataBooks) {
     });
 }
 
-export async function deleteBookFromDatabase(index, dataBooks) {
-  set(ref(db, `users/${parsedToken}/booksData/${index}`), null)
+export async function deleteBookFromDatabase(dataBooks) {
+  const bookId = dataBooks._id;
+  set(ref(db, `users/${parsedToken}/booksData/${bookId}`), null)
     .then(() => {
       console.log('after delete', dataBooks);
     })
