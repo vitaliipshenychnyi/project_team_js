@@ -23,7 +23,8 @@
     top: 15px;
     right: 15px;
     cursor: pointer;
-    transition: fill 250ms black;
+    // transition: fill 250ms black;
+    transition: fill 250ms;
   }
 }
 @media screen and (max-width: 767px) {
