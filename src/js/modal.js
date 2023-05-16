@@ -14,6 +14,7 @@ if (localStorage.getItem('books-data')) {
 
 // функція отримання id книги
 function onBookCardClick(event) {
+  event.preventDefault();
   idBookOne = []; // стираємо дані з idBookOne про id книги
   const bookCard = event.target.closest('.book-card-wrapper');
   const idBook = bookCard.dataset.idbook;
