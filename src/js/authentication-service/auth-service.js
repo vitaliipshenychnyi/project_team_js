@@ -17,7 +17,6 @@ export async function showProfile(name) {
 export function showLoginProfileName(name) {
   refs.profileNameEl.textContent = name;
   refs.mProfileNameEl.textContent = name;
-  // console.log(object);
 }
 
 export function visibleSignupBtn() {
@@ -27,6 +26,7 @@ export function visibleSignupBtn() {
   hideEl(refs.headerProfileEl);
   hideEl(refs.mHeaderProfileEl);
   hideEl(refs.mheaderlogoutBtn);
+  refs.headerShoppingBtn.style.display = 'none';
 }
 
 export function visibleProfileBtn() {
@@ -36,6 +36,8 @@ export function visibleProfileBtn() {
 
   hideEl(refs.headerSignupEl);
   hideEl(refs.mheaderSignupEl);
+  refs.headerShoppingBtn.style.display = 'inline-flex';
+  refs.footerShoppingBtn.style.display = 'inline-flex';
 }
 
 export function onProfileEl() {
@@ -45,6 +47,8 @@ export function onProfileEl() {
 export function onLogoutBtn() {
   logout();
   visibleSignupBtn;
+  refs.headerShoppingBtn.style.display = 'none';
+  refs.footerShoppingBtn.style.display = 'none';
 }
 
 export function hideAuthForm() {

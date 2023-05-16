@@ -1,31 +1,25 @@
-// import { AuthErrorCodes } from 'firebase/auth';
+import { AuthErrorCodes } from 'firebase/auth';
+import { Notify } from 'notiflix';
 
-// export const showLoginForm = () => {
-//   login.style.display = 'block';
-//   app.style.display = 'none';
-// };
+const notifyConfig = {
+  timeout: 3000,
+  className: 'notify-styles',
+  fontSize: '16px',
+  width: '290px',
+};
 
-// export const showApp = () => {
-//   login.style.display = 'none';
-//   app.style.display = 'block';
-// };
+export function showLoginError(e) {
+  if (e.code == AuthErrorCodes.INVALID_PASSWORD) {
+    Notify.failure(`Wrong password. Try again.`, notifyConfig);
+  } else {
+    Notify.failure(`${error.message}`);
+  }
+}
 
-// export const hideLoginError = () => {
-//   divLoginError.style.display = 'none';
-//   lblLoginErrorMessage.innerHTML = '';
-// };
+export async function showLoginState(name) {
+  Notify.success(`Hello! You're logged in as ${name}`, notifyConfig);
+}
 
-// export const showLoginError = error => {
-//   divLoginError.style.display = 'block';
-//   if (error.code == AuthErrorCodes.INVALID_PASSWORD) {
-//     lblLoginErrorMessage.innerHTML = `Wrong password. Try again.`;
-//   } else {
-//     lblLoginErrorMessage.innerHTML = `Error: ${error.message}`;
-//   }
-// };
-
-// export const showLoginState = user => {
-//   lblAuthState.innerHTML = `You're logged in as ${user.displayName} (uid: ${user.uid}, email: ${user.email}) `;
-// };
-
-// // hideLoginError();
+export function showLogoutState() {
+  Notify.info('You have logged out', notifyConfig);
+}

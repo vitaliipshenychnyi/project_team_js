@@ -20,7 +20,6 @@ export default {
   wrapperBookEl: document.querySelector('.wrapper-book'),
   buttonAddBookEl: document.querySelector('.form__button'),
   addedTextEl: document.querySelector('.added-text'),
-  // buttonDeleteBookEl: document.querySelector('.deleteBook'),
   //form
   signUpFormBtn: document.getElementById('signup-formbtn'),
   loginFormBtn: document.getElementById('signin-formbtn'),
@@ -40,6 +39,13 @@ export default {
   mHeaderProfileEl: document.getElementById('mobile-header-profile-btn'),
   mheaderSignupEl: document.getElementById('mobile-header-signup'),
   mheaderlogoutBtn: document.getElementById('mobile-header-logout'),
+  headerShoppingBtn: document.getElementById('header-shopping-link'),
+  footerShoppingBtn: document.getElementById('footer-shopping-link'),
+  
+  //shopping-list
+  shoppingList: document.querySelector('.shopping-list-js'),
+  emptyList: document.querySelector('.empty-list-js'),
+
   // footer
   groupBtnEl: document.querySelector('.button-group-logo'),
   cardListEl: document.querySelector('.card-list'),

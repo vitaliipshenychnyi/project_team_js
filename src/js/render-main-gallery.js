@@ -61,7 +61,6 @@ export function renderGalleryCat(books, cat) {
     .splice(idx, idx)
     .join(' ')}</span>`;
   let markUp = '';
-  //console.log(books);
   markUp = renderRowGallery(books);
   refs.mainGalleryEl.classList.add('gal-category');
   refs.mainGalleryEl.insertAdjacentHTML('beforeend', markUp);
