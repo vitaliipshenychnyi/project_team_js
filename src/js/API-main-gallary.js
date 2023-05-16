@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { renderGallery, renderGalleryCat } from './render-main-gallery';
+import throttle from 'lodash.throttle';
+import debounce from 'lodash.debounce';
+import { renderGallery, renderGalleryCat, repWinSize } from './render-main-gallery';
 import refs from './refs';
 
 const BASE_URL = 'https://books-backend.p.goit.global/books/';
@@ -26,9 +28,10 @@ export async function mainGalleryCategory(cat) {
     console.log(error);
   }
 }
-
 mainGallery();
 refs.mainGalleryEl.addEventListener('click', onBtnSeeMoreCategory);
+//window.addEventListener('resize', throttle(() => { mainGallery(); }, 0));
+window.addEventListener('resize', debounce(() => { mainGallery(); }, 200));
 
 // функція, яка відслідковує за вибором категорії з переліку категорій
 function onBtnSeeMoreCategory(evt) {
@@ -41,3 +44,4 @@ function onBtnSeeMoreCategory(evt) {
 export async function getCategoriesList() {
   return await axios.get(`${BASE_URL}category-list`);
 }
+
