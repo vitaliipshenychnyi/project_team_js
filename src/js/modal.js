@@ -17,8 +17,8 @@ function onBookCardClick(event) {
   event.preventDefault();
   idBookOne = []; // стираємо дані з idBookOne про id книги
   const bookCard = event.target.closest('.book-card-wrapper');
-  const idBook = bookCard.dataset.idbook;
   if (!bookCard) return;
+  const idBook = bookCard.dataset.idbook;
   idBookOne.push(idBook); // додаємо до idBookOne дані про id книги
   openModal(idBook);
 }
@@ -36,7 +36,7 @@ function openModal(idBook) {
     refs.buttonAddBookEl.addEventListener('click', deleteBookToLocalStorage);
   } else {
     refs.buttonAddBookEl.textContent = 'ADD TO SHOPPING LIST';
-    refs.addedTextEl.innerHTML = "";
+    refs.addedTextEl.innerHTML = '';
     refs.buttonAddBookEl.addEventListener('click', saveBookToLocalStorage);
   }
 }
@@ -53,7 +53,6 @@ async function getDataBook(idBook) {
     console.log(error);
   }
 }
-
 
 // функція формування об'єкту даних книги
 function objectBook({
@@ -107,15 +106,3 @@ function closeModal() {
   refs.modalCloseBtn.removeEventListener('click', closeModal);
   refs.modal.classList.add('is-hidden');
 }
-
-
-
-
-
-
-
-
-
-
-
-

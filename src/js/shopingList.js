@@ -2,8 +2,6 @@
 
 const shoppingList = document.querySelector('.shopping-list-js');
 const emptyList = document.querySelector('.empty-list-js');
-console.log(emptyList);
-console.log(shoppingList);
 
 let dataBooks = localStorage.getItem('books-data');
 
