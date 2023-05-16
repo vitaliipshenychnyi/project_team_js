@@ -8,7 +8,6 @@ const BASE_URL = 'https://books-backend.p.goit.global/books/';
 export async function mainGallery() {
   try {
     const response = await axios.get(`${BASE_URL}top-books`);
-    // console.log(response.data[0].books[0]);
     renderGallery(response.data);
     refs.spinnerEl.setAttribute('hidden', true); // вимикає spiner
   } catch (error) {
@@ -21,7 +20,6 @@ export async function mainGalleryCategory(cat) {
   try {
     refs.spinnerEl.removeAttribute('hidden'); // вмикає spiner
     const response = await axios.get(`${BASE_URL}category?category=${cat}`);
-    console.log(response.data);
     renderGalleryCat(response.data, cat);
     refs.spinnerEl.setAttribute('hidden', true); // вимикає spiner
   } catch (error) {
@@ -30,7 +28,6 @@ export async function mainGalleryCategory(cat) {
 }
 
 mainGallery();
-// mainGalleryCategory('Series Books');
 refs.mainGalleryEl.addEventListener('click', onBtnSeeMoreCategory);
 
 // функція, яка відслідковує за вибором категорії з переліку категорій

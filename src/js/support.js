@@ -109,10 +109,7 @@ if (window.innerWidth >= 360 && window.innerWidth <= 767) {
   itemsQuery = 4;
 }
 
-
 function renderRowGallery(icons) {
-
-
   const markup = icons
     .slice(0, SUPPORT_ITEMS_QUERY)
     .map(
@@ -122,9 +119,9 @@ function renderRowGallery(icons) {
           <img src="${elem.icon}" class = "support-item" width="${elem.width}" height="${elem.height}"  alt="" loading="lazy"/> 
         </a>`
     )
+
     .join('');
   refs.supportRenderEl.innerHTML = markup;
-
 }
 
 
@@ -168,8 +165,6 @@ renderRowGallery(iconsShow);
 refs.supportLoadBtn.addEventListener('click', onClick);
 function onClick() {
 
-
-
   if (isChangeIcon) {
     if (iconsShow[iconsShow.length - 1].id == 9) {
       return isChangeIcon = false;
@@ -200,6 +195,7 @@ function onClick() {
 // вверх
   }
 }
+
 // function renderRowGallery(icons) {
 //   const container = document.createElement('div');
 
