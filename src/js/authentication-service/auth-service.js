@@ -17,7 +17,6 @@ export async function showProfile(name) {
 export function showLoginProfileName(name) {
   refs.profileNameEl.textContent = name;
   refs.mProfileNameEl.textContent = name;
-  // console.log(object);
 }
 
 export function visibleSignupBtn() {
