@@ -307,11 +307,7 @@
   .nav-item-mobile:not(:last-child) {
     margin-bottom: 8px;
   }
-  .shopping-link-mobile {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
+
   .shopping-bag-icon-mobile {
     fill: var(--dark-border-n-text-color);
     transition: 400ms linear;
@@ -331,6 +327,17 @@
     color: var(--dark-border-n-text-color);
     border-radius: 36px;
     transition: 400ms linear;
+  } 
+ .home-link-mobile {
+  background-color:#eac645;
+  color: #111;
+ }
+   .shopping-link-mobile {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding-left: 0;
+    padding-right: 0;
   }
   .shopping-link-mobile:hover,
   .home-link-mobile:hover,
@@ -471,7 +478,7 @@ input:checked + .slider:before {
   height: 45px;
 
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
 
   background-color: var(--light-accent-color);
