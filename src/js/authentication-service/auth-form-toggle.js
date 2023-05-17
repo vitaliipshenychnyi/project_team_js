@@ -7,7 +7,15 @@ refs.loginFormBtn.addEventListener('click', toogleLoginBtn);
 refs.authSubmitBtn.dataset.login = 'signup';
 
 function toggleAuthForm() {
-  document.body.classList.toggle('.auth-form-open');
+  const bodyHidden = (document.body.style.overflow = 'hidden');
+
+  if (bodyHidden) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
+
+  // document.body.classList.toggle('.auth-form-open');
   refs.authFormBackdrop.classList.toggle('is-hidden');
 }
 

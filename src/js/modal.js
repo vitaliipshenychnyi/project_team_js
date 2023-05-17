@@ -40,6 +40,7 @@ function openModal(idBook) {
     refs.addedTextEl.innerHTML = '';
     refs.buttonAddBookEl.addEventListener('click', saveBookToLocalStorage);
   }
+  document.body.style.overflow = 'hidden';
 }
 
 // функція отримання розширених даних книги
@@ -105,9 +106,11 @@ function closeModal() {
   refs.modalCloseBtn.removeEventListener('click', closeModal);
   refs.mainGalleryEl.removeEventListener('keydown', closeModalEsc);
   refs.modal.classList.add('is-hidden');
+  document.body.style.overflow = '';
 }
 
 function closeModalEsc(event) {
+  document.body.style.overflow = '';
   if (event.code === 'Escape') {
     closeModal();
   }
