@@ -11,13 +11,13 @@ export async function showProfile(name) {
   visibleProfileBtn();
   showLoginProfileName(name);
   showShoppingListBtn();
-  enableShoppingBtn(true);
+  disabledShoppingBtn(false);
 }
 export function onLogoutBtn() {
   logout();
   visibleSignupBtn();
   hideShoppingListBtn();
-  enableShoppingBtn(false);
+  disabledShoppingBtn(true);
 }
 
 export function showLoginProfileName(name) {
@@ -73,6 +73,6 @@ export function showShoppingListBtn() {
   refs.footerShoppingBtn.style.display = 'inline-flex';
 }
 
-export function enableShoppingBtn(boolean) {
+export function disabledShoppingBtn(boolean) {
   refs.addRemoveShoppingBtn.disabled = boolean;
 }
