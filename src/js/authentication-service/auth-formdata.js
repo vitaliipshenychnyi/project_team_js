@@ -45,4 +45,5 @@ async function onAuthFormData(e) {
       return;
     }
   }
+  document.body.style.overflow = '';
 }

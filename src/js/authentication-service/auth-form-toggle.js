@@ -7,16 +7,16 @@ refs.loginFormBtn.addEventListener('click', toogleLoginBtn);
 refs.authSubmitBtn.dataset.login = 'signup';
 
 function toggleAuthForm() {
-  const bodyHidden = (document.body.style.overflow = 'hidden');
-
-  if (bodyHidden) {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = '';
-  }
-
+  toogleBodyOverflow();
   // document.body.classList.toggle('.auth-form-open');
   refs.authFormBackdrop.classList.toggle('is-hidden');
+}
+
+function toogleBodyOverflow() {
+  const bodyOverflowHidden = document.body.style.overflow;
+  bodyOverflowHidden === 'hidden'
+    ? (document.body.style = null)
+    : (document.body.style.overflow = 'hidden');
 }
 
 function toogleLoginBtn(e) {
