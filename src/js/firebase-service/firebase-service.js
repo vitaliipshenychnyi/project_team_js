@@ -85,6 +85,7 @@ export async function AuthStateViewer() {
 
 export async function logout() {
   await signOut(auth);
+  window.location = 'index.html';
   showLogoutState();
   localStorage.removeItem(LOCAL_STORAGE_TOKEN);
   visibleSignupBtn();
