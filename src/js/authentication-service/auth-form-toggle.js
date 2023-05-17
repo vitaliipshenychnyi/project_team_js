@@ -11,9 +11,8 @@ function toggleAuthForm() {
   refs.authFormBackdrop.classList.toggle('is-hidden');
 }
 
-function toogleBodyOverflow() {
-  const bodyOverflowHidden = document.body.style.overflow;
-  bodyOverflowHidden === 'hidden'
+export function toogleBodyOverflow() {
+  document.body.style.overflow === 'hidden'
     ? (document.body.style = null)
     : (document.body.style.overflow = 'hidden');
 }
