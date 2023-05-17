@@ -19,6 +19,7 @@
 .header-container {
   display: flex;
   align-items: center;
+  min-height: 48px;
 }
 .logo-link {
   display: flex;
@@ -90,7 +91,7 @@
   .home-link:hover,
   .home-link:hover {
     background-color: #eac645;
-    font-weight: 700;
+    // font-weight: 700;
     transition: font-weight 300ms linear;
   }
 }
