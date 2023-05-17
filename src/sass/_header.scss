@@ -86,13 +86,11 @@
 
     border-radius: 36px;
     color: var(--light-border-n-text-color);
-    transition: background-color 500ms linear, font-weight 300ms linear;
+    transition: background-color 500ms linear;
   }
   .home-link:hover,
   .home-link:hover {
     background-color: #eac645;
-    // font-weight: 700;
-    transition: font-weight 300ms linear;
   }
 }
 @media screen and (min-width: 768px) {
