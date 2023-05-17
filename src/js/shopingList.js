@@ -1,8 +1,8 @@
 import { createCardMarkup } from './createCardMarkup.js';
-import { parsedUserId } from './firebase-service/firebase-service.js';
+import { parsedToken } from './firebase-service/firebase-service.js';
 import refs from './refs.js';
 
-let dataBooks = localStorage.getItem(`books-data-${parsedUserId}`);
+let dataBooks = localStorage.getItem(`books-data-${parsedToken}`);
 
 try {
   dataBooks = JSON.parse(dataBooks);
@@ -75,5 +75,5 @@ function removeCardMarkup(event) {
 }
 
 function saveToLocalStorage() {
-  localStorage.setItem(`books-data-${parsedUserId}`, JSON.stringify(dataBooks));
+  localStorage.setItem(`books-data-${parsedToken}`, JSON.stringify(dataBooks));
 }
