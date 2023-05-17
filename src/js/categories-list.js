@@ -39,6 +39,9 @@ refs.categoriesList.addEventListener('click', onCategoryClick);
 
 // функція вибору категорії зі списку
 function onCategoryClick(evt) {
+  refs.mainGalleryTitleEl.innerHTML = '';
+  refs.mainGalleryEl.innerHTML = '';
+  refs.spinnerEl.removeAttribute('hidden'); // вмикає spiner
   const categoryName = evt.target;
   const listOfCategories = [...evt.currentTarget.children];
   if (categoryName.classList.contains('category')) {
@@ -52,6 +55,7 @@ function onCategoryClick(evt) {
       mainGalleryCategory(categoryName.textContent);
     }
   }
+  refs.spinnerEl.removeAttribute('hidden'); // вмикає spiner
   if (categoryName.classList.contains('category')) {
     removeActive(listOfCategories);
     activateCategory(categoryName);
@@ -67,25 +71,25 @@ function onBtnSeeMore(evt) {
   if (categName) {
     for (let i = 0; i < categList.length; i++) {
       if (categList[i].firstChild.textContent === categName) {
-        removeActive(categList)
-        activateCategory(categList[i].firstChild)
+        removeActive(categList);
+        activateCategory(categList[i].firstChild);
       }
     }
   }
 }
 
 // функція активації категорії
-function activateCategory(nameOfCategory){
+function activateCategory(nameOfCategory) {
   nameOfCategory.parentNode.classList.add('active');
   nameOfCategory.classList.add('category-active');
 }
 
 // функція деактивації категорії
 function removeActive(categories) {
-  for (let i = 0; i < categories.length; i++){
-    if ((categories[i].classList.contains('active'))) {
+  for (let i = 0; i < categories.length; i++) {
+    if (categories[i].classList.contains('active')) {
       categories[i].classList.remove('active');
-        categories[i].firstChild.classList.remove('category-active');
-      }
+      categories[i].firstChild.classList.remove('category-active');
     }
+  }
 }
