@@ -9,7 +9,38 @@ try {
   console.log(error);
 }
 
+// pagination
+// ****************
 renderShoppingList(dataBooks);
+// ****************
+// if (dataBooks.length <= 5) {
+//   renderShoppingList(dataBooks);
+// } else {
+//   pagination();
+// }
+
+// let up = 5;
+// function list(event) {
+//   if (event.code === 'ArrowRight') {
+//     refs.shoppingList.innerHTML = '';
+//     let next = dataBooks.slice(up, up + 5);
+//     renderShoppingList(next);
+//     up += 5;
+//   }
+//   if (event.code === 'ArrowLeft') {
+//     refs.shoppingList.innerHTML = '';
+//     up -= 10;
+//     let next = dataBooks.slice(up, up + 5);
+//     renderShoppingList(next);
+//     up += 5;
+//   }
+// }
+
+// function pagination() {
+//   window.addEventListener('keydown', list);
+//   renderShoppingList(dataBooks.slice(0, 5));
+// }
+// ****************
 
 function renderShoppingList(dataBooks) {
   if (Array.isArray(dataBooks)) {
