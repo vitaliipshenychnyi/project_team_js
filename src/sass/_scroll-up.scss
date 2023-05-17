@@ -25,6 +25,9 @@
 .scroll-up:hover {
 background-color: #37209d;
 }
+.icon-scroll-up {
+  flex-shrink: 0;
+}
 @media screen and (min-width: 768px) {
 .scroll-up {
     bottom: 140px;
