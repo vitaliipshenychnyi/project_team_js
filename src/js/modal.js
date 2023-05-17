@@ -27,6 +27,7 @@ function onBookCardClick(event) {
 function openModal(idBook) {
   refs.wrapperBookEl.innerHTML = '';
   refs.modalCloseBtn.addEventListener('click', closeModal);
+  refs.mainGalleryEl.addEventListener('keydown', closeModalEsc);
   refs.modal.classList.remove('is-hidden');
   getDataBook(idBook);
   if (arrDataBooks.some(el => el._id === idBook)) {
@@ -102,5 +103,12 @@ function deleteBookToLocalStorage() {
 // функція закриття модального вікна
 function closeModal() {
   refs.modalCloseBtn.removeEventListener('click', closeModal);
+  refs.mainGalleryEl.removeEventListener('keydown', closeModalEsc);
   refs.modal.classList.add('is-hidden');
+}
+
+function closeModalEsc(event) {
+  if (event.code === 'Escape') {
+    closeModal();
+  }
 }
