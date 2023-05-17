@@ -1,6 +1,7 @@
 import refs from './refs';
 import axios from 'axios';
 import { renderBookCard } from './render-modal-book-card';
+import { parsedUserId } from './firebase-service/firebase-service.js';
 
 let arrDataBooks = [];
 let objBookOne = [];
@@ -8,8 +9,8 @@ let idBookOne = [];
 
 refs.mainGalleryEl.addEventListener('click', onBookCardClick);
 
-if (localStorage.getItem('books-data')) {
-  arrDataBooks = JSON.parse(localStorage.getItem('books-data'));
+if (localStorage.getItem(`books-data-${parsedUserId}`)) {
+  arrDataBooks = JSON.parse(localStorage.getItem(`books-data-${parsedUserId}`));
 }
 
 // функція отримання id книги
@@ -86,7 +87,10 @@ function saveBookToLocalStorage() {
     '<p class="added-text">Сongratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".</p>';
   refs.buttonAddBookEl.textContent = 'REMOVE FROM THE SHOPPING LIST';
   arrDataBooks.push(objBookOne[0]);
-  localStorage.setItem('books-data', JSON.stringify(arrDataBooks));
+  localStorage.setItem(
+    `books-data-${parsedUserId}`,
+    JSON.stringify(arrDataBooks)
+  );
   closeModal();
 }
 
@@ -97,7 +101,10 @@ function deleteBookToLocalStorage() {
   refs.buttonAddBookEl.textContent = 'ADD TO SHOPPING LIST';
   const permId = arrDataBooks.findIndex(el => el._id === idBookOne[0]);
   arrDataBooks.splice(permId, 1);
-  localStorage.setItem('books-data', JSON.stringify(arrDataBooks));
+  localStorage.setItem(
+    `books-data-${parsedUserId}`,
+    JSON.stringify(arrDataBooks)
+  );
   closeModal();
 }
 

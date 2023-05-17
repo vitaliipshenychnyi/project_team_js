@@ -27,8 +27,8 @@ import { hideShoppingListBtn } from '../authentication-service/auth-service';
 export const auth = getAuth(firebaseInitApp);
 // connectAuthEmulator(auth, 'http://localhost:9099');
 
-export const LOCAL_STORAGE_TOKEN = 'userToken';
-export const parsedToken = JSON.parse(
+const LOCAL_STORAGE_TOKEN = 'userID';
+export const parsedUserId = JSON.parse(
   localStorage.getItem(LOCAL_STORAGE_TOKEN)
 );
 export const user = auth.currentUser;

@@ -7,7 +7,6 @@ export function createCardMarkup(dataBooks) {
     refs.emptyList.classList.add('visually-hidden');
     refs.shoppingList.classList.remove('visually-hidden');
 
-
     return dataBooks
       .map(
         ({
