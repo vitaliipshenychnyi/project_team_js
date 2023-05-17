@@ -159,6 +159,8 @@
     height: 37px;
     background: #f6f6f6;
     border-radius: 50%;
+
+    flex-shrink: 0;
   }
   .icon-registration-triangle {
     margin-left: 4px;
@@ -465,7 +467,7 @@ input:checked + .slider:before {
 .header-profile-block {
   padding-left: 12px;
   padding-right: 12px;
-  width: 184px;
+  min-width: 184px;
   height: 45px;
 
   display: flex;
