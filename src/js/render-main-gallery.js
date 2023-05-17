@@ -31,7 +31,7 @@ export function renderRowGallery(row) {
     .join('');
 }
 
-// функція створення заголовку заголовку групи книг
+// функція створення заголовку групи книг
 export function renderGalleryCat(books, cat) {
   refs.mainGalleryEl.innerHTML = '';
   let idx = Math.trunc(cat.split(' ').length / 2);
