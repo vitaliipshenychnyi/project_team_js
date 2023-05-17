@@ -1,7 +1,5 @@
 import refs from '../refs';
-import { parsedToken } from '../firebase-service/firebase-service';
 import { logout } from '../firebase-service/firebase-service';
-import { auth, user } from '../firebase-service/firebase-service';
 
 refs.headerProfileEl.addEventListener('click', onProfileEl);
 refs.mHeaderProfileEl.addEventListener('click', onProfileEl);
@@ -13,7 +11,13 @@ export async function showProfile(name) {
   visibleProfileBtn();
   showLoginProfileName(name);
   showShoppingListBtn();
-  enableAddRemoveShoppingBtn();
+  enableShoppingBtn(true);
+}
+export function onLogoutBtn() {
+  logout();
+  visibleSignupBtn();
+  hideShoppingListBtn();
+  enableShoppingBtn(false);
 }
 
 export function showLoginProfileName(name) {
@@ -43,19 +47,12 @@ export function onProfileEl() {
   refs.headerlogoutBtn.classList.toggle('active');
 }
 
-export function onLogoutBtn() {
-  logout();
-  visibleSignupBtn();
-  hideShoppingListBtn();
-  disableAddRemoveShoppingBtn();
-}
-
 export function hideAuthForm() {
-  refs.authFormBackdrop.classList.add('is-hidden');
+  hideEl(refs.authFormBackdrop);
   document.body.style.overflow = '';
 }
 export function showAuthForm() {
-  refs.authFormBackdrop.classList.remove('is-hidden');
+  showEl(refs.authFormBackdrop);
 }
 
 function hideEl(elem) {
@@ -76,10 +73,6 @@ export function showShoppingListBtn() {
   refs.footerShoppingBtn.style.display = 'inline-flex';
 }
 
-export function enableAddRemoveShoppingBtn() {
-  refs.addRemoveShoppingBtn.disabled = false;
-}
-
-export function disableAddRemoveShoppingBtn() {
-  refs.addRemoveShoppingBtn.disabled = true;
+export function enableShoppingBtn(boolean) {
+  refs.addRemoveShoppingBtn.disabled = boolean;
 }

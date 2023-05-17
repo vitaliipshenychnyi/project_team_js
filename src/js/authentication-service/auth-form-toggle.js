@@ -8,7 +8,6 @@ refs.authSubmitBtn.dataset.login = 'signup';
 
 function toggleAuthForm() {
   toogleBodyOverflow();
-  // document.body.classList.toggle('.auth-form-open');
   refs.authFormBackdrop.classList.toggle('is-hidden');
 }
 
