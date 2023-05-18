@@ -1,36 +1,27 @@
 import refs from './refs';
 import axios from 'axios';
 import { renderBookCard } from './render-modal-book-card';
-import { parsedToken } from './firebase-authentication/firebase-service.js';
-import {
-  writeBookToDatabase,
-  getBooksFromDatabase,
-  deleteBookFromDatabase,
-  getBooksData,
-} from './firebase-database-service/books-data';
+import { parsedToken } from './firebase-service/firebase-service.js';
 
-let arrDataBooks =
-  JSON.parse(localStorage.getItem(`books-data-${parsedToken}`)) ?? [];
-// let objBookOne = [];
-let objBook = {};
-let idBookOne = null;
-let arrBooksDatabase = {};
+let arrDataBooks = [];
+let objBookOne = [];
+let idBookOne = [];
 
 refs.mainGalleryEl.addEventListener('click', onBookCardClick);
 
-console.log(arrDataBooks);
-console.log(arrBooksDatabase);
+if (localStorage.getItem(`books-data-${parsedToken}`)) {
+  arrDataBooks = JSON.parse(localStorage.getItem(`books-data-${parsedToken}`));
+}
 
 // функція отримання id книги
 function onBookCardClick(event) {
   event.preventDefault();
-  // idBookOne = []; // стираємо дані з idBookOne про id книги
-  // const bookCard = event.target.closest('.book-card-wrapper');
-  // if (!bookCard) return;
-  // const idBook = bookCard.dataset.idbook;
-  idBookOne = event.target.closest('.book-card-wrapper').dataset.idbook;
-  // idBookOne = idBook; // додаємо до idBookOne дані про id книги
-  openModal(idBookOne);
+  idBookOne = []; // стираємо дані з idBookOne про id книги
+  const bookCard = event.target.closest('.book-card-wrapper');
+  if (!bookCard) return;
+  const idBook = bookCard.dataset.idbook;
+  idBookOne.push(idBook); // додаємо до idBookOne дані про id книги
+  openModal(idBook);
 }
 
 // функція відкриття модального вікна
@@ -76,18 +67,8 @@ function objectBook({
   author,
   buy_links,
 }) {
-  // objBookOne = []; // стираємо дані з objBookOne про книги
-  // const objBook = {
-  //   _id,
-  //   book_image,
-  //   title,
-  //   list_name,
-  //   description,
-  //   author,
-  //   buy_links,
-  // };
-  // objBookOne.push(objBook); // записуємо дані з objBookOne про книги
-  objBook = {
+  objBookOne = []; // стираємо дані з objBookOne про книги
+  const objBook = {
     _id,
     book_image,
     title,
@@ -96,25 +77,20 @@ function objectBook({
     author,
     buy_links,
   };
+  objBookOne.push(objBook); // записуємо дані з objBookOne про книги
 }
 
 // функція запису книги до сховища
-async function saveBookToLocalStorage() {
+function saveBookToLocalStorage() {
   refs.buttonAddBookEl.removeEventListener('click', saveBookToLocalStorage);
   refs.addedTextEl.innerHTML =
     '<p class="added-text">Сongratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".</p>';
   refs.buttonAddBookEl.textContent = 'REMOVE FROM THE SHOPPING LIST';
-  // arrDataBooks.push(objBookOne[0]);
-  arrDataBooks.push(objBook);
-  //localstorage
+  arrDataBooks.push(objBookOne[0]);
   localStorage.setItem(
     `books-data-${parsedToken}`,
     JSON.stringify(arrDataBooks)
   );
-  //database
-  // writeBookToDatabase(objBookOne[0]);
-  writeBookToDatabase(objBook);
-  // getBooksFromDatabase(parsedToken);
   closeModal();
 }
 
@@ -123,18 +99,12 @@ function deleteBookToLocalStorage() {
   refs.buttonAddBookEl.removeEventListener('click', deleteBookToLocalStorage);
   refs.addedTextEl.innerHTML = '';
   refs.buttonAddBookEl.textContent = 'ADD TO SHOPPING LIST';
-  //localstorage
-  // const permId = arrDataBooks.findIndex(el => el._id === idBookOne[0]);
-  const permId = arrDataBooks.findIndex(el => el._id === objBook._id);
+  const permId = arrDataBooks.findIndex(el => el._id === idBookOne[0]);
   arrDataBooks.splice(permId, 1);
   localStorage.setItem(
     `books-data-${parsedToken}`,
     JSON.stringify(arrDataBooks)
   );
-  //database
-  // deleteBookFromDatabase(objBookOne[0]._id);
-  deleteBookFromDatabase(objBook._id);
-
   closeModal();
 }
 

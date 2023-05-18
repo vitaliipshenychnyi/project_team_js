@@ -2,7 +2,7 @@ import './js/refs';
 import './js/mobile-menu';
 import './js/togle-theme';
 import './js/support';
-import './js/shopingList';
+import './js/shopping-list';
 import './js/render-photo-card-footer';
 import './js/authentication-service/auth-service';
 import './js/authentication-service/auth-form-toggle';

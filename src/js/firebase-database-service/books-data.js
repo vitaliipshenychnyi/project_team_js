@@ -16,11 +16,11 @@ import { notifyDeletedBook, notifyAddedBook } from './ui';
 export const databaseRef = ref(getDatabase());
 console.log(databaseRef);
 
-export async function getBooksFromDatabase(userToken) {
-  onValue(ref(database, `users/${userToken}/booksData/`), snapshot =>
-    console.log(snapshot.val())
-  );
-}
+// export async function getBooksFromDatabase(userToken) {
+//   onValue(ref(database, `users/${userToken}/booksData/`), snapshot =>
+//     console.log(snapshot.val())
+//   );
+// }
 
 export async function writeBookToDatabase(dataBooks) {
   const { _id, book_image, title, list_name, description, author, buy_links } =
@@ -42,7 +42,7 @@ export async function writeBookToDatabase(dataBooks) {
   }
 }
 
-export async function deleteBookFromDatabase(id) {
+export const deleteBookFromDatabase = async id =>
   set(ref(database, `users/${parsedToken}/booksData/${id}`), null)
     .then(() => {
       notifyDeletedBook();
@@ -50,7 +50,6 @@ export async function deleteBookFromDatabase(id) {
     .catch(error => {
       console.log(error);
     });
-}
 
 export async function arrBooksFromDatabase() {
   const response = await get(
@@ -77,14 +76,9 @@ export async function arrBooksFromDatabase() {
   return response;
 }
 
-export async function writeDataBooks() {
-  const books = await arrBooksFromDatabase();
-  //  console.log(books);
-  return books;
-  // console.log('books', books);
-  // dataBooks.push(books.map(book => book));
-  // console.log(dataBooks);
-  // console.log('databooks', dataBooks);
-}
-
-export async function fetchBooksFromDatabase() {}
+// export const writeDataBooks = async () => await arrBooksFromDatabase();
+// return books;
+// console.log('books', books);
+// dataBooks.push(books.map(book => book));
+// console.log(dataBooks);
+// console.log('databooks', dataBooks);
