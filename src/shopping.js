@@ -6,5 +6,5 @@ import './js/shopingList';
 import './js/render-photo-card-footer';
 import './js/authentication-service/auth-service';
 import './js/authentication-service/auth-form-toggle';
-import './js/authentication-service/auth-formdata';
+import './js/authentication-service/auth-submit';
 import './js/firebase-service/firebase-service';
