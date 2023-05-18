@@ -31,6 +31,7 @@ const LOCAL_STORAGE_TOKEN = 'userToken';
 export const parsedToken = JSON.parse(
   localStorage.getItem(LOCAL_STORAGE_TOKEN)
 );
+
 export const user = auth.currentUser;
 
 AuthStateViewer();
