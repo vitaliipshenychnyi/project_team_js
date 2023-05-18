@@ -1,7 +1,8 @@
 import refs from './refs';
 import axios from 'axios';
 import { renderBookCard } from './render-modal-book-card';
-import { parsedToken } from './firebase-service/firebase-service.js';
+import { parsedToken } from './firebase-authentication/firebase-service.js';
+import { writeBookToDatabase } from './firebase-database-service/firebase-database';
 
 let arrDataBooks = [];
 let objBookOne = [];
@@ -91,6 +92,7 @@ function saveBookToLocalStorage() {
     `books-data-${parsedToken}`,
     JSON.stringify(arrDataBooks)
   );
+  writeBookToDatabase(objBookOne[0]);
   closeModal();
 }
 

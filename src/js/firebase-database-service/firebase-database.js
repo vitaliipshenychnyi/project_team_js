@@ -10,25 +10,21 @@ import {
   update,
 } from 'firebase/database';
 
-import app from '../firebase-service/firebase-init';
-import { auth } from '../firebase-service/firebase-service';
-import { parsedToken } from '../firebase-service/firebase-service';
 
-const db = getDatabase(app);
+import { parsedToken } from '../firebase-authentication/firebase-service';
+
 export const dbRef = ref(getDatabase());
-
-export async function writeUserToDatabase({ uid: userId, email, displayName }) {
-  set(ref(db, `users/${userId}/userData`), {
-    username: displayName,
-    email,
-  });
-}
 
 export async function writeBookToDatabase(dataBooks) {
   try {
-    const bookId = dataBooks._id;
-
-    set(ref(db, `users/${parsedToken}/booksData/${bookId}`), dataBooks);
+    set(ref(db, `users/${parsedToken}/booksData/${dataBooks._id}`), {
+      book_image,
+      title,
+      list_name,
+      description,
+      author,
+      buy_links,
+    });
   } catch (error) {
     console.log(error);
   }

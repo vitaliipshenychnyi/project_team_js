@@ -13,16 +13,16 @@ import {
   showProfile,
   visibleProfileBtn,
   visibleSignupBtn,
+  showProfile,
+  hideShoppingListBtn,
 } from '../authentication-service/auth-service';
-import { writeUserToDatabase } from './firebase-database';
-import { showProfile } from '../authentication-service/auth-service';
+import { writeUserDataToDatabase } from '../firebase-database-service/firebase-database';
 import {
   showLoginError,
   showLoginState,
   showLogoutState,
   showCreateAccountError,
 } from '../authentication-service/auth-ui';
-import { hideShoppingListBtn } from '../authentication-service/auth-service';
 
 export const auth = getAuth(firebaseInitApp);
 // connectAuthEmulator(auth, 'http://localhost:9099');
@@ -36,15 +36,48 @@ export const user = auth.currentUser;
 
 AuthStateViewer();
 
+refs.authForm.addEventListener('submit', onAuthFormData);
+
+async function onAuthFormData(e) {
+  e.preventDefault();
+
+  if (refs.authSubmitBtn.dataset.login === 'login') {
+    try {
+      loginAccount()
+        .then(() => {
+          if (parsedToken) {
+            refs.authForm.reset();
+          }
+        })
+        .catch(e => console.log(e.message));
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  if (refs.authSubmitBtn.dataset.login === 'signup') {
+    try {
+      createAccount()
+        .then(() => {
+          if (parsedToken) {
+            refs.authForm.reset();
+          }
+        })
+        .catch(e => console.log(e.message));
+    } catch (error) {
+      console.log('user already registered');
+      return;
+    }
+  }
+}
+
 export async function loginAccount() {
   try {
-    const { user } = await signInWithEmailAndPassword(
-      auth,
-      refs.emailInput.value.trim(),
-      refs.passwordInput.value
-    );
-    showProfile(user.displayName);
-    showLoginState(auth.currentUser.displayName);
+    const email = refs.emailInput.value.trim();
+    const password = refs.passwordInput.value;
+    const { user } = await signInWithEmailAndPassword(auth, email, password);
+    await showLoginState(user.displayName);
+    await showProfile(user.displayName);
     visibleProfileBtn();
   } catch (error) {
     console.log(error);
@@ -67,7 +100,7 @@ export async function createAccount() {
     });
     await showProfile(auth.currentUser.displayName);
     await showLoginState(auth.currentUser.displayName);
-    await writeUserToDatabase(user);
+    await writeUserDataToDatabase(user);
   } catch (error) {
     showCreateAccountError(error);
   }
@@ -87,6 +120,6 @@ export async function AuthStateViewer() {
 export async function logout() {
   await signOut(auth);
   showLogoutState();
-  localStorage.removeItem(LOCAL_STORAGE_TOKEN);
   visibleSignupBtn();
+  localStorage.removeItem(LOCAL_STORAGE_TOKEN);
 }

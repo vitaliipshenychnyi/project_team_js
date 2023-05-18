@@ -1,5 +1,5 @@
 import { createCardMarkup } from './createCardMarkup.js';
-import { parsedToken } from './firebase-service/firebase-service.js';
+import { parsedToken } from './firebase-authentication/firebase-service.js';
 import refs from './refs.js';
 
 let dataBooks = localStorage.getItem(`books-data-${parsedToken}`);
