@@ -132,16 +132,16 @@
   color: #ffffff;
 }
 .support-icon {
+  flex-shrink: 0;
   width: 22px;
   height: 22px;
   fill: #4f2ee8;
-  color: red;
   transition: transform 0.3s ease-in-out;
 }
-.icon {
-  width: 10px;
-  height: 10px;
-}
+// .icon {
+//   width: 10px;
+//   height: 10px;
+// }
 
 .support-item {
   width: auto;
