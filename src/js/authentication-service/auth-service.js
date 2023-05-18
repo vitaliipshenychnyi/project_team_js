@@ -52,6 +52,7 @@ export function onLogoutBtn() {
 
 export function hideAuthForm() {
   refs.authFormBackdrop.classList.add('is-hidden');
+  document.body.style.overflow = '';
 }
 export function showAuthForm() {
   refs.authFormBackdrop.classList.remove('is-hidden');
