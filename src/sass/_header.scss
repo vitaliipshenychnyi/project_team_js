@@ -120,7 +120,6 @@
   }
 }
 
-
 @media screen and (min-width: 768px) {
   .user-login {
     width: 184px;
@@ -326,12 +325,12 @@
     color: var(--dark-border-n-text-color);
     border-radius: 36px;
     transition: 400ms linear;
-  } 
- .home-link-mobile {
-  background-color:#eac645;
-  color: #111;
- }
-   .shopping-link-mobile {
+  }
+  .home-link-mobile {
+    background-color: #eac645;
+    color: #111;
+  }
+  .shopping-link-mobile {
     display: flex;
     align-items: center;
     gap: 4px;
@@ -393,6 +392,23 @@
 }
 
 // перемикач теми
+
+.icon-moon {
+  position: absolute;
+  right: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: #111;
+}
+
+.icon-sun {
+    position: absolute;
+    z-index: 1;
+  left: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: #eac645;
+}
 .switch {
   margin-left: auto;
   margin-right: 14px;
@@ -426,6 +442,7 @@
 
 .slider:before {
   position: absolute;
+    z-index:5;
   content: '';
   height: 18px;
   width: 18px;
