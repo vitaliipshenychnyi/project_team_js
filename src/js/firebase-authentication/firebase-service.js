@@ -16,7 +16,7 @@ import {
   showProfile,
   hideShoppingListBtn,
 } from '../authentication-service/auth-service';
-import { writeUserDataToDatabase } from '../firebase-database-service/firebase-database';
+import { writeUserDataToDatabase } from '../firebase-database-service/books-data';
 import {
   showLoginError,
   showLoginState,

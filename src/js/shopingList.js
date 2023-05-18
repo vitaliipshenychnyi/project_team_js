@@ -1,14 +1,31 @@
 import { createCardMarkup } from './createCardMarkup.js';
 import { parsedToken } from './firebase-authentication/firebase-service.js';
 import refs from './refs.js';
+import {
+  deleteBookFromDatabase,
+  arrBooksFromDatabase,
+  writeDataBooks,
+} from './firebase-database-service/books-data.js';
 
-let dataBooks = localStorage.getItem(`books-data-${parsedToken}`);
+// let dataBooks =
+//   JSON.parse(localStorage.getItem(`books-data-${parsedToken}`)) ?? [];
+const dataBooks = writeDataBooks();
 
-try {
-  dataBooks = JSON.parse(dataBooks);
-} catch (error) {
-  console.log(error);
-}
+//   .then(resp => {
+//   // resp.map(book => {
+//   //   console.log(book);
+//   //   dataBooks.push(book);
+//   // })
+//   return resp;
+// });
+
+// arrBooksFromDatabase(dataBooks);
+
+// try {
+//   dataBooks = JSON.parse(dataBooks);
+// } catch (error) {
+//   console.log(error);
+// }
 
 // pagination
 // ****************
@@ -44,7 +61,7 @@ renderShoppingList(dataBooks);
 // ****************
 
 function renderShoppingList(dataBooks) {
-  if (Array.isArray(dataBooks)) {
+  if (dataBooks.length) {
     const cardMarkup = createCardMarkup(dataBooks);
     refs.shoppingList.insertAdjacentHTML('beforeend', cardMarkup);
     refs.shoppingList.addEventListener('click', removeCardMarkup);
@@ -61,6 +78,8 @@ function removeCardMarkup(event) {
 
   const parentNode = event.target.closest('.shopping-list-item');
   const bookToRemoveId = parentNode.dataset.id;
+
+  deleteBookFromDatabase(bookToRemoveId);
 
   dataBooks = dataBooks.filter(book => book._id !== bookToRemoveId);
   saveToLocalStorage(dataBooks);
