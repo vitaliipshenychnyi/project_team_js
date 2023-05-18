@@ -11,6 +11,7 @@ export async function showProfile(name) {
   visibleProfileBtn();
   showLoginProfileName(name);
   showShoppingListBtn();
+  hideAuthForm();
   disabledShoppingBtn(false);
 }
 export function onLogoutBtn() {

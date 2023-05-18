@@ -4,7 +4,6 @@ import {
   loginAccount,
 } from '../firebase-service/firebase-service';
 import { hideAuthForm } from './auth-service';
-// import { LOCAL_STORAGE_TOKEN } from '../firebase-service/firebase-service';
 import { parsedToken } from '../firebase-service/firebase-service';
 
 refs.authForm.addEventListener('submit', onAuthFormData);
@@ -16,9 +15,7 @@ async function onAuthFormData(e) {
     try {
       loginAccount()
         .then(() => {
-          // const token = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TOKEN));
           if (parsedToken) {
-            hideAuthForm();
             refs.authForm.reset();
           }
         })
@@ -32,9 +29,7 @@ async function onAuthFormData(e) {
     try {
       createAccount()
         .then(() => {
-          // const token = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TOKEN));
           if (parsedToken) {
-            hideAuthForm();
             refs.authForm.reset();
           }
         })
