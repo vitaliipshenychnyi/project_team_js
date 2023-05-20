@@ -8,7 +8,7 @@ import {
 
 const loadDataBooksShopping = async () => {
   const response = await dataBooksFromDatabase();
-  console.log('loadDataBooks:', response);
+  console.log('dataBooks:', response);
   await toogleEmptyBackground(response);
   await renderShoppingList(response);
 };

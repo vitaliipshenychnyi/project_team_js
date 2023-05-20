@@ -53,7 +53,7 @@ export async function dataBooksFromDatabase() {
       if (snapshot.exists()) {
         const objectData = snapshot.val();
         const result = Object.keys(objectData).map(key => objectData[key]);
-        console.log('result', result);
+        console.log('snapshot: dataDooks - ', result);
         return result;
       } else {
         emptyShoppingList();
