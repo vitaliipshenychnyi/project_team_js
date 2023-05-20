@@ -21,6 +21,10 @@ export async function notifyAddedBook(title) {
   );
 }
 
+export async function emptyShoppingList() {
+  Notify.info(`Your shopping list empty`, notifyConfig);
+}
+
 export async function notifyErrorDatabase(e) {
   Notify.failure(`${e}`, notifyConfig);
 }
