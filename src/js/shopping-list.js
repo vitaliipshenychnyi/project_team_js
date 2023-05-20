@@ -18,7 +18,8 @@ loadDataBooksShopping();
 async function renderShoppingList(dataBooks) {
   if (dataBooks) {
     const cardMarkup = createCardMarkup(dataBooks);
-    refs.shoppingList.insertAdjacentHTML('beforeend', cardMarkup);
+    // refs.shoppingList.insertAdjacentHTML('beforeend', cardMarkup);
+    refs.shoppingList.innerHTML = cardMarkup;
     refs.shoppingList.addEventListener('click', removeCardMarkup);
   } else {
     refs.shoppingList.classList.add('visually-hidden');
@@ -30,7 +31,6 @@ async function removeCardMarkup(event) {
   if (event.target.dataset.action !== 'delete') {
     return;
   }
-
   const parentNode = event.target.closest('.shopping-list-item');
   const bookToRemoveId = parentNode.dataset.id;
 

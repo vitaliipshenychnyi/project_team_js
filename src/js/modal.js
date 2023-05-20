@@ -8,13 +8,13 @@ import {
   deleteBookFromDatabase,
 } from './firebase-database-service/books-data';
 
-refs.mainGalleryEl.addEventListener('click', onBookCardClick);
-
-function onBookCardClick(e) {
+const onBookCardClick = async e => {
   e.preventDefault();
   const bookId = e.target.closest('.book-card-wrapper').dataset.idbook ?? '';
   openModal(bookId);
-}
+};
+
+refs.mainGalleryEl.addEventListener('click', onBookCardClick);
 
 const openModal = async bookId => {
   refs.modalCloseBtn.addEventListener('click', closeModal);
@@ -116,7 +116,7 @@ const noteAddBookModal = () => {
     '<p class="added-text">Сongratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".</p>';
 };
 
-function closeModal() {
+const closeModal = () => {
   refs.modalCloseBtn.removeEventListener('click', closeModal);
   refs.mainGalleryEl.removeEventListener('keydown', closeModalEsc);
 
@@ -127,12 +127,12 @@ function closeModal() {
   refs.wrapperBookEl.innerHTML = '';
   refs.modal.classList.add('is-hidden');
   document.body.style.overflow = '';
-}
+};
 
-function closeModalEsc(event) {
+const closeModalEsc = e => {
   document.body.style.overflow = '';
-  if (event.code !== 'Escape') {
+  if (e.code !== 'Escape') {
     return;
   }
   closeModal();
-}
+};
