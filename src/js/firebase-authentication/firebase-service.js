@@ -122,4 +122,5 @@ export async function logout() {
   showLogoutState();
   visibleSignupBtn();
   localStorage.removeItem(LOCAL_STORAGE_TOKEN);
+  window.location = 'index.html';
 }
