@@ -1,5 +1,5 @@
 import refs from '../refs';
-import { logout } from '../firebase-service/firebase-service';
+import { logout } from '../firebase-authentication/firebase-service';
 
 refs.headerProfileEl.addEventListener('click', onProfileEl);
 refs.mHeaderProfileEl.addEventListener('click', onProfileEl);

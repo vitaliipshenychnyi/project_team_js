@@ -1,124 +1,138 @@
 import refs from './refs';
 import axios from 'axios';
 import { renderBookCard } from './render-modal-book-card';
-import { parsedToken } from './firebase-service/firebase-service.js';
+import { parsedToken } from './firebase-authentication/firebase-service.js';
+import {
+  writeBookToDatabase,
+  dataBooksFromDatabase,
+  deleteBookFromDatabase,
+} from './firebase-database-service/books-data';
 
-let arrDataBooks = [];
-let objBookOne = [];
-let idBookOne = [];
+const onBookCardClick = async e => {
+  e.preventDefault();
+  const bookId = e.target.closest('.book-card-wrapper').dataset.idbook ?? '';
+  openModal(bookId);
+};
 
 refs.mainGalleryEl.addEventListener('click', onBookCardClick);
 
-if (localStorage.getItem(`books-data-${parsedToken}`)) {
-  arrDataBooks = JSON.parse(localStorage.getItem(`books-data-${parsedToken}`));
-}
-
-// функція отримання id книги
-function onBookCardClick(event) {
-  event.preventDefault();
-  idBookOne = []; // стираємо дані з idBookOne про id книги
-  const bookCard = event.target.closest('.book-card-wrapper');
-  if (!bookCard) return;
-  const idBook = bookCard.dataset.idbook;
-  idBookOne.push(idBook); // додаємо до idBookOne дані про id книги
-  openModal(idBook);
-}
-
-// функція відкриття модального вікна
-function openModal(idBook) {
-  refs.wrapperBookEl.innerHTML = '';
+const openModal = async bookId => {
   refs.modalCloseBtn.addEventListener('click', closeModal);
   refs.mainGalleryEl.addEventListener('keydown', closeModalEsc);
-  refs.modal.classList.remove('is-hidden');
-  getDataBook(idBook);
-  if (arrDataBooks.some(el => el._id === idBook)) {
-    refs.addedTextEl.innerHTML =
-      '<p class="added-text">Сongratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".</p>';
-    refs.buttonAddBookEl.textContent = 'REMOVE FROM THE SHOPPING LIST';
-    refs.buttonAddBookEl.addEventListener('click', deleteBookToLocalStorage);
-  } else {
-    refs.buttonAddBookEl.textContent = 'ADD TO SHOPPING LIST';
-    refs.addedTextEl.innerHTML = '';
-    refs.buttonAddBookEl.addEventListener('click', saveBookToLocalStorage);
-  }
-  document.body.style.overflow = 'hidden';
-}
 
-// функція отримання розширених даних книги
-async function getDataBook(idBook) {
+  refs.wrapperBookEl.innerHTML = '';
+  refs.modal.classList.remove('is-hidden');
+  document.body.style.overflow = 'hidden';
+
+  const bookCard = await getBookCard(bookId);
+  renderBookCard(bookCard);
+
+  if (parsedToken) {
+    await checkBookInShoppingList(bookId);
+    if (refs.buttonAddBookEl.dataset.action === 'add') {
+      refs.buttonAddBookEl.addEventListener('click', onAddBookButton);
+    }
+    if (refs.buttonAddBookEl.dataset.action === 'remove') {
+      refs.buttonAddBookEl.addEventListener('click', onRemoveBookButton);
+    }
+  }
+};
+
+const getBookCard = async bookId => {
   try {
     const response = await axios.get(
-      `https://books-backend.p.goit.global/books/${idBook}`
+      `https://books-backend.p.goit.global/books/${bookId}`
     );
-    renderBookCard(response.data);
-    objectBook(response.data);
+    return response.data;
   } catch (error) {
     console.log(error);
   }
-}
+};
 
-// функція формування об'єкту даних книги
-function objectBook({
-  _id,
-  book_image,
-  title,
-  list_name,
-  description,
-  author,
-  buy_links,
-}) {
-  objBookOne = []; // стираємо дані з objBookOne про книги
-  const objBook = {
-    _id,
-    book_image,
-    title,
-    list_name,
-    description,
-    author,
-    buy_links,
-  };
-  objBookOne.push(objBook); // записуємо дані з objBookOne про книги
-}
+const checkBookInShoppingList = async bookId => {
+  const response = await checkBookInDatabase(bookId);
+  refs.buttonAddBookEl.dataset.book = bookId;
+  if (!response) {
+    setModalButtonToAdd();
+  } else {
+    setModalButtonToRemove();
+  }
+};
 
-// функція запису книги до сховища
-function saveBookToLocalStorage() {
-  refs.buttonAddBookEl.removeEventListener('click', saveBookToLocalStorage);
+const onAddBookButton = async e => {
+  try {
+    const bookId = e.currentTarget.dataset.book;
+    const dataBook = await getBookCard(bookId);
+    if (refs.buttonAddBookEl.dataset.action === 'add') {
+      writeBookToDatabase(dataBook);
+      noteAddBookModal();
+      refs.buttonAddBookEl.dataset.action = '';
+      setModalButtonToRemove();
+      refs.buttonAddBookEl.removeEventListener('click', onAddBookButton);
+      refs.buttonAddBookEl.addEventListener('click', onRemoveBookButton);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const onRemoveBookButton = async e => {
+  try {
+    const bookId = e.currentTarget.dataset.book;
+    if (refs.buttonAddBookEl.dataset.action === 'remove') {
+      deleteBookFromDatabase(bookId);
+      refs.buttonAddBookEl.dataset.action = '';
+      setModalButtonToAdd();
+      refs.buttonAddBookEl.removeEventListener('click', onRemoveBookButton);
+      refs.buttonAddBookEl.addEventListener('click', onAddBookButton);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const checkBookInDatabase = async id => {
+  const snapshotDataBooks = await dataBooksFromDatabase();
+  const isBookInList = snapshotDataBooks
+    ? snapshotDataBooks.some(book => book._id === id)
+    : false;
+  console.log('isBookInList :', isBookInList);
+  return isBookInList ? true : false;
+};
+
+const setModalButtonToAdd = () => {
+  refs.buttonAddBookEl.dataset.action = 'add';
+  refs.buttonAddBookEl.textContent = 'ADD TO SHOPPING LIST';
+  refs.addedTextEl.innerHTML = '';
+};
+
+const setModalButtonToRemove = () => {
+  refs.buttonAddBookEl.dataset.action = 'remove';
+  refs.buttonAddBookEl.textContent = 'REMOVE FROM THE SHOPPING LIST';
+};
+
+const noteAddBookModal = () => {
   refs.addedTextEl.innerHTML =
     '<p class="added-text">Сongratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".</p>';
-  refs.buttonAddBookEl.textContent = 'REMOVE FROM THE SHOPPING LIST';
-  arrDataBooks.push(objBookOne[0]);
-  localStorage.setItem(
-    `books-data-${parsedToken}`,
-    JSON.stringify(arrDataBooks)
-  );
-  closeModal();
-}
+};
 
-// функція видалення книги зі сховища
-function deleteBookToLocalStorage() {
-  refs.buttonAddBookEl.removeEventListener('click', deleteBookToLocalStorage);
-  refs.addedTextEl.innerHTML = '';
-  refs.buttonAddBookEl.textContent = 'ADD TO SHOPPING LIST';
-  const permId = arrDataBooks.findIndex(el => el._id === idBookOne[0]);
-  arrDataBooks.splice(permId, 1);
-  localStorage.setItem(
-    `books-data-${parsedToken}`,
-    JSON.stringify(arrDataBooks)
-  );
-  closeModal();
-}
-
-// функція закриття модального вікна
-function closeModal() {
+const closeModal = () => {
   refs.modalCloseBtn.removeEventListener('click', closeModal);
   refs.mainGalleryEl.removeEventListener('keydown', closeModalEsc);
+
+  refs.buttonAddBookEl.removeEventListener('click', onAddBookButton);
+  refs.buttonAddBookEl.removeEventListener('click', onRemoveBookButton);
+  refs.buttonAddBookEl.dataset.action = '';
+
+  refs.wrapperBookEl.innerHTML = '';
   refs.modal.classList.add('is-hidden');
   document.body.style.overflow = '';
-}
+};
 
-function closeModalEsc(event) {
+const closeModalEsc = e => {
   document.body.style.overflow = '';
-  if (event.code === 'Escape') {
-    closeModal();
+  if (e.code !== 'Escape') {
+    return;
   }
-}
+  closeModal();
+};
