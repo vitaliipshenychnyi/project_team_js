@@ -1,20 +1,9 @@
-import {
-  getDatabase,
-  ref,
-  onValue,
-  push,
-  set,
-  remove,
-  child,
-  get,
-  update,
-} from 'firebase/database';
+import { getDatabase, ref, set, child, get } from 'firebase/database';
 import database from './database';
 import { parsedToken } from '../firebase-authentication/firebase-service';
 import { notifyDeletedBook, notifyAddedBook, emptyShoppingList } from './ui';
 
 export const databaseRef = ref(getDatabase());
-console.log(databaseRef);
 
 export async function writeBookToDatabase(dataBooks) {
   const { _id, book_image, title, list_name, description, author, buy_links } =
@@ -53,7 +42,6 @@ export async function dataBooksFromDatabase() {
       if (snapshot.exists()) {
         const objectData = snapshot.val();
         const result = Object.keys(objectData).map(key => objectData[key]);
-        console.log('snapshot: dataDooks - ', result);
         return result;
       } else {
         emptyShoppingList();

@@ -56,6 +56,7 @@ const checkBookInShoppingList = async bookId => {
     setModalButtonToAdd();
   } else {
     setModalButtonToRemove();
+    noteExistBookModal();
   }
 };
 
@@ -96,7 +97,6 @@ const checkBookInDatabase = async id => {
   const isBookInList = snapshotDataBooks
     ? snapshotDataBooks.some(book => book._id === id)
     : false;
-  console.log('isBookInList :', isBookInList);
   return isBookInList ? true : false;
 };
 
@@ -114,6 +114,11 @@ const setModalButtonToRemove = () => {
 const noteAddBookModal = () => {
   refs.addedTextEl.innerHTML =
     '<p class="added-text">Сongratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".</p>';
+};
+
+const noteExistBookModal = () => {
+  refs.addedTextEl.innerHTML =
+    '<p class="added-text">You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".</p>';
 };
 
 const closeModal = () => {
